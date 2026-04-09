@@ -3,266 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaishnav KC | Motion Authority</title>
+    <title>Creative Director | Video & Motion</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Space+Grotesk:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
         
-        :root {
-            --bg-dark: #080809;
-            --carbon-grey: #141416;
-            --neon-orange: #ff5e00;
-            --electric-pink: #ff0055;
-            --text-main: #ffffff;
-            --text-muted: #808082;
-        }
-
-        body { 
-            font-family: 'Space Grotesk', sans-serif;
-            background-color: var(--bg-dark); 
-            color: var(--text-main);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
             scroll-behavior: smooth;
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, .nav-logo { font-family: 'Syncopate', sans-serif; text-transform: uppercase; tracking: -0.05em; }
-
-        /* --- Advanced Background Motion --- */
-        #motion-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            opacity: 0.3;
-        }
-        .shape {
-            position: absolute;
-            background: linear-gradient(135deg, var(--neon-orange), var(--electric-pink));
-            filter: blur(80px);
-            border-radius: 50%;
-            animation: moveShapes 20s infinite alternate ease-in-out;
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
         }
 
-        @keyframes moveShapes {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(100px, 50px) scale(1.2); }
-            100% { transform: translate(-50px, 100px) scale(0.9); }
+        .glass:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
         }
 
-        /* --- Cyber Bento Cards --- */
-        .bento-card {
-            background-color: var(--carbon-grey);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            border-radius: 24px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            position: relative;
-        }
-        .bento-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: rgba(255, 140, 0, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(255, 94, 0, 0.1);
-        }
-        .bento-card:hover .portfolio-video { filter: grayscale(0%); opacity: 1; }
-
-        .portfolio-video {
-            width: 100%; h: 100%; object-fit: cover;
-            filter: grayscale(100%); opacity: 0.6;
-            transition: 0.5s;
+        .gradient-text {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* --- Magnetic Button Effect --- */
-        .magnetic-btn {
-            display: inline-flex;
-            align-items: center; justify-content: center;
-            background: linear-gradient(135deg, var(--neon-orange), var(--electric-pink));
-            color: white;
-            font-weight: 700;
-            border-radius: 12px;
-            transition: transform 0.2s ease-out;
-            position: relative;
+        .software-icon {
+            filter: grayscale(100%);
+            transition: 0.3s;
         }
-        .magnetic-btn:hover { box-shadow: 0 0 20px rgba(255, 94, 0, 0.5); }
 
-        /* --- Creative Cursor --- */
-        #cursor {
-            width: 10px; height: 10px;
-            background-color: var(--neon-orange);
-            border-radius: 50%;
-            position: fixed; pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
-            display: none;
+        .software-icon:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
         }
-        #cursor-follower {
-            width: 30px; height: 30px;
-            border: 2px solid rgba(255, 94, 0, 0.3);
-            border-radius: 50%;
-            position: fixed; pointer-events: none;
-            z-index: 9998;
-            transition: transform 0.15s ease-out;
-            display: none;
-        }
-        @media (min-width: 1024px) { #cursor, #cursor-follower { display: block; } }
-
     </style>
 </head>
 <body>
 
-    <div id="cursor"></div>
-    <div id="cursor-follower"></div>
-
-    <div id="motion-bg">
-        <div class="shape" style="width: 300px; height: 300px; top: 10%; left: 10%;"></div>
-        <div class="shape" style="width: 400px; height: 400px; bottom: 10%; right: 10%; animation-delay: -5s;"></div>
-    </div>
-
-    <nav class="fixed w-full z-50 bg-[#080809]/80 backdrop-blur-sm py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/5">
-        <div class="text-xl font-bold nav-logo tracking-tighter text-white">V.KC<span class="text-orange-500">_</span></div>
-        <div class="hidden md:flex space-x-10 text-sm uppercase tracking-widest font-medium text-gray-400">
-            <a href="#home" class="hover:text-white transition">Index</a>
-            <a href="#projects" class="hover:text-white transition">Archive</a>
-            <a href="#contact" class="hover:text-white transition">Collab</a>
+    <nav class="fixed w-full z-50 px-6 py-4 flex justify-between items-center glass">
+        <div class="text-2xl font-black tracking-tighter">CREATIVE<span class="text-blue-500">.</span></div>
+        <div class="space-x-8 hidden md:block">
+            <a href="#work" class="hover:text-blue-400">Work</a>
+            <a href="#skills" class="hover:text-blue-400">Skills</a>
+            <a href="#contact" class="px-5 py-2 bg-blue-600 rounded-full hover:bg-blue-700 transition">Hire Me</a>
         </div>
-        <a href="#contact" class="magnetic-btn text-xs px-6 py-3 uppercase tracking-wider">Hire Authority</a>
     </nav>
 
-    <section id="home" class="min-h-screen flex flex-col justify-center items-start px-6 md:px-24 relative">
-        <div class="mb-4 text-orange-500 uppercase tracking-[0.4em] text-xs font-bold">DIGITAL CRAFTSMAN</div>
-        <h1 class="text-7xl md:text-[120px] font-black mb-6 leading-[0.85] tracking-tighter uppercase">
-            Motion<br><span class="opacity-30">Studio</span><br>V.KC
-        </h1>
-        <p class="max-w-xl text-gray-500 text-lg md:text-xl mb-12 leading-relaxed">
-            Engineering cinematic narratives through advanced video editing, motion graphics, and 3D visual effects. Based in Kerala.
-        </p>
+    <section class="h-screen flex flex-col justify-center items-center text-center px-4">
+        <h2 class="text-sm uppercase tracking-[0.3em] mb-4 text-gray-400">Motion & Post-Production</h2>
+        <h1 class="text-6xl md:text-8xl font-black mb-6">Crafting <span class="gradient-text">Visual Stories.</span></h1>
+        <p class="max-w-2xl text-gray-400 text-lg mb-8">Professional Video Editor and Motion Graphics Artist specializing in high-impact visual content and 3D compositing.</p>
         <div class="flex gap-4">
-            <a href="#projects" class="magnetic-btn px-10 py-4 uppercase tracking-wider">Explore Archive</a>
-            <a href="https://wa.me/918089003038" class="bg-carbon-grey px-10 py-4 rounded-xl font-bold hover:bg-white/5 transition border border-white/5">WhatsApp</a>
+            <a href="#work" class="bg-white text-black px-8 py-3 rounded-md font-bold hover:bg-gray-200 transition">View Showreel</a>
+            <a href="#contact" class="border border-gray-700 px-8 py-3 rounded-md font-bold hover:bg-gray-900 transition">Contact</a>
         </div>
     </section>
 
-    <section id="projects" class="py-32 px-6 md:px-24 max-w-[1900px] mx-auto">
-        <div class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-center">
-            <h2 class="text-5xl font-bold uppercase italic tracking-tighter">Project <span class="text-orange-500">Archive</span></h2>
-            <p class="text-gray-600 max-w-sm mt-4 md:mt-0">A curated selection of high-end motion and design work.</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-[1000px]">
-            <div class="bento-card md:col-span-2 md:row-span-2 group">
-                <video src="path-to-your-cinematic-reel.mp4" autoplay loop muted class="portfolio-video"></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
-                <div class="absolute bottom-10 left-10">
-                    <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Motion Design</span>
-                    <h3 class="text-4xl font-bold mt-2 tracking-tight uppercase">Dubai Cinematic Narrative</h3>
+    <section id="skills" class="py-20 bg-[#0f0f0f]">
+        <div class="container mx-auto px-6">
+            <h3 class="text-3xl font-bold mb-12 text-center">Software Expertise</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 items-center text-center">
+                <div class="software-icon">
+                    <i class="fab fa-adobe text-5xl mb-2 text-orange-600"></i>
+                    <p class="text-xs text-gray-500 uppercase">After Effects</p>
                 </div>
-            </div>
-
-            <div class="bento-card group">
-                <img src="https://lh3.googleusercontent.com/u/0/d/1SlspcT93-dNDjc4jj9jiy2LW19Jgp9f1" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6">
-                    <span class="text-pink-500 font-bold text-[10px] uppercase">Branding</span>
-                    <h3 class="text-xl font-bold mt-1 tracking-tight uppercase">Campaign Identity</h3>
+                <div class="software-icon">
+                    <i class="fas fa-film text-5xl mb-2 text-purple-600"></i>
+                    <p class="text-xs text-gray-500 uppercase">Premiere Pro</p>
                 </div>
-            </div>
-
-            <div class="bento-card group">
-                <img src="https://lh3.googleusercontent.com/u/0/d/1fUoaEw-Qc0pl4dseg_MW8EhD3yrE_PMs" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent opacity-80"></div>
-                <div class="absolute bottom-6 left-6">
-                    <span class="text-pink-500 font-bold text-[10px] uppercase">Branding</span>
-                    <h3 class="text-xl font-bold mt-1 tracking-tight uppercase">Political Campaign</h3>
+                <div class="software-icon">
+                    <i class="fas fa-cube text-5xl mb-2 text-orange-400"></i>
+                    <p class="text-xs text-gray-500 uppercase">Blender 3D</p>
                 </div>
-            </div>
-
-            <div class="bento-card group md:col-span-2">
-                <video src="path-to-your-experimental-edit.mp4" autoplay loop muted class="portfolio-video"></video>
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition"></div>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Experimental</span>
-                    <h3 class="text-2xl font-bold mt-2 tracking-tight uppercase">Abstract Color Story</h3>
+                <div class="software-icon">
+                    <i class="fas fa-magic text-5xl mb-2 text-blue-400"></i>
+                    <p class="text-xs text-gray-500 uppercase">DaVinci Resolve</p>
+                </div>
+                <div class="software-icon">
+                    <i class="fab fa-adobe text-5xl mb-2 text-blue-600"></i>
+                    <p class="text-xs text-gray-500 uppercase">Photoshop</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 md:px-24 bg-[#080d1a]/20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            <div class="bento-card p-10 flex flex-col items-center text-center">
-                <i class="fa-solid fa-bolt text-5xl mb-6 text-orange-500"></i>
-                <h3 class="text-xl font-bold mb-2">Cinematic Editing</h3>
-                <p class="text-gray-500 text-sm">Advanced grading, sound design, and narrative pacing.</p>
+    <section id="work" class="py-20 container mx-auto px-6">
+        <h3 class="text-3xl font-bold mb-12">Featured Projects</h3>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="glass p-4 rounded-xl">
+                <div class="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fas fa-play-circle text-6xl"></i>
+                    </div>
+                </div>
+                <h4 class="text-xl font-bold">Commercial Motion Brand</h4>
+                <p class="text-gray-400 text-sm">Motion Graphics / 2D Animation</p>
             </div>
-            <div class="bento-card p-10 flex flex-col items-center text-center">
-                <i class="fa-solid fa-wand-magic-sparkles text-5xl mb-6 text-pink-500"></i>
-                <h3 class="text-xl font-bold mb-2">Motion Graphics</h3>
-                <p class="text-gray-500 text-sm">Complex 2D/3D animations for modern brands.</p>
-            </div>
-            <div class="bento-card p-10 flex flex-col items-center text-center">
-                <i class="fa-solid fa-server text-5xl mb-6 text-orange-500"></i>
-                <h3 class="text-xl font-bold mb-2">Creative Direction</h3>
-                <p class="text-gray-500 text-sm">Turning concepts into scalable visual systems.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 px-6">
-        <div class="max-w-5xl mx-auto text-center glass p-20 rounded-[3rem] border-orange-500/20 relative">
-            <h2 class="text-6xl md:text-8xl font-black mb-8 relative z-10 tracking-tighter uppercase leading-none">Let's <span class="gradient-text">Synergy.</span></h2>
-            <p class="text-gray-400 mb-12 z-10 relative">Ready to scale your visual presence? Direct Message on WhatsApp.</p>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-6 z-10 relative">
-                <a href="https://wa.me/918089003038" class="magnetic-btn px-12 py-5 uppercase tracking-wider gap-3 shadow-xl shadow-orange-900/20">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Initiate Collab
-                </a>
-            </div>
-            <div class="mt-16 flex justify-center space-x-12 text-3xl opacity-40 hover:opacity-100 transition">
-                <a href="https://www.instagram.com/__.kc.___?igsh=MTJkaTV1czdtNW9pcg%3D%3D&utm_source=qr" target="_blank" class="hover:text-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-behance"></i></a>
+            <div class="glass p-4 rounded-xl">
+                <div class="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-50 group-hover:opacity-100 transition">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fas fa-play-circle text-6xl"></i>
+                    </div>
+                </div>
+                <h4 class="text-xl font-bold">Cinematic Travel Edit</h4>
+                <p class="text-gray-400 text-sm">Video Editing / Color Grading</p>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-gray-700 border-t border-white/5">
-        <p class="text-xs uppercase tracking-[0.5em]">© 2026 V.KC • MOTION AUTHORITY</p>
+    <section id="contact" class="py-20 container mx-auto px-6 text-center">
+        <div class="glass p-12 rounded-3xl max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">Let's build something epic.</h2>
+            <p class="text-gray-400 mb-8">Available for freelance projects and full-time creative roles.</p>
+            <a href="mailto:your@email.com" class="text-2xl font-bold underline hover:text-blue-500 transition">hello@yourname.com</a>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center text-gray-600 text-sm">
+        &copy; 2026 Professional Creative Portfolio. Built for Speed.
     </footer>
 
-    <script>
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        const follower = document.getElementById('cursor-follower');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            follower.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
-        });
-
-        // Hover Effect on interactive elements
-        document.querySelectorAll('a, .bento-card, button').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                follower.style.transform = `translate(${event.clientX - 25}px, ${event.clientY - 25}px) scale(1.5)`;
-                follower.style.borderColor = 'rgba(255, 94, 0, 0.8)';
-            });
-            item.addEventListener('mouseleave', () => {
-                follower.style.transform = `translate(${event.clientX - 15}px, ${event.clientY - 15}px) scale(1)`;
-                follower.style.borderColor = 'rgba(255, 94, 0, 0.3)';
-            });
-        });
-
-        // Magnetic Button Logic
-        const magneticBtns = document.querySelectorAll('.magnetic-btn');
-        magneticBtns.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
-            });
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0px, 0px)';
-            });
-        });
-
-    </script>
 </body>
 </html>
