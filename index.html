@@ -1,46 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaishnav KC | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { background-color: #0f172a; color: white; }
-        .hero-gradient { background: linear-gradient(to right, #f97316, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    </style>
-</head>
-<body>
-    <div class="max-w-4xl mx-auto px-6 py-12">
-        <header class="text-center mb-16">
-            <h1 class="text-5xl font-bold hero-gradient mb-4">Vaishnav KC</h1>
-            <p class="text-xl text-gray-400 font-light">Graphic Designer | Video Editor </p>
-        </header>
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Float, MeshDistortMaterial } from '@react-three/drei';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
-        <section class="mb-16 bg-slate-800/50 p-8 rounded-2xl border border-slate-700">
-            <h2 class="text-2xl font-semibold mb-4 text-orange-400 underline decoration-2 underline-offset-8">About Me</h2>
-            <p class="text-gray-300 leading-relaxed">
-                Visual storyteller focusing on impactful graphic designs and dynamic video editing. 
-                Experienced in creating high-quality content for political and social causes.
-            </p>
-        </section>
+// A simple 3D element for the background
+function HeroScene() {
+  return (
+    <mesh scale={1.5}>
+      <sphereGeometry args={[1, 64, 64]} />
+      <MeshDistortMaterial color="#3b82f6" speed={2} distort={0.4} />
+    </mesh>
+  );
+}
 
-        <h2 class="text-2xl font-semibold mb-6 text-orange-400">Featured Work</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-orange-500 transition">
-                <h3 class="font-bold text-lg mb-2">Graphic Design</h3>
-                <p class="text-sm text-gray-400">Social media posters, branding, and political campaign assets.</p>
-            </div>
-            <div class="bg-slate-800 p-4 rounded-xl border border-slate-700 hover:border-orange-500 transition">
-                <h3 class="font-bold text-lg mb-2">Video Editing</h3>
-                <p class="text-sm text-gray-400">Cinematic reels, long-form content, and promotional videos.</p>
-            </div>
-        </div>
+export default function Portfolio() {
+  return (
+    <Router>
+      <nav className="fixed top-0 w-full p-6 flex justify-between z-10 text-white">
+        <Link to="/">Home</Link>
+        <Link to="/work">Work</Link>
+        <Link to="/contact">Contact</Link>
+      </nav>
 
-        <footer class="mt-20 text-center text-gray-500 border-t border-slate-800 pt-8">
-            <p>Contact: yourname@gmail.com</p>
-            <p class="mt-2">Created for Vaishnav KC</p>
-        </footer>
-    </div>
-</body>
-</html>
+      <div className="h-screen w-full bg-black">
+        <Canvas camera={{ position: [0, 0, 5] }}>
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 10, 10]} />
+          
+          <Routes>
+            <Route path="/" element={<Float><HeroScene /></Float>} />
+          </Routes>
+          
+          <OrbitControls enableZoom={false} />
+        </Canvas>
+      </div>
+    </Router>
+  );
+}
