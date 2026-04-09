@@ -14,11 +14,26 @@
             background-color: #050811; 
             color: white;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
-        
+
+        /* --- Creative Cursor --- */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff8c00;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            display: none;
+        }
+        @media (min-width: 1024px) { #cursor { display: block; } }
+
         .glass {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -28,268 +43,195 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-link:hover { color: #ff8c00; transition: 0.3s; }
-        
-        .portfolio-img {
-            transition: transform 0.3s ease, filter 0.3s ease;
-        }
-        .portfolio-img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-        }
-
-        .hero-bg {
-            background: linear-gradient(rgba(5, 8, 17, 0.7), rgba(5, 8, 17, 0.85)), 
-                        url('https://lh3.googleusercontent.com/d/YOUR_FILE_ID0');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+        /* --- Animated Background Shapes --- */
+        .blob {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.2), rgba(255, 0, 128, 0.2));
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 20s infinite alternate;
         }
 
-        #mobile-menu.hidden { display: none; }
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100px, 50px); }
+        }
 
+        /* --- Hover Effects --- */
         .sw-icon {
-            transition: transform 0.2s ease;
-            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         .sw-icon:hover {
-            transform: translateY(-5px);
+            transform: scale(1.2) translateY(-10px);
+            filter: drop-shadow(0 0 15px rgba(255, 140, 0, 0.6));
         }
 
-        #software-about.hidden {
-            display: none;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .description-content {
-            animation: fadeIn 0.4s ease-out forwards;
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
 
+    <div id="cursor"></div>
+
     <nav class="fixed w-full z-50 glass py-4 px-6 md:px-12 flex justify-between items-center">
-        <div class="text-2xl font-bold gradient-text">Vaishnav Kc</div>
+        <div class="text-2xl font-bold gradient-text tracking-tighter">Vaishnav Kc</div>
         <div class="hidden md:flex space-x-8 font-medium">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link text-orange-500">Contact</a>
+            <a href="#home" class="hover:text-orange-500 transition">Home</a>
+            <a href="#projects" class="hover:text-orange-500 transition">Work</a>
+            <a href="#contact" class="bg-orange-600 px-4 py-1 rounded-full text-sm">Let's Talk</a>
         </div>
-        <div class="md:hidden cursor-pointer" id="menu-btn">
-            <i class="fa-solid fa-bars text-xl"></i>
-        </div>
+        <div class="md:hidden cursor-pointer" id="menu-btn"><i class="fa-solid fa-bars"></i></div>
     </nav>
 
-    <div id="mobile-menu" class="hidden fixed inset-0 z-40 bg-[#050811] flex flex-col items-center justify-center space-y-8 text-2xl glass">
-        <a href="#home" class="nav-link" onclick="toggleMenu()">Home</a>
-        <a href="#projects" class="nav-link" onclick="toggleMenu()">Projects</a>
-        <a href="#contact" class="nav-link text-orange-500" onclick="toggleMenu()">Contact</a>
-        <div class="flex space-x-6 text-3xl">
-            <a href="https://wa.me/918089003038" target="_blank" class="text-green-500"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/__.kc.___?igsh=MTJkaTV1czdtNW9pcg%3D%3D&utm_source=qr" target="_blank" class="text-pink-500"><i class="fa-brands fa-instagram"></i></a>
-        </div>
-    </div>
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+        <div class="blob" style="top: 10%; left: -5%;"></div>
+        <div class="blob" style="bottom: 10%; right: -5%; animation-delay: -5s;"></div>
 
-    <section id="home" class="hero-bg min-h-screen flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="mb-6 px-4 py-1 glass rounded-full text-xs uppercase tracking-widest text-orange-400 z-10 shadow-lg">
-            Available for Freelance
+        <div class="mb-6 px-4 py-1 glass rounded-full text-[10px] uppercase tracking-[0.3em] text-orange-400 z-10">
+            Based in Kerala • Freelance Open
         </div>
         
-        <h1 class="text-3xl md:text-4xl font-extrabold mb-3 z-5 drop-shadow-2xl">
-            Design <span class="gradient-text">&</span> Video Editing 
+        <h1 class="text-5xl md:text-8xl font-black mb-6 z-10 leading-none">
+            CREATIVE<br><span class="gradient-text">DIRECTOR</span>
         </h1>
         
-        <p class="max-w-xl text-gray-200 text-lg md:text-xl mb-10 leading-relaxed z-10 drop-shadow-md">
-            Crafting powerful visual narratives for modern brands. 
-            Graphic Designer & Video Editor based in Kerala.
+        <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-10 z-10">
+            Transforming ideas into high-end motion graphics and cinematic stories. 
+            Expert in visual storytelling and digital branding.
         </p>
 
-        <div class="flex space-x-6 mb-12 z-10 bg-black/30 p-4 rounded-full border border-white/5">
-            <div class="sw-icon" onclick="showSoftwareAbout('ae')" title="Adobe After Effects">
-                <img src="https://adobe.com/content/dam/cc/icons/aftereffects.svg" alt="AE" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+        <div class="flex flex-wrap justify-center gap-6 mb-12 z-10">
+            <div class="sw-icon" onclick="showSoftwareAbout('ae')" title="After Effects">
+                <img src="https://adobe.com/content/dam/cc/icons/aftereffects.svg" class="w-12 h-12">
             </div>
-            <div class="sw-icon" onclick="showSoftwareAbout('pr')" title="Adobe Premiere Pro">
-                <img src="https://adobe.com/content/dam/cc/icons/premiere.svg" alt="Pr" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+            <div class="sw-icon" onclick="showSoftwareAbout('pr')" title="Premiere Pro">
+                <img src="https://adobe.com/content/dam/cc/icons/premiere.svg" class="w-12 h-12">
             </div>
-            <div class="sw-icon" onclick="showSoftwareAbout('ps')" title="Adobe Photoshop">
-                <img src="https://adobe.com/content/dam/cc/icons/photoshop.svg" alt="Ps" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+            <div class="sw-icon" onclick="showSoftwareAbout('ps')" title="Photoshop">
+                <img src="https://adobe.com/content/dam/cc/icons/photoshop.svg" class="w-12 h-12">
             </div>
-            <div class="sw-icon" onclick="showSoftwareAbout('fcp')" title="Final Cut Pro">
-                <i class="fa-solid fa-film w-12 h-12 text-gray-400 hover:text-white text-5xl transition flex items-center justify-center"></i> </div>
             <div class="sw-icon" onclick="showSoftwareAbout('blender')" title="Blender">
-                <i class="fa-brands fa-blender w-12 h-12 text-gray-400 hover:text-orange-500 text-5xl transition flex items-center justify-center"></i>
+                <i class="fa-brands fa-blender text-5xl text-orange-400"></i>
             </div>
         </div>
         
         <div class="flex space-x-4 z-10">
-            <a href="#projects" class="bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-lg font-semibold transition shadow-xl">View Work</a>
-            <a href="https://wa.me/918089003038" target="_blank" class="glass px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">WhatsApp Me</a>
+            <a href="#projects" class="bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-orange-500 hover:text-white transition-all">Explore Work</a>
         </div>
-
-        <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#050811] to-transparent"></div>
     </section>
 
-    <section id="software-about" class="hidden py-12 px-6 md:px-12 bg-white/5 border-b border-white/5 z-20">
-        <div class="max-w-4xl mx-auto glass p-8 rounded-2xl relative description-content">
-            <button onclick="closeSoftwareAbout()" class="absolute top-4 right-4 text-gray-500 hover:text-white"><i class="fa-solid fa-times text-xl"></i></button>
-            <div id="about-content" class="text-left">
+    <section class="py-20 glass border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <h4 class="text-4xl font-bold gradient-text">50+</h4>
+                <p class="text-gray-500 text-sm uppercase mt-2">Projects Done</p>
+            </div>
+            <div>
+                <h4 class="text-4xl font-bold gradient-text">13K</h4>
+                <p class="text-gray-500 text-sm uppercase mt-2">FB Followers</p>
+            </div>
+            <div>
+                <h4 class="text-4xl font-bold gradient-text">4+</h4>
+                <p class="text-gray-500 text-sm uppercase mt-2">Years Exp</p>
+            </div>
+            <div>
+                <h4 class="text-4xl font-bold gradient-text">100%</h4>
+                <p class="text-gray-500 text-sm uppercase mt-2">Creativity</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 bg-black">
+        <div class="max-w-6xl mx-auto text-center mb-12">
+            <h2 class="text-3xl font-bold mb-4">2026 <span class="text-orange-500">Showreel</span></h2>
+            <div class="aspect-video w-full rounded-3xl overflow-hidden glass border border-white/10 relative group">
+                <div class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-transparent transition">
+                    <i class="fa-solid fa-play text-6xl text-white opacity-80"></i>
                 </div>
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover">
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
-        <h2 class="text-4xl font-bold mb-12">Featured <span class="text-orange-500">Projects</span></h2>
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+            <div>
+                <h2 class="text-5xl font-bold">Featured <span class="text-orange-500">Works</span></h2>
+                <p class="text-gray-400 mt-4">A selection of my best design and video projects.</p>
+            </div>
+        </div>
         
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div class="glass rounded-2xl overflow-hidden group lg:col-span-2">
-                <div class="p-6 border-b border-white/5 flex justify-between items-center">
-                    <div>
-                        <span class="text-orange-500 text-xs font-bold uppercase tracking-widest">Photographs</span>
-                        <h3 class="text-2xl font-bold mt-1">Traveling Collection</h3>
-                    </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="group relative overflow-hidden rounded-3xl glass portfolio-card">
+                <div class="h-[400px] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/u/0/d/1fUoaEw-Qc0pl4dseg_MW8EhD3yrE_PMs" class="w-full h-full object-cover portfolio-img transition duration-700">
                 </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 p-4">
-                    <div class="h-48 overflow-hidden rounded-lg bg-gray-900">
-                        <img src="https://lh3.googleusercontent.com/d/1zsxVfpZiQb6NhGlP8I_rZhfgqNmzejwb" alt="bahrain" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="h-48 overflow-hidden rounded-lg bg-gray-900">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1GZXracQubnX8n17IhkDe1tJ9DO3jwjx0" alt="Dxb T2" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="h-48 overflow-hidden rounded-lg bg-gray-900">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1fUoaEw-Qc0pl4dseg_MW8EhD3yrE_PMs" alt="Dubai frame" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="h-48 overflow-hidden rounded-lg bg-gray-900">
-                        <img src="https://lh3.googleusercontent.com/d/1M6C0x4rFefmV2X6kK1dMpk5UYiGtGVSF" alt="baja cave" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="h-48 overflow-hidden rounded-lg bg-gray-900">
-                        <img src="https://lh3.googleusercontent.com/u/0/d/1SlspcT93-dNDjc4jj9jiy2LW19Jgp9f1" alt="lonovala" class="portfolio-img w-full h-full object-cover">
-                    </div>
-                    <div class="h-48 flex items-center justify-center rounded-lg bg-white/5 border border-dashed border-white/20">
-                        <span class="text-gray-500 text-sm">Portfolio</span>
-                    </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 p-8">
+                    <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Motion Design</span>
+                    <h3 class="text-3xl font-bold mt-2">Dubai Visuals</h3>
+                    <p class="text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">Cinematic capture and high-end post-production.</p>
                 </div>
             </div>
 
-            <div class="glass rounded-2xl overflow-hidden group">
-                <div class="h-64 bg-slate-800 flex items-center justify-center relative">
-                    <span class="text-gray-600">Video Reel Preview</span>
+            <div class="group relative overflow-hidden rounded-3xl glass portfolio-card">
+                <div class="h-[400px] overflow-hidden">
+                    <img src="https://lh3.googleusercontent.com/u/0/d/1SlspcT93-dNDjc4jj9jiy2LW19Jgp9f1" class="w-full h-full object-cover portfolio-img transition duration-700">
                 </div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-bold uppercase">Video Editing</span>
-                    <h3 class="text-xl font-bold mt-2">Cinematic Edits</h3>
-                    <p class="text-gray-400 text-sm mt-2">Expert color grading and storytelling.</p>
-                </div>
-            </div>
-
-            <div class="glass rounded-2xl overflow-hidden group">
-                <div class="h-64 bg-slate-800 flex items-center justify-center relative">
-                    <span class="text-gray-600">Social Media Asset</span>
-                </div>
-                <div class="p-6">
-                    <span class="text-orange-500 text-xs font-bold uppercase">Design</span>
-                    <h3 class="text-xl font-bold mt-2">Digital Branding</h3>
-                    <p class="text-gray-400 text-sm mt-2">Tailored visuals for high engagement.</p>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 p-8">
+                    <span class="text-orange-500 font-bold text-xs uppercase tracking-widest">Graphic Design</span>
+                    <h3 class="text-3xl font-bold mt-2">Branding Collection</h3>
+                    <p class="text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">Political and social campaign identity design.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6 md:px-12 bg-[#0a0f1d]">
-        <div class="max-w-4xl mx-auto glass p-10 rounded-3xl border-orange-500/20">
-            <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">Start a <span class="gradient-text">Project</span></h2>
-                <p class="text-gray-400">Let's work together. Direct Message on WhatsApp for quick response.</p>
-            </div>
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto text-center glass p-16 rounded-[40px] border-orange-500/30 relative">
+            <h2 class="text-5xl font-bold mb-6">Let's build something <span class="gradient-text">Epic.</span></h2>
+            <p class="text-xl text-gray-400 mb-10">Currently accepting new projects and collaborations.</p>
             
-            <form action="https://formspree.io/f/mqakvjnd" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <input type="hidden" name="_to" value="kc.creativecloud@gmail.com">
-                
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
-                    <input type="text" name="name" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="Vaishnav KC" required>
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                    <input type="email" name="_replyto" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="your@email.com" required>
-                </div>
-                <div class="md:col-span-2">
-                    <label class="block text-sm font-medium text-gray-400 mb-2">Project Brief</label>
-                    <textarea name="message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="Tell me about your design/video project..." required></textarea>
-                </div>
-                <button type="submit" class="md:col-span-2 bg-white text-black font-bold py-4 rounded-lg hover:bg-orange-500 hover:text-white transition uppercase tracking-widest">Send Message</button>
-            </form>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="https://wa.me/918089003038" class="bg-green-600 px-10 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:scale-105 transition">
+                    <i class="fa-brands fa-whatsapp"></i> WhatsApp Me
+                </a>
+                <a href="mailto:vaishnavkc@example.com" class="glass px-10 py-4 rounded-full font-bold hover:bg-white/10 transition">
+                    Email Inquiries
+                </a>
+            </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center border-t border-white/5">
-        <div class="flex justify-center space-x-6 mb-6 text-2xl">
-            <a href="https://www.instagram.com/__.kc.___?igsh=MTJkaTV1czdtNW9pcg%3D%3D&utm_source=qr" target="_blank" class="hover:text-orange-500 transition"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/918089003038" target="_blank" class="hover:text-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
-            <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-behance"></i></a>
-        </div>
-        <p class="text-gray-500 text-sm">© 2026 Vaishnav KC. All Rights Reserved.</p>
+    <footer class="py-12 text-center text-gray-600 border-t border-white/5">
+        <p>© 2026 Vaishnav KC. Stay Creative.</p>
     </footer>
 
     <script>
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .sw-icon').forEach(item => {
+            item.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
+            item.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
+        });
+
+        // Toggle Menu
         const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        menuBtn.addEventListener('click', toggleMenu);
-
-        const softwareAboutSection = document.getElementById('software-about');
-        const aboutContent = document.getElementById('about-content');
-
-        const softwareData = {
-            ae: {
-                title: 'Adobe After Effects',
-                description: 'Used for creating complex motion graphics, visual effects (VFX), and cinematic titles. Ideal for adding professional polish and dynamic animation to any video.',
-                color: '#9999FF'
-            },
-            pr: {
-                title: 'Adobe Premiere Pro',
-                description: 'The industry-standard video editing software. Used for assembling footage, color grading, audio editing, and general storytelling in a non-linear format.',
-                color: '#EA77FF'
-            },
-            ps: {
-                title: 'Adobe Photoshop',
-                description: 'My primary tool for graphic design and photo manipulation. Essential for creating thumbnail graphics, promotional materials, textures, and refining project visuals.',
-                color: '#31A8FF'
-            },
-            fcp: {
-                title: 'Final Cut Pro',
-                description: 'Apple\'s professional video editing software. Known for its magnetic timeline, speed, and efficiency on macOS, used for quick turnarounds and streamlined edits.',
-                color: '#FF4545'
-            },
-            blender: {
-                title: 'Blender',
-                description: 'The free and open-source 3D creation suite. Used for 3D modeling, sculpting, basic animation, and bringing abstract concepts or detailed assets into visual reality.',
-                color: '#FF973D'
-            }
-        };
-
-        function showSoftwareAbout(softwareKey) {
-            const data = softwareData[softwareKey];
-            if (!data) return;
-
-            aboutContent.innerHTML = `
-                <h3 class="text-3xl font-bold mb-3" style="color: ${data.color}">${data.title}</h3>
-                <p class="text-gray-200 text-lg leading-relaxed">${data.description}</p>
-            `;
-            softwareAboutSection.classList.remove('hidden');
-            softwareAboutSection.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeSoftwareAbout() {
-            softwareAboutSection.classList.add('hidden');
-        }
+        menuBtn.addEventListener('click', () => {
+            // Add your mobile menu logic here if needed
+            alert("Menu Clicked - Add your mobile links here!");
+        });
     </script>
-
 </body>
 </html>
