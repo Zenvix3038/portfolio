@@ -54,7 +54,6 @@
         <div class="hidden md:flex space-x-8 font-medium">
             <a href="#home" class="nav-link">Home</a>
             <a href="#projects" class="nav-link">Projects</a>
-            <a href="#payment" class="nav-link">Payment</a>
             <a href="#contact" class="nav-link text-orange-500">Contact</a>
         </div>
         <div class="md:hidden"><i class="fa-solid fa-bars text-xl"></i></div>
@@ -101,55 +100,32 @@
         </div>
     </section>
 
-    <section id="payment" class="py-24 px-6 md:px-12 max-w-5xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4">Payment <span class="text-orange-500">Details</span></h2>
-            <p class="text-gray-400">Secure and easy payment options for your creative projects.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="glass p-8 rounded-3xl border-l-4 border-orange-600 shadow-2xl transition hover:scale-[1.02]">
-                <div class="flex items-center mb-8">
-                    <i class="fa-solid fa-building-columns text-3xl text-orange-500 mr-4"></i>
-                    <h3 class="text-2xl font-bold text-white">Bank Transfer</h3>
+    <section id="payment" class="py-12 px-6 md:px-12 max-w-5xl mx-auto opacity-70 hover:opacity-100 transition-opacity">
+        <div class="glass p-6 rounded-2xl border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-4">
+                <i class="fa-solid fa-credit-card text-orange-500 text-xl"></i>
+                <h3 class="text-sm font-semibold uppercase tracking-widest">Payment Info</h3>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 text-[11px] text-gray-400">
+                <div class="flex flex-col">
+                    <span class="text-orange-400 mb-1">Account</span>
+                    <span class="text-white font-mono">YOUR-ACCOUNT-NUMBER</span>
                 </div>
-                <div class="space-y-5 text-gray-300">
-                    <div class="flex flex-col border-b border-white/10 pb-2">
-                        <span class="text-xs text-orange-400 uppercase tracking-tighter">Account Holder</span>
-                        <span class="text-lg font-semibold text-white">Vaishnav KC</span>
-                    </div>
-                    <div class="flex flex-col border-b border-white/10 pb-2">
-                        <span class="text-xs text-orange-400 uppercase tracking-tighter">Account Number</span>
-                        <span class="text-lg font-mono text-white">YOUR-ACCOUNT-NUMBER</span>
-                    </div>
-                    <div class="flex flex-col border-b border-white/10 pb-2">
-                        <span class="text-xs text-orange-400 uppercase tracking-tighter">IFSC Code</span>
-                        <span class="text-lg font-semibold text-white uppercase">YOUR-IFSC-CODE</span>
-                    </div>
-                    <div class="flex flex-col">
-                        <span class="text-xs text-orange-400 uppercase tracking-tighter">Bank Name</span>
-                        <span class="text-lg font-semibold text-white">Your Bank Name</span>
-                    </div>
+                <div class="flex flex-col">
+                    <span class="text-orange-400 mb-1">IFSC</span>
+                    <span class="text-white">YOUR-IFSC-CODE</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-orange-400 mb-1">UPI ID</span>
+                    <span class="text-white">YOUR-UPI-ID@okaxis</span>
                 </div>
             </div>
 
-            <div class="glass p-8 rounded-3xl border-l-4 border-orange-600 flex flex-col justify-between shadow-2xl transition hover:scale-[1.02]">
-                <div>
-                    <div class="flex items-center mb-6">
-                        <i class="fa-solid fa-qrcode text-3xl text-orange-500 mr-4"></i>
-                        <h3 class="text-2xl font-bold text-white">Quick Pay</h3>
-                    </div>
-                    <div class="bg-white p-4 rounded-2xl w-40 h-40 mx-auto mb-6 shadow-inner">
-                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=upi://pay?pa=YOUR-UPI-ID@okaxis%26pn=Vaishnav%20KC" alt="UPI QR" class="w-full h-full">
-                    </div>
-                </div>
-                <div class="text-center">
-                    <p class="text-orange-500 font-mono text-sm mb-4">YOUR-UPI-ID@okaxis</p>
-                    <a href="upi://pay?pa=YOUR-UPI-ID@okaxis&pn=Vaishnav%20KC" class="inline-block w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-4 rounded-xl transition uppercase tracking-widest text-sm shadow-lg">
-                        <i class="fa-solid fa-mobile-screen-button mr-2"></i> Pay Now
-                    </a>
-                </div>
-            </div>
+            <a href="upi://pay?pa=YOUR-UPI-ID@okaxis&pn=Vaishnav%20KC" 
+               class="bg-white/5 hover:bg-orange-600 border border-white/10 text-white px-5 py-2 rounded-lg text-[10px] font-bold transition uppercase tracking-widest">
+                Pay Now
+            </a>
         </div>
     </section>
 
