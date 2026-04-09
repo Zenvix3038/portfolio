@@ -48,7 +48,6 @@
 
         #mobile-menu.hidden { display: none; }
 
-        /* Software Icon Styling */
         .sw-icon {
             transition: transform 0.2s ease;
             cursor: pointer;
@@ -57,7 +56,6 @@
             transform: translateY(-5px);
         }
 
-        /* Description Box Styling */
         #software-about.hidden {
             display: none;
         }
@@ -100,7 +98,7 @@
         </div>
         
         <h1 class="text-3xl md:text-4xl font-extrabold mb-3 z-5 drop-shadow-2xl">
-            Design  <span class="gradient-text">&</span>Video Editing 
+            Design <span class="gradient-text">&</span> Video Editing 
         </h1>
         
         <p class="max-w-xl text-gray-200 text-lg md:text-xl mb-10 leading-relaxed z-10 drop-shadow-md">
@@ -206,14 +204,16 @@
                 <p class="text-gray-400">Let's work together. Direct Message on WhatsApp for quick response.</p>
             </div>
             
-            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <form action="https://formspree.io/f/mqakvjnd" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <input type="hidden" name="_to" value="kc.creativecloud@gmail.com">
+                
                 <div>
                     <label class="block text-sm font-medium text-gray-400 mb-2">Name</label>
                     <input type="text" name="name" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="Vaishnav KC" required>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                    <input type="email" name="email" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="your@email.com" required>
+                    <input type="email" name="_replyto" class="w-full bg-white/5 border border-white/10 rounded-lg p-3 focus:border-orange-500 outline-none" placeholder="your@email.com" required>
                 </div>
                 <div class="md:col-span-2">
                     <label class="block text-sm font-medium text-gray-400 mb-2">Project Brief</label>
@@ -243,36 +243,34 @@
 
         menuBtn.addEventListener('click', toggleMenu);
 
-        // --- ADDED: SOFTWARE ABOUT FUNCTIONALITY ---
         const softwareAboutSection = document.getElementById('software-about');
         const aboutContent = document.getElementById('about-content');
 
-        // Data about each software
         const softwareData = {
             ae: {
                 title: 'Adobe After Effects',
                 description: 'Used for creating complex motion graphics, visual effects (VFX), and cinematic titles. Ideal for adding professional polish and dynamic animation to any video.',
-                color: '#9999FF' // Purple-ish
+                color: '#9999FF'
             },
             pr: {
                 title: 'Adobe Premiere Pro',
                 description: 'The industry-standard video editing software. Used for assembling footage, color grading, audio editing, and general storytelling in a non-linear format.',
-                color: '#EA77FF' // Pink-ish
+                color: '#EA77FF'
             },
             ps: {
                 title: 'Adobe Photoshop',
                 description: 'My primary tool for graphic design and photo manipulation. Essential for creating thumbnail graphics, promotional materials, textures, and refining project visuals.',
-                color: '#31A8FF' // Blue-ish
+                color: '#31A8FF'
             },
             fcp: {
                 title: 'Final Cut Pro',
                 description: 'Apple\'s professional video editing software. Known for its magnetic timeline, speed, and efficiency on macOS, used for quick turnarounds and streamlined edits.',
-                color: '#FF4545' // Red-ish
+                color: '#FF4545'
             },
             blender: {
                 title: 'Blender',
                 description: 'The free and open-source 3D creation suite. Used for 3D modeling, sculpting, basic animation, and bringing abstract concepts or detailed assets into visual reality.',
-                color: '#FF973D' // Orange-ish
+                color: '#FF973D'
             }
         };
 
@@ -280,21 +278,15 @@
             const data = softwareData[softwareKey];
             if (!data) return;
 
-            // Set content and a themed color accent
             aboutContent.innerHTML = `
                 <h3 class="text-3xl font-bold mb-3" style="color: ${data.color}">${data.title}</h3>
                 <p class="text-gray-200 text-lg leading-relaxed">${data.description}</p>
             `;
-
-            // Make the section visible
             softwareAboutSection.classList.remove('hidden');
-
-            // Optional: Smoothly scroll to the description box
             softwareAboutSection.scrollIntoView({ behavior: 'smooth' });
         }
 
         function closeSoftwareAbout() {
-            // Re-hide the section
             softwareAboutSection.classList.add('hidden');
         }
     </script>
