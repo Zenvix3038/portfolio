@@ -43,44 +43,36 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- Animated Background Shapes --- */
+        /* --- Animated Background Blobs --- */
         .blob {
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 0, 128, 0.15));
-            filter: blur(100px);
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 0, 128, 0.1));
+            filter: blur(120px);
             border-radius: 50%;
             z-index: -1;
-            animation: float 25s infinite alternate;
+            animation: float 30s infinite alternate;
         }
 
         @keyframes float {
             0% { transform: translate(0, 0); }
-            100% { transform: translate(150px, 80px); }
+            100% { transform: translate(200px, 100px); }
         }
 
-        /* --- Interactive Hover Effects --- */
-        .sw-icon {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-        }
-        .sw-icon:hover {
-            transform: scale(1.2) translateY(-10px);
-            filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.6));
-        }
+        .sw-icon { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+        .sw-icon:hover { transform: scale(1.25) translateY(-10px); filter: drop-shadow(0 0 20px rgba(255, 140, 0, 0.5)); }
 
-        .portfolio-card:hover .portfolio-img {
-            transform: scale(1.08);
+        .portfolio-card:hover .portfolio-img { transform: scale(1.1); }
+        
+        details summary::-webkit-details-marker { display:none; }
+        
+        /* Smooth progress bar animation */
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--target-width); }
         }
-
-        .process-card {
-            transition: 0.4s;
-        }
-        .process-card:hover {
-            background: rgba(255, 255, 255, 0.06);
-            transform: translateY(-5px);
-        }
+        .progress-fill { animation: fillBar 2s ease-out forwards; }
     </style>
 </head>
 <body>
@@ -93,34 +85,34 @@
             <a href="#home" class="hover:text-orange-500 transition">Home</a>
             <a href="#projects" class="hover:text-orange-500 transition">Work</a>
             <a href="#process" class="hover:text-orange-500 transition">Process</a>
-            <a href="#contact" class="bg-orange-600 px-5 py-2 rounded-full text-sm font-bold hover:bg-orange-700 transition">Hire Me</a>
+            <a href="#contact" class="bg-orange-600 px-6 py-2 rounded-full text-sm font-bold hover:scale-105 transition">Hire Me</a>
         </div>
         <div class="md:hidden cursor-pointer" id="menu-btn"><i class="fa-solid fa-bars text-xl"></i></div>
     </nav>
 
     <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-        <div class="blob" style="top: 10%; left: -5%;"></div>
-        <div class="blob" style="bottom: 10%; right: -5%; animation-delay: -5s;"></div>
+        <div class="blob" style="top: -10%; left: -10%;"></div>
+        <div class="blob" style="bottom: -10%; right: -10%; animation-delay: -5s;"></div>
 
-        <div class="mb-6 px-4 py-1 glass rounded-full text-[10px] uppercase tracking-[0.4em] text-orange-400 z-10">
-            Based in Kerala • Motion Artist
+        <div class="mb-6 px-4 py-1 glass rounded-full text-[10px] uppercase tracking-[0.5em] text-orange-400 z-10">
+            Based in Kerala • Motion Artist & Designer
         </div>
         
         <h1 class="text-6xl md:text-9xl font-black mb-6 z-10 leading-none tracking-tighter">
-            VISUAL<br><span class="gradient-text">STORYTELLER</span>
+            CRAFTING<br><span class="gradient-text">VISUALS</span>
         </h1>
         
         <p class="max-w-2xl text-gray-400 text-lg md:text-xl mb-12 z-10 leading-relaxed">
-            I craft immersive motion graphics and high-conversion visual designs. 
-            Blending technical skill with creative instinct.
+            From cinematic video edits to high-end brand identities. 
+            I bring motion to your vision.
         </p>
 
         <div class="flex flex-wrap justify-center gap-8 mb-16 z-10">
-            <div class="sw-icon" title="After Effects"><img src="https://adobe.com/content/dam/cc/icons/aftereffects.svg" class="w-12 h-12"></div>
-            <div class="sw-icon" title="Premiere Pro"><img src="https://adobe.com/content/dam/cc/icons/premiere.svg" class="w-12 h-12"></div>
-            <div class="sw-icon" title="Photoshop"><img src="https://adobe.com/content/dam/cc/icons/photoshop.svg" class="w-12 h-12"></div>
-            <div class="sw-icon" title="Blender"><i class="fa-brands fa-blender text-5xl text-orange-400"></i></div>
-            <div class="sw-icon" title="Substance 3D"><i class="fa-solid fa-cube text-4xl text-blue-400"></i></div>
+            <div class="sw-icon"><img src="https://adobe.com/content/dam/cc/icons/aftereffects.svg" class="w-12 h-12"></div>
+            <div class="sw-icon"><img src="https://adobe.com/content/dam/cc/icons/premiere.svg" class="w-12 h-12"></div>
+            <div class="sw-icon"><img src="https://adobe.com/content/dam/cc/icons/photoshop.svg" class="w-12 h-12"></div>
+            <div class="sw-icon"><i class="fa-brands fa-blender text-5xl text-orange-400"></i></div>
+            <div class="sw-icon"><i class="fa-solid fa-cube text-4xl text-blue-400"></i></div>
         </div>
         
         <div class="flex space-x-6 z-10">
@@ -133,146 +125,164 @@
         <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
                 <h4 class="text-5xl font-bold gradient-text">50+</h4>
-                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Projects Completed</p>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Projects</p>
             </div>
             <div>
-                <h4 class="text-5xl font-bold gradient-text">13K</h4>
-                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Page Growth</p>
+                <h4 class="text-5xl font-bold gradient-text">13K+</h4>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Followers</p>
             </div>
             <div>
-                <h4 class="text-5xl font-bold gradient-text">4+</h4>
-                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Years of Hustle</p>
+                <h4 class="text-5xl font-bold gradient-text">4Y</h4>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Experience</p>
             </div>
             <div>
                 <h4 class="text-5xl font-bold gradient-text">100%</h4>
-                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Client Satisfaction</p>
+                <p class="text-gray-500 text-xs uppercase tracking-widest mt-2">Commitment</p>
             </div>
         </div>
     </section>
 
-    <section class="py-24 px-6 bg-black">
-        <div class="max-w-6xl mx-auto text-center mb-16">
-            <h2 class="text-4xl font-bold mb-6">Visual <span class="text-orange-500">Showreel</span></h2>
-            <div class="aspect-video w-full rounded-[2rem] overflow-hidden glass border border-white/10 relative group cursor-pointer shadow-2xl">
-                <div class="absolute inset-0 flex items-center justify-center bg-black/50 group-hover:bg-black/20 transition duration-500">
-                    <div class="w-20 h-20 bg-orange-600 rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition">
-                        <i class="fa-solid fa-play text-3xl text-white"></i>
+    <section class="py-32 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <h2 class="text-5xl font-bold mb-8 italic uppercase tracking-tighter">My <span class="text-orange-500">Expertise</span></h2>
+                <div class="space-y-8">
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Motion Graphics</span><span>95%</span></div>
+                        <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+                            <div class="bg-orange-500 h-full progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Video Post-Production</span><span>90%</span></div>
+                        <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+                            <div class="bg-pink-500 h-full progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2"><span class="font-bold">Brand Design</span><span>85%</span></div>
+                        <div class="w-full bg-white/5 h-3 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full progress-fill" style="width: 85%"></div>
+                        </div>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2070" class="w-full h-full object-cover">
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+                <div class="glass p-10 rounded-3xl border-b-4 border-orange-500 text-center hover:-translate-y-2 transition">
+                    <i class="fa-solid fa-bolt text-4xl mb-4 text-orange-500"></i>
+                    <h3 class="font-bold uppercase text-xs">Fast Delivery</h3>
+                </div>
+                <div class="glass p-10 rounded-3xl border-b-4 border-pink-500 text-center hover:-translate-y-2 transition">
+                    <i class="fa-solid fa-eye text-4xl mb-4 text-pink-500"></i>
+                    <h3 class="font-bold uppercase text-xs">Visual Detail</h3>
+                </div>
+                <div class="glass p-10 rounded-3xl border-b-4 border-blue-500 text-center hover:-translate-y-2 transition">
+                    <i class="fa-solid fa-wand-magic-sparkles text-4xl mb-4 text-blue-500"></i>
+                    <h3 class="font-bold uppercase text-xs">Creative Story</h3>
+                </div>
+                <div class="glass p-10 rounded-3xl border-b-4 border-green-500 text-center hover:-translate-y-2 transition">
+                    <i class="fa-solid fa-headset text-4xl mb-4 text-green-500"></i>
+                    <h3 class="font-bold uppercase text-xs">Full Support</h3>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
-        <div class="mb-16">
-            <h2 class="text-6xl font-black italic tracking-tighter uppercase opacity-10 absolute -mt-10">Portfolio</h2>
-            <h2 class="text-5xl font-bold relative z-10">Selected <span class="text-orange-500">Works</span></h2>
-        </div>
-        
+        <h2 class="text-4xl font-bold mb-16">Featured <span class="text-orange-500">Projects</span></h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="group relative overflow-hidden rounded-[2.5rem] glass portfolio-card border border-white/5">
+            <div class="group relative rounded-[2rem] overflow-hidden glass portfolio-card border border-white/5">
                 <div class="h-[450px] overflow-hidden">
                     <img src="https://lh3.googleusercontent.com/u/0/d/1fUoaEw-Qc0pl4dseg_MW8EhD3yrE_PMs" class="w-full h-full object-cover portfolio-img transition duration-1000">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                 <div class="absolute bottom-0 p-10">
-                    <span class="bg-orange-600/20 text-orange-500 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest">Post Production</span>
-                    <h3 class="text-4xl font-bold mt-4">Cinematic Storytelling</h3>
-                    <p class="text-gray-400 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">Advanced color grading and sound design for modern narratives.</p>
+                    <span class="text-orange-500 font-bold text-[10px] uppercase">Cinematic</span>
+                    <h3 class="text-3xl font-bold mt-2">Visual Narrative</h3>
                 </div>
             </div>
-
-            <div class="group relative overflow-hidden rounded-[2.5rem] glass portfolio-card border border-white/5">
+            <div class="group relative rounded-[2rem] overflow-hidden glass portfolio-card border border-white/5">
                 <div class="h-[450px] overflow-hidden">
                     <img src="https://lh3.googleusercontent.com/u/0/d/1SlspcT93-dNDjc4jj9jiy2LW19Jgp9f1" class="w-full h-full object-cover portfolio-img transition duration-1000">
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
                 <div class="absolute bottom-0 p-10">
-                    <span class="bg-pink-600/20 text-pink-500 px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-widest">Brand Design</span>
-                    <h3 class="text-4xl font-bold mt-4">Identity & Strategy</h3>
-                    <p class="text-gray-400 mt-4 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">Campaign materials that drive engagement and build trust.</p>
+                    <span class="text-pink-500 font-bold text-[10px] uppercase">Branding</span>
+                    <h3 class="text-3xl font-bold mt-2">Digital Identity</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="process" class="py-32 px-6 bg-[#080d1a]/50">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-20">
-                <h2 class="text-5xl font-bold mb-4">The <span class="gradient-text">Creative Journey</span></h2>
-                <p class="text-gray-500">How I turn ideas into visual masterpieces.</p>
-            </div>
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 class="text-5xl font-bold mb-20 tracking-tighter uppercase">The <span class="gradient-text">Process</span></h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div class="glass p-10 rounded-[2rem] border-t-2 border-orange-500 process-card">
-                    <div class="text-6xl font-black text-white/5 mb-6">01</div>
-                    <h3 class="text-2xl font-bold mb-4">Discovery</h3>
-                    <p class="text-gray-400 leading-relaxed">Understanding the goal, target audience, and core message of the project.</p>
+                <div class="glass p-12 rounded-[2.5rem] border-t-2 border-orange-500">
+                    <div class="text-5xl font-black opacity-10 mb-6 text-white">01</div>
+                    <h3 class="text-2xl font-bold mb-4">Briefing</h3>
+                    <p class="text-gray-400">Deep dive into your brand goals and project requirements.</p>
                 </div>
-                <div class="glass p-10 rounded-[2rem] border-t-2 border-pink-500 process-card">
-                    <div class="text-6xl font-black text-white/5 mb-6">02</div>
-                    <h3 class="text-2xl font-bold mb-4">Execution</h3>
-                    <p class="text-gray-400 leading-relaxed">High-fidelity designing and animating using industry-standard tools.</p>
+                <div class="glass p-12 rounded-[2.5rem] border-t-2 border-pink-500">
+                    <div class="text-5xl font-black opacity-10 mb-6 text-white">02</div>
+                    <h3 class="text-2xl font-bold mb-4">Creating</h3>
+                    <p class="text-gray-400">Translating concepts into high-fidelity motion and design.</p>
                 </div>
-                <div class="glass p-10 rounded-[2rem] border-t-2 border-purple-500 process-card">
-                    <div class="text-6xl font-black text-white/5 mb-6">03</div>
-                    <h3 class="text-2xl font-bold mb-4">Delivery</h3>
-                    <p class="text-gray-400 leading-relaxed">Final polishing, sound sync, and delivering in optimal formats.</p>
+                <div class="glass p-12 rounded-[2.5rem] border-t-2 border-purple-500">
+                    <div class="text-5xl font-black opacity-10 mb-6 text-white">03</div>
+                    <h3 class="text-2xl font-bold mb-4">Polishing</h3>
+                    <p class="text-gray-400">Final sound sync, grading, and delivering perfection.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-32 px-6 bg-[#050811]">
+    <section class="py-32 px-6 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center tracking-tighter italic">COMMON <span class="text-orange-500">QUESTIONS</span></h2>
+        <div class="space-y-4">
+            <details class="glass p-6 rounded-2xl cursor-pointer group">
+                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                    What is your turnaround time?
+                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">Depending on complexity, edits take 2-5 days. Simple designs are delivered within 24-48 hours.</p>
+            </details>
+            <details class="glass p-6 rounded-2xl cursor-pointer group">
+                <summary class="font-bold text-lg list-none flex justify-between items-center">
+                    Do you handle 3D projects?
+                    <i class="fa-solid fa-chevron-down group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-gray-400 mt-4">Yes, I use Blender for 3D modeling, product mockups, and abstract animations.</p>
+            </details>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 px-6">
         <div class="max-w-5xl mx-auto text-center glass p-20 rounded-[3rem] border-orange-500/20 relative overflow-hidden">
-            <div class="blob" style="top: -50%; left: -20%; width: 500px; height: 500px; opacity: 0.3;"></div>
-            <h2 class="text-6xl font-bold mb-8 z-10 relative">Let's work <span class="gradient-text">together.</span></h2>
-            <p class="text-xl text-gray-400 mb-12 z-10 relative">Available for high-end freelance projects and collaborations.</p>
-            
-            <div class="flex flex-col md:flex-row justify-center gap-6 z-10 relative">
-                <a href="https://wa.me/918089003038" class="bg-green-600 px-12 py-5 rounded-full font-bold flex items-center justify-center gap-3 hover:bg-green-700 transition-all transform hover:scale-105 shadow-xl shadow-green-900/20">
-                    <i class="fa-brands fa-whatsapp text-2xl"></i> Message on WhatsApp
+            <h2 class="text-6xl font-bold mb-8 relative z-10 tracking-tighter uppercase">Let's Create <br><span class="gradient-text">Magic.</span></h2>
+            <div class="flex flex-col md:flex-row justify-center gap-6 relative z-10">
+                <a href="https://wa.me/918089003038" class="bg-green-600 px-12 py-5 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 transition-all shadow-xl">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> WhatsApp Me
                 </a>
-                <a href="mailto:vaishnavkc@example.com" class="glass px-12 py-5 rounded-full font-bold hover:bg-white/10 transition border border-white/20">
-                    Send an Email
-                </a>
-            </div>
-            
-            <div class="mt-16 flex justify-center space-x-8 text-3xl opacity-60">
-                <a href="#" class="hover:text-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-behance"></i></a>
-                <a href="#" class="hover:text-white transition"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="mailto:vaishnavkc@example.com" class="glass px-12 py-5 rounded-full font-bold hover:bg-white/10 transition">Email Me</a>
             </div>
         </div>
     </section>
 
     <footer class="py-12 text-center text-gray-600 border-t border-white/5">
-        <p class="text-sm tracking-widest uppercase">© 2026 Vaishnav KC • Creative Portfolio</p>
+        <p class="text-xs uppercase tracking-[0.3em]">© 2026 Vaishnav KC • Creative Authority</p>
     </footer>
 
     <script>
-        // Custom Cursor Logic
         const cursor = document.getElementById('cursor');
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
 
-        document.querySelectorAll('a, button, .sw-icon, .portfolio-card').forEach(item => {
-            item.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(3)';
-                cursor.style.backgroundColor = 'rgba(255, 140, 0, 0.1)';
-            });
-            item.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.backgroundColor = 'transparent';
-            });
-        });
-
-        // Toggle Mobile Menu (Simplified)
-        const menuBtn = document.getElementById('menu-btn');
-        menuBtn.addEventListener('click', () => {
-            alert("Mobile Menu: Home, Work, Process, Contact");
+        document.querySelectorAll('a, button, details, .sw-icon, .portfolio-card').forEach(item => {
+            item.addEventListener('mouseenter', () => cursor.style.transform = 'scale(3)');
+            item.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
         });
     </script>
 </body>
