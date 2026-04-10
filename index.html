@@ -47,6 +47,27 @@
         }
 
         #mobile-menu.hidden { display: none; }
+
+        /* Software Icon Styling */
+        .sw-icon {
+            transition: transform 0.2s ease;
+            cursor: pointer;
+        }
+        .sw-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Description Box Styling */
+        #software-about.hidden {
+            display: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .description-content {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
     </style>
 </head>
 <body>
@@ -86,12 +107,38 @@
             Crafting powerful visual narratives for modern brands. 
             Graphic Designer & Video Editor based in Kerala.
         </p>
+
+        <div class="flex space-x-6 mb-12 z-10 bg-black/30 p-4 rounded-full border border-white/5">
+            <div class="sw-icon" onclick="showSoftwareAbout('ae')" title="Adobe After Effects">
+                <img src="https://adobe.com/content/dam/cc/icons/aftereffects.svg" alt="AE" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+            </div>
+            <div class="sw-icon" onclick="showSoftwareAbout('pr')" title="Adobe Premiere Pro">
+                <img src="https://adobe.com/content/dam/cc/icons/premiere.svg" alt="Pr" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+            </div>
+            <div class="sw-icon" onclick="showSoftwareAbout('ps')" title="Adobe Photoshop">
+                <img src="https://adobe.com/content/dam/cc/icons/photoshop.svg" alt="Ps" class="w-12 h-12 grayscale hover:grayscale-0 transition duration-300">
+            </div>
+            <div class="sw-icon" onclick="showSoftwareAbout('fcp')" title="Final Cut Pro">
+                <i class="fa-solid fa-film w-12 h-12 text-gray-400 hover:text-white text-5xl transition flex items-center justify-center"></i> </div>
+            <div class="sw-icon" onclick="showSoftwareAbout('blender')" title="Blender">
+                <i class="fa-brands fa-blender w-12 h-12 text-gray-400 hover:text-orange-500 text-5xl transition flex items-center justify-center"></i>
+            </div>
+        </div>
         
         <div class="flex space-x-4 z-10">
             <a href="#projects" class="bg-orange-600 hover:bg-orange-700 px-8 py-3 rounded-lg font-semibold transition shadow-xl">View Work</a>
             <a href="https://wa.me/918089003038" target="_blank" class="glass px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition">WhatsApp Me</a>
         </div>
+
         <div class="absolute bottom-0 w-full h-32 bg-gradient-to-t from-[#050811] to-transparent"></div>
+    </section>
+
+    <section id="software-about" class="hidden py-12 px-6 md:px-12 bg-white/5 border-b border-white/5 z-20">
+        <div class="max-w-4xl mx-auto glass p-8 rounded-2xl relative description-content">
+            <button onclick="closeSoftwareAbout()" class="absolute top-4 right-4 text-gray-500 hover:text-white"><i class="fa-solid fa-times text-xl"></i></button>
+            <div id="about-content" class="text-left">
+                </div>
+        </div>
     </section>
 
     <section id="projects" class="py-24 px-6 md:px-12 max-w-7xl mx-auto">
@@ -195,6 +242,61 @@
         }
 
         menuBtn.addEventListener('click', toggleMenu);
+
+        // --- ADDED: SOFTWARE ABOUT FUNCTIONALITY ---
+        const softwareAboutSection = document.getElementById('software-about');
+        const aboutContent = document.getElementById('about-content');
+
+        // Data about each software
+        const softwareData = {
+            ae: {
+                title: 'Adobe After Effects',
+                description: 'Used for creating complex motion graphics, visual effects (VFX), and cinematic titles. Ideal for adding professional polish and dynamic animation to any video.',
+                color: '#9999FF' // Purple-ish
+            },
+            pr: {
+                title: 'Adobe Premiere Pro',
+                description: 'The industry-standard video editing software. Used for assembling footage, color grading, audio editing, and general storytelling in a non-linear format.',
+                color: '#EA77FF' // Pink-ish
+            },
+            ps: {
+                title: 'Adobe Photoshop',
+                description: 'My primary tool for graphic design and photo manipulation. Essential for creating thumbnail graphics, promotional materials, textures, and refining project visuals.',
+                color: '#31A8FF' // Blue-ish
+            },
+            fcp: {
+                title: 'Final Cut Pro',
+                description: 'Apple\'s professional video editing software. Known for its magnetic timeline, speed, and efficiency on macOS, used for quick turnarounds and streamlined edits.',
+                color: '#FF4545' // Red-ish
+            },
+            blender: {
+                title: 'Blender',
+                description: 'The free and open-source 3D creation suite. Used for 3D modeling, sculpting, basic animation, and bringing abstract concepts or detailed assets into visual reality.',
+                color: '#FF973D' // Orange-ish
+            }
+        };
+
+        function showSoftwareAbout(softwareKey) {
+            const data = softwareData[softwareKey];
+            if (!data) return;
+
+            // Set content and a themed color accent
+            aboutContent.innerHTML = `
+                <h3 class="text-3xl font-bold mb-3" style="color: ${data.color}">${data.title}</h3>
+                <p class="text-gray-200 text-lg leading-relaxed">${data.description}</p>
+            `;
+
+            // Make the section visible
+            softwareAboutSection.classList.remove('hidden');
+
+            // Optional: Smoothly scroll to the description box
+            softwareAboutSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeSoftwareAbout() {
+            // Re-hide the section
+            softwareAboutSection.classList.add('hidden');
+        }
     </script>
 
 </body>
