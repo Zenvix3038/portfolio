@@ -1,50 +1,108 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vaishnav Edits</title>
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, ExternalLink, Code2, Palette, Video } from 'lucide-react';
 
-<link rel="stylesheet" href="style.css">
+export default function Portfolio() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+  };
 
-<!-- GSAP -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans">
+      {/* Navigation */}
+      <nav className="fixed w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <motion.h1 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-xl font-bold tracking-tighter"
+          >
+            VAISHNAV<span className="text-cyan-500 text-2xl">.</span>KC
+          </motion.h1>
+          <div className="hidden md:flex space-x-8 text-sm uppercase tracking-widest text-gray-400">
+            <a href="#work" className="hover:text-cyan-400 transition">Works</a>
+            <a href="#about" className="hover:text-cyan-400 transition">About</a>
+            <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
+          </div>
+        </div>
+      </nav>
 
-<!-- THREE JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-cyan-900/20 via-transparent to-transparent" />
+        
+        <div className="relative z-10 text-center px-4">
+          <motion.div {...fadeIn}>
+            <span className="text-cyan-500 font-mono mb-4 block uppercase tracking-widest">Creative Portfolio</span>
+            <h2 className="text-6xl md:text-9xl font-black mb-6 tracking-tight">
+              DESIGN <br /> <span className="text-outline">DEVELOP</span>
+            </h2>
+            <p className="max-w-xl mx-auto text-gray-400 text-lg md:text-xl leading-relaxed">
+              ആധുനിക ഡിജിറ്റൽ അനുഭവങ്ങൾ നിർമ്മിക്കുന്നതിൽ വൈദഗ്ധ്യമുള്ള ഡിസൈനറും ഡെവലപ്പറും.
+            </p>
+          </motion.div>
 
-</head>
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="mt-12 flex flex-wrap justify-center gap-4"
+          >
+            <button className="bg-cyan-500 hover:bg-cyan-600 text-black px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
+              എന്റെ വർക്കുകൾ കാണുക
+            </button>
+            <button className="border border-white/20 hover:border-cyan-500 px-8 py-4 rounded-full font-bold transition-all">
+              കോൺടാക്ട് ചെയ്യുക
+            </button>
+          </motion.div>
+        </div>
+      </section>
 
-<body>
+      {/* Skills/Specialties */}
+      <section className="py-24 bg-white/5" id="about">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { icon: <Palette />, title: "Graphic Design", desc: "ബ്രാൻഡിംഗ്, ലോഗോ ഡിസൈൻ, സോഷ്യൽ മീഡിയ വിഷ്വലുകൾ." },
+              { icon: <Video />, title: "Motion Graphics", desc: "ആകർഷകമായ വീഡിയോ എഡിറ്റിംഗും 2D/3D ആനിമേഷനുകളും." },
+              { icon: <Code2 />, title: "Web Development", desc: "Next.js, React ഉപയോഗിച്ചുള്ള ആധുനിക വെബ്സൈറ്റുകൾ." }
+            ].map((skill, index) => (
+              <motion.div 
+                key={index}
+                whileHover={{ y: -10 }}
+                className="p-8 rounded-2xl bg-black border border-white/10 hover:border-cyan-500/50 transition-all"
+              >
+                <div className="text-cyan-500 mb-6">{skill.icon}</div>
+                <h3 className="text-2xl font-bold mb-4">{skill.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{skill.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-<header>
-  <h1>Vaishnav Edits 🔥</h1>
-</header>
+      {/* Footer / Contact */}
+      <footer className="py-20 border-t border-white/10" id="contact">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <h2 className="text-4xl font-bold mb-8">നമുക്ക് ഒരുമിച്ച് വർക്ക് ചെയ്താലോ?</h2>
+          <div className="flex justify-center space-x-6 mb-12">
+            <Mail className="cursor-pointer hover:text-cyan-500" />
+            <Linkedin className="cursor-pointer hover:text-cyan-500" />
+            <Github className="cursor-pointer hover:text-cyan-500" />
+          </div>
+          <p className="text-gray-500 text-sm">© 2026 Vaishnav KC. All rights reserved.</p>
+        </div>
+      </footer>
 
-<section class="glass">
-  <h2>Professional Video Editor</h2>
-  <p>Premiere Pro | After Effects | Photoshop | Substance</p>
-</section>
-
-<section class="glass">
-  <h2>My Works</h2>
-
-  <div class="card">
-    <video src="" controls></video>
-
-    <button onclick="like()">❤️ Like</button>
-    <p id="likeCount">0</p>
-
-    <textarea placeholder="Type comment"></textarea>
-    <button onclick="sendWhatsApp()">Send to WhatsApp</button>
-  </div>
-</section>
-
-<section class="glass">
-  <h2>Contact</h2>
-  <a href="https://wa.me/918089003038">Chat on WhatsApp</a>
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
+      <style jsx>{`
+        .text-outline {
+          -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+          color: transparent;
+        }
+      `}</style>
+    </div>
+  );
+}
