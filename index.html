@@ -3,163 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAISHNAV KC | Cinematic Video Editing & Motion Graphics</title>
+    <title>VAISHNAV KC | Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f0f12;
-            color: #ffffff;
-        }
-        .grid-bg {
-            background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #ff4d4d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card-bg {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #0f0f12; color: #ffffff; overflow-x: hidden; }
+        .grid-bg { background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0); background-size: 40px 40px; }
         .accent-red { color: #ff4d4d; }
         .bg-red-accent { background-color: #ff4d4d; }
+        .video-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; opacity: 0; transition: 0.3s; }
+        .video-modal.open { display: flex; opacity: 1; }
+        .video-container { position: relative; width: 90%; max-width: 1000px; aspect-ratio: 16/9; }
+        .close-modal { position: absolute; top: -45px; right: 0; color: white; font-size: 35px; cursor: pointer; }
     </style>
 </head>
 <body class="grid-bg">
 
     <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto">
         <div class="flex items-center gap-2">
-            <div class="bg-red-accent p-2 rounded">
-                <i class="fas fa-video text-white"></i>
-            </div>
+            <div class="bg-red-accent p-2 rounded"><i class="fas fa-video text-white"></i></div>
             <span class="font-black text-xl tracking-tighter uppercase">VAISHNAV KC</span>
         </div>
-        <button class="text-2xl"><i class="fas fa-bars"></i></button>
+        <a href="https://wa.me/918089003038" class="text-green-500 text-2xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
     </nav>
 
-    <section class="px-6 py-12 max-w-6xl mx-auto text-left">
-        <div class="inline-block px-4 py-1 rounded-full border border-red-900/30 bg-red-950/20 text-red-500 text-xs font-bold mb-6">
-            ● Now booking Q1 2025 projects
-        </div>
-        <h1 class="text-6xl md:text-8xl font-black leading-none mb-6">
-            I EDIT. <br> <span class="accent-red italic">YOU GROW.</span>
-        </h1>
-        <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-8">
-            Cinematic video editing, motion graphics & post-production for brands and creators.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-            <a href="https://wa.me/918089003038?text=Hello%20Vaishnav,%20I%20am%20interested%20in%20your%20video%20editing%20services." 
-               target="_blank"
-               class="bg-green-600 text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-green-700 transition text-center">
+    <header class="px-6 py-16 max-w-6xl mx-auto text-center md:text-left">
+        <h1 class="text-5xl md:text-8xl font-black leading-none uppercase">I EDIT. <br><span class="accent-red italic">YOU GROW.</span></h1>
+        <p class="text-gray-400 mt-6 max-w-lg mx-auto md:mx-0">High-quality video editing and motion graphics delivered with speed and precision.</p>
+        <div class="mt-10">
+            <a href="https://wa.me/918089003038?text=Hello Vaishnav, I saw your portfolio..." class="bg-green-600 px-10 py-4 rounded-xl font-bold inline-flex items-center gap-3 hover:bg-green-700 transition transform hover:scale-105">
                 <i class="fab fa-whatsapp text-xl"></i> Contact on WhatsApp
             </a>
-            <button class="border border-white/20 px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition">
-                <i class="fas fa-play text-sm"></i> View My Reel
-            </button>
         </div>
+    </header>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 border-t border-white/5 pt-12">
-            <div>
-                <h3 class="text-3xl font-black accent-red">150+</h3>
-                <p class="text-gray-500 text-sm">Projects Delivered</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-black accent-red">20M+</h3>
-                <p class="text-gray-500 text-sm">Views Generated</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-black accent-red">48HR</h3>
-                <p class="text-gray-500 text-sm">Avg Turnaround</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-black accent-red">5+</h3>
-                <p class="text-gray-500 text-sm">Years Experience</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 py-20 max-w-6xl mx-auto">
-        <p class="uppercase text-red-500 text-xs font-bold tracking-widest mb-2">WHAT I DO</p>
-        <h2 class="text-4xl font-black mb-12 uppercase italic">Services built for impact</h2>
-        
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="card-bg p-8 rounded-2xl">
-                <div class="bg-red-500/10 w-12 h-12 flex items-center justify-center rounded-lg mb-6">
-                    <i class="fas fa-scissors accent-red text-xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 uppercase">Video Editing</h3>
-                <p class="text-gray-400 mb-6">From raw footage to polished final cuts. Pacing, color grading, sound design, and narrative flow.</p>
-            </div>
-
-            <div class="card-bg p-8 rounded-2xl">
-                <div class="bg-red-500/10 w-12 h-12 flex items-center justify-center rounded-lg mb-6">
-                    <i class="fas fa-wand-magic-sparkles accent-red text-xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold mb-4 uppercase">Motion Graphics</h3>
-                <p class="text-gray-400 mb-6">Animated logos, lower thirds, title sequences, and kinetic typography to elevate your videos.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio" class="px-6 py-20 bg-black/40">
+    <section class="px-6 py-20 bg-black/40">
         <div class="max-w-6xl mx-auto">
-            <p class="uppercase text-red-500 text-xs font-bold tracking-widest mb-2">PORTFOLIO</p>
-            <h2 class="text-4xl font-black mb-4 uppercase italic">Selected Work</h2>
-            <p class="text-gray-400 mb-12">Click on a video to watch the full project.</p>
+            <p class="uppercase text-red-500 text-xs font-bold tracking-widest mb-2 text-center md:text-left">PORTFOLIO</p>
+            <h2 class="text-4xl font-black mb-12 uppercase italic text-center md:text-left">Selected Work</h2>
             
-            <div class="grid md:grid-cols-2 gap-8">
-                
-                <a href="https://drive.google.com/file/d/14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD/view?usp=drivesdk" target="_blank" class="group block cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 flex items-center justify-center border border-white/5 group-hover:border-red-500/50 transition">
-                        <img src="https://via.placeholder.com/640x360/1a1a1e/ff4d4d?text=CHOCO" alt="CHOCO" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/30 transition">
-                            <i class="fas fa-play-circle text-red-500 text-6xl opacity-80 group-hover:scale-110 transition duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h4 class="text-xl font-bold uppercase group-hover:text-red-500 transition">CHOCO</h4>
-                        <p class="text-gray-500 text-sm">Brand Campaign • 2024</p>
-                    </div>
-                </a>
-
-                <a href="https://www.youtube.com/watch?v=3JZ_D3ELwOQ" target="_blank" class="group block cursor-pointer">
-                    <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 flex items-center justify-center border border-white/5 group-hover:border-red-500/50 transition">
-                        <img src="https://via.placeholder.com/640x360/1a1a1e/ff4d4d?text=Luxe+Beauty+Ads" alt="Luxe Beauty" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                        <div class="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/30 transition">
-                            <i class="fas fa-play-circle text-red-500 text-6xl opacity-80 group-hover:scale-110 transition duration-300"></i>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-center">
-                        <h4 class="text-xl font-bold uppercase group-hover:text-red-500 transition">Luxe Beauty</h4>
-                        <p class="text-gray-500 text-sm">Social Ads • 2024</p>
-                    </div>
-                </a>
-                
-            </div>
+            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                </div>
         </div>
     </section>
 
-    <footer class="p-12 text-center border-t border-white/5">
-        <div class="flex items-center justify-center gap-2 mb-8">
-            <div class="bg-red-accent p-2 rounded">
-                <i class="fas fa-video text-white text-xs"></i>
-            </div>
-            <span class="font-black text-lg tracking-tighter uppercase">VAISHNAV KC</span>
+    <div id="videoModal" class="video-modal" onclick="closeVideo()">
+        <div class="video-container" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeVideo()">&times;</span>
+            <video id="popupVideo" controls class="w-full h-full rounded-xl shadow-2xl bg-black">
+                <source src="" type="video/mp4">
+            </video>
         </div>
-        <div class="flex justify-center gap-6 text-xl text-gray-500 mb-8">
+    </div>
+
+    <footer class="p-16 text-center border-t border-white/5 mt-10">
+        <span class="font-black text-lg tracking-tighter uppercase">VAISHNAV KC</span>
+        <div class="flex justify-center gap-8 text-2xl text-gray-500 my-8">
+            <a href="https://wa.me/918089003038" class="hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
             <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
             <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
-            <a href="https://wa.me/918089003038" target="_blank" class="hover:text-green-500 transition"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p class="text-gray-600 text-xs">© 2025 Vaishnav KC. All rights reserved.</p>
+        <p class="text-gray-600 text-xs uppercase tracking-widest">© 2026 Vaishnav KC. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        // --- UPDATED VIDEO DATA ---
+        const projects = [
+            {
+                title: "Nova Fitness",
+                category: "Brand Campaign",
+                year: "2024",
+                thumbnailID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD", 
+                videoID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
+            },
+            {
+                title: "Luxe Beauty",
+                category: "Social Ads",
+                year: "2024",
+                thumbnailID: "YOUR_SECOND_THUMBNAIL_ID", 
+                videoID: "YOUR_SECOND_VIDEO_ID"
+            }
+        ];
+
+        function renderGrid() {
+            const grid = document.getElementById('video-grid');
+            if (grid) {
+                grid.innerHTML = projects.map(p => `
+                    <div class="group cursor-pointer" onclick="openVideo('${p.videoID}')">
+                        <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 border border-white/10 group-hover:border-red-500/50 transition duration-500 shadow-lg">
+                            <img src="https://drive.google.com/uc?export=download&id=${p.thumbnailID}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                            
+                            <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition duration-300">
+                                <div class="bg-red-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition duration-300">
+                                    <i class="fas fa-play text-white text-2xl ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center">
+                            <h4 class="text-lg font-bold uppercase text-white group-hover:text-red-500 transition">${p.title}</h4>
+                            <p class="text-gray-500 text-xs">${p.category} • ${p.year}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        const modal = document.getElementById('videoModal');
+        const video = document.getElementById('popupVideo');
+
+        function openVideo(id) {
+            if(id === "YOUR_SECOND_VIDEO_ID") return alert("Add your Drive ID first!");
+            const directLink = `https://drive.google.com/uc?export=download&id=${id}`;
+            video.src = directLink;
+            modal.classList.add('open');
+            video.play();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo() {
+            modal.classList.remove('open');
+            video.pause();
+            video.src = "";
+            document.body.style.overflow = '';
+        }
+
+        // Initialize grid on load
+        window.onload = renderGrid;
+    </script>
 </body>
 </html>
