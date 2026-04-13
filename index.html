@@ -39,16 +39,25 @@
             cursor: pointer; background: none; border: none;
         }
 
-        /* Fixed Adobe Icon Styling */
-        .adobe-group img {
-            width: 35px;
-            height: 35px;
-            object-fit: contain;
+        /* Tool Icons Styling */
+        .adobe-group i {
+            font-size: 2.2rem;
             transition: all 0.3s ease;
-            filter: grayscale(100%) brightness(1.5);
+            color: #444;
         }
-        .adobe-group img:hover {
-            filter: grayscale(0%) brightness(1);
+        .adobe-group i:hover {
+            color: #ff4d4d;
+            transform: translateY(-5px);
+        }
+        /* Custom SVGs for Adobe branding if icons fail */
+        .adobe-svg {
+            width: 32px;
+            height: 32px;
+            fill: #666;
+            transition: 0.3s;
+        }
+        .adobe-svg:hover {
+            fill: #ff4d4d;
             transform: translateY(-5px);
         }
     </style>
@@ -65,11 +74,10 @@
         <h3 class="text-xl md:text-2xl font-bold accent-red uppercase tracking-widest mb-6 italic">Professional Video Editor & Motion Designer</h3>
         
         <div class="adobe-group flex gap-6 justify-center md:justify-start items-center mt-4">
-            <img src="https://www.vectorlogo.zone/logos/adobe_premiere_pro/adobe_premiere_pro-icon.svg" title="Premiere Pro">
-            <img src="https://www.vectorlogo.zone/logos/adobe_after_effects/adobe_after_effects-icon.svg" title="After Effects">
-            <img src="https://www.vectorlogo.zone/logos/adobe_photoshop/adobe_photoshop-icon.svg" title="Photoshop">
-            <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" title="Illustrator">
-            <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobesubstance3ddesigner.svg" title="Substance 3D" style="filter: invert(1) grayscale(100%);">
+            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM8.5 16.5H6.3V7.5h3.6c1.5 0 2.4.8 2.4 2.1 0 1.4-1.1 2.2-2.5 2.2H8.5v4.7zm0-6.8v2.1h1.1c.7 0 1-.3 1-.9s-.3-.9-1.1-.9H8.5zm9.2 6.8h-2.2v-4.3h-1.6v4.3h-2.2V7.5h2.2v3.1h1.6V7.5h2.2v9z"/></svg>
+            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.1 16.5l-.6-1.9H6.8l-.6 1.9H4L7.1 7.5h1.9l3.1 9h-2zm-1.1-3.6l-.8-2.6-.8 2.6h1.6zm8.7 3.6h-4.8V7.5h4.7v1.8h-2.5v1.9h2.1v1.8h-2.1v1.8h2.6v1.7z"/></svg>
+            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.3 11.4c0 1.7-1.3 2.6-3.1 2.6H5.4v2.5H3.2V7.5h4.1c1.8 0 3 1 3 2.6v1.3zm-4.9-2.1v1.9h1.6c.7 0 1-.3 1-.8s-.3-.8-1-.8H5.4zm10.7 4.1c0 2.2-1.7 3.3-3.8 3.3-2.1 0-3.6-.9-3.7-2.8h2.1c.1.9.8 1.2 1.6 1.2.9 0 1.5-.4 1.5-1.3 0-.8-.5-1.1-1.6-1.5-1.7-.5-2.8-1.2-2.8-3.1 0-1.8 1.4-3.1 3.5-3.1 1.8 0 3.3.9 3.4 2.6h-2c-.1-.7-.7-1-1.3-1-.8 0-1.3.4-1.3 1.1s.5 1 1.6 1.3c1.9.6 2.8 1.2 2.8 3.3z"/></svg>
+            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M0 0v24h24V0H0zm8.8 17H5.4v-2.2h1.1V9.7H5.4V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3H7.5v1.3h1.3V17zm4.7 0v-2.2h1.1V9.7h-1.1V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3h-1.3v1.3h1.3V17h-3.4z"/></svg>
         </div>
     </header>
 
