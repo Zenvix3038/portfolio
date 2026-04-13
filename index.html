@@ -12,7 +12,6 @@
         .grid-bg { background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0); background-size: 40px 40px; }
         .accent-red { color: #ff4d4d; }
         
-        /* Video Modal Styles */
         .video-modal { 
             display: none; 
             position: fixed; 
@@ -40,13 +39,16 @@
             cursor: pointer; background: none; border: none;
         }
 
-        /* Adobe Icon Styling */
-        .adobe-icon {
+        /* Fixed Adobe Icon Styling */
+        .adobe-group img {
+            width: 35px;
+            height: 35px;
+            object-fit: contain;
             transition: all 0.3s ease;
-            filter: grayscale(100%);
+            filter: grayscale(100%) brightness(1.5);
         }
-        .adobe-icon:hover {
-            filter: grayscale(0%);
+        .adobe-group img:hover {
+            filter: grayscale(0%) brightness(1);
             transform: translateY(-5px);
         }
     </style>
@@ -58,23 +60,22 @@
         <a href="https://wa.me/918089003038" class="text-green-500 text-2xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
     </nav>
 
-    <header class="px-6 py-10 max-w-6xl mx-auto text-center md:text-left border-b border-white/5">
+    <header class="px-6 py-10 max-w-6xl mx-auto text-center md:text-left">
         <h1 class="text-5xl md:text-7xl font-black uppercase leading-tight mb-2">VAISHNAV KC</h1>
         <h3 class="text-xl md:text-2xl font-bold accent-red uppercase tracking-widest mb-6 italic">Professional Video Editor & Motion Designer</h3>
         
-        <div class="flex gap-6 justify-center md:justify-start items-center opacity-80 mt-4">
-            <img src="https://cdn.worldvectorlogo.com/logos/adobe-premiere-pro-cc.svg" title="Premiere Pro" class="adobe-icon w-8 h-8">
-            <img src="https://cdn.worldvectorlogo.com/logos/adobe-after-effects-cc.svg" title="After Effects" class="adobe-icon w-8 h-8">
-            <img src="https://cdn.worldvectorlogo.com/logos/adobe-photoshop-2.svg" title="Photoshop" class="adobe-icon w-8 h-8">
-            <img src="https://cdn.worldvectorlogo.com/logos/adobe-illustrator-cc.svg" title="Illustrator" class="adobe-icon w-8 h-8">
+        <div class="adobe-group flex gap-6 justify-center md:justify-start items-center mt-4">
+            <img src="https://www.vectorlogo.zone/logos/adobe_premiere_pro/adobe_premiere_pro-icon.svg" title="Premiere Pro">
+            <img src="https://www.vectorlogo.zone/logos/adobe_after_effects/adobe_after_effects-icon.svg" title="After Effects">
+            <img src="https://www.vectorlogo.zone/logos/adobe_photoshop/adobe_photoshop-icon.svg" title="Photoshop">
+            <img src="https://www.vectorlogo.zone/logos/adobe_illustrator/adobe_illustrator-icon.svg" title="Illustrator">
+            <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/adobesubstance3ddesigner.svg" title="Substance 3D" style="filter: invert(1) grayscale(100%);">
         </div>
     </header>
 
     <section class="px-6 py-12 max-w-6xl mx-auto">
         <h2 class="text-3xl font-black mb-10 uppercase italic border-l-4 border-red-500 pl-4">Selected Work</h2>
-        
-        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            </div>
+        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10"></div>
     </section>
 
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
@@ -98,13 +99,12 @@
             const grid = document.getElementById('video-grid');
             grid.innerHTML = projects.map(p => {
                 const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
-                
                 return `
                     <div class="group cursor-pointer" onclick="openVideo('${p.driveID}')">
                         <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 border border-white/10 group-hover:border-red-500/50 transition duration-500">
                             <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700">
                             <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl">
+                                <div class="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center">
                                     <i class="fas fa-play text-white text-2xl ml-1"></i>
                                 </div>
                             </div>
