@@ -3,150 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vaishnav KC | Creative Designer & Editor</title>
+    <title>FRAMECUT | Cinematic Video Editing</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; }
-        .glow-button { background: #ffffff; color: #000000; transition: all 0.3s ease; box-shadow: 0 0 15px rgba(255,255,255,0.2); }
-        .glow-button:hover { box-shadow: 0 0 25px rgba(255,255,255,0.4); transform: translateY(-2px); }
-        .accent-text { color: #888888; }
-        .gradient-text { background: linear-gradient(to right, #ffffff, #666666); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f0f12;
+            color: #ffffff;
+        }
+        .grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #ff4d4d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-bg {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .accent-red { color: #ff4d4d; }
+        .bg-red-accent { background-color: #ff4d4d; }
     </style>
 </head>
-<body class="selection:bg-white selection:text-black">
+<body class="grid-bg">
 
-    <nav class="fixed w-full z-50 px-6 py-8">
-        <div class="max-w-6xl mx-auto flex justify-between items-center glass-card px-8 py-4 backdrop-blur-md">
-            <div class="text-xl font-bold tracking-tighter italic">VAISHNAV KC</div>
-            <div class="hidden md:flex space-x-8 text-sm accent-text">
-                <a href="#services" class="hover:text-white transition">Services</a>
-                <a href="#projects" class="hover:text-white transition">Projects</a>
-                <a href="#testimonials" class="hover:text-white transition">Testimonials</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
+    <nav class="flex justify-between items-center p-6 max-w-6xl mx-auto">
+        <div class="flex items-center gap-2">
+            <div class="bg-red-accent p-2 rounded">
+                <i class="fas fa-clapperboard text-white"></i>
             </div>
-            <button class="bg-white/10 hover:bg-white/20 text-white text-xs px-5 py-2 rounded-full border border-white/20 transition">Get for Free</button>
+            <span class="font-black text-xl tracking-tighter uppercase">FRAMECUT</span>
         </div>
+        <button class="text-2xl"><i class="fas fa-bars"></i></button>
     </nav>
 
-    <section class="pt-44 pb-20 px-6">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="inline-flex items-center space-x-2 bg-white/5 border border-white/10 px-4 py-1.5 rounded-full mb-8">
-                <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-                <span class="text-xs uppercase tracking-widest text-gray-400">Available for work</span>
+    <section class="px-6 py-12 max-w-6xl mx-auto text-left">
+        <div class="inline-block px-4 py-1 rounded-full border border-red-900/30 bg-red-950/20 text-red-500 text-xs font-bold mb-6">
+            ● Now booking Q1 2025 projects
+        </div>
+        <h1 class="text-6xl md:text-8xl font-black leading-none mb-6">
+            WE EDIT. <br> <span class="accent-red italic">YOU GROW.</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-lg mb-8">
+            Cinematic video editing, motion graphics & post-production for brands that refuse to blend in.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+            <button class="bg-red-accent text-white px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-red-600 transition">
+                Start Your Project <i class="fas fa-arrow-right"></i>
+            </button>
+            <button class="border border-white/20 px-8 py-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition">
+                <i class="fas fa-play text-sm"></i> View Our Reel
+            </button>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 border-t border-white/5 pt-12">
+            <div>
+                <h3 class="text-3xl font-black accent-red">200+</h3>
+                <p class="text-gray-500 text-sm">Projects Delivered</p>
             </div>
-            <h1 class="text-6xl md:text-8xl font-bold mb-8 tracking-tighter">Better <span class="gradient-text">Designer</span></h1>
-            <p class="max-w-xl mx-auto accent-text text-lg mb-10 leading-relaxed">
-                I'm a versatile designer specializing in graphic, web, and product design to help grow your business. Let's build something great!
-            </p>
-            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                <button class="glow-button px-10 py-4 rounded-full font-semibold text-sm w-full md:w-auto">See All Projects</button>
-                <button class="bg-white/5 border border-white/10 hover:bg-white/10 px-10 py-4 rounded-full font-semibold text-sm w-full md:w-auto transition">Contact Now</button>
+            <div>
+                <h3 class="text-3xl font-black accent-red">50M+</h3>
+                <p class="text-gray-500 text-sm">Views Generated</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-black accent-red">48HR</h3>
+                <p class="text-gray-500 text-sm">Avg Turnaround</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-black accent-red">98%</h3>
+                <p class="text-gray-500 text-sm">Client Retention</p>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
-                <div class="max-w-lg">
-                    <span class="text-xs uppercase tracking-widest text-gray-500 mb-4 block">Design Services</span>
-                    <h2 class="text-4xl font-bold mb-4">Services</h2>
-                    <p class="accent-text italic">Helping businesses standout brand identity packaging that captivate and convert.</p>
+    <section class="px-6 py-20 max-w-6xl mx-auto">
+        <p class="uppercase text-red-500 text-xs font-bold tracking-widest mb-2">WHAT WE DO</p>
+        <h2 class="text-4xl font-black mb-12 uppercase italic">Services built for impact</h2>
+        
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="card-bg p-8 rounded-2xl">
+                <div class="bg-red-500/10 w-12 h-12 flex items-center justify-center rounded-lg mb-6">
+                    <i class="fas fa-scissors accent-red text-xl"></i>
                 </div>
-                <div class="mt-6 md:mt-0 flex space-x-4">
-                    <button class="glass-card px-6 py-2 text-xs">Book a Free Call</button>
-                    <button class="glass-card px-6 py-2 text-xs">See Projects</button>
-                </div>
+                <h3 class="text-2xl font-bold mb-4 uppercase">Video Editing</h3>
+                <p class="text-gray-400 mb-6">From raw footage to polished final cuts. We handle pacing, color grading, sound design, and everything in between.</p>
+                <a href="#" class="accent-red font-bold text-sm flex items-center gap-2">Learn more <i class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card p-10 hover:bg-white/[0.05] transition group">
-                    <div class="flex justify-between items-start mb-16">
-                        <div class="p-3 bg-white/5 rounded-xl border border-white/10">Icon</div>
-                        <h3 class="text-2xl font-semibold">Brand Identity</h3>
-                    </div>
-                    <p class="accent-text text-sm leading-relaxed">Crafting unique, memorable brand identities that resonate with your audience — from logos to visual systems.</p>
+            <div class="card-bg p-8 rounded-2xl">
+                <div class="bg-red-500/10 w-12 h-12 flex items-center justify-center rounded-lg mb-6">
+                    <i class="fas fa-wand-magic-sparkles accent-red text-xl"></i>
                 </div>
-                <div class="glass-card p-10 hover:bg-white/[0.05] transition">
-                    <div class="flex justify-between items-start mb-16">
-                        <div class="p-3 bg-white/5 rounded-xl border border-white/10">Icon</div>
-                        <h3 class="text-2xl font-semibold">Mockup Design</h3>
-                    </div>
-                    <p class="accent-text text-sm leading-relaxed">Designing sleek, impactful packaging that not only looks stunning but also connects with your ideal customers.</p>
-                </div>
+                <h3 class="text-2xl font-bold mb-4 uppercase">Motion Graphics</h3>
+                <p class="text-gray-400 mb-6">Animated logos, lower thirds, title sequences, and kinetic typography that elevate your brand story.</p>
+                <a href="#" class="accent-red font-bold text-sm flex items-center gap-2">Learn more <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
     </section>
 
-    <section id="testimonials" class="py-24 px-6 bg-white/[0.01]">
+    <section class="px-6 py-20 bg-black/40">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl font-bold mb-16 text-center">Client Reviews</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="glass-card p-8">
-                    <div class="flex items-center space-x-4 mb-6">
-                        <div class="w-12 h-12 rounded-full bg-gray-800"></div>
-                        <div>
-                            <p class="font-semibold text-sm">Richards Johnson</p>
-                            <p class="text-xs accent-text">Creative Director</p>
-                        </div>
-                    </div>
-                    <p class="text-sm accent-text mb-6">"Working with Vaishnav was a seamless experience. His ability to merge creativity with functionality is stunning."</p>
-                    <div class="flex text-yellow-500 text-xs">★★★★★ <span class="ml-2 text-white">5.0</span></div>
-                </div>
-                </div>
+            <p class="uppercase text-red-500 text-xs font-bold tracking-widest mb-2">PORTFOLIO</p>
+            <h2 class="text-4xl font-black mb-4 uppercase italic">Selected Work</h2>
+            <p class="text-gray-400 mb-12">A glimpse into our recent projects across brands, creators, and agencies.</p>
             
-            <div class="flex flex-wrap justify-around items-center mt-24 py-12 border-y border-white/5">
-                <div class="text-center p-6">
-                    <h4 class="text-4xl font-bold mb-2">200+</h4>
-                    <p class="text-xs accent-text uppercase tracking-widest">Projects Completed</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-red-500 text-6xl opacity-70 group-hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h4 class="text-xl font-bold uppercase">Nova Fitness</h4>
+                        <p class="text-gray-500 text-sm">Brand Campaign • 2024</p>
+                    </div>
                 </div>
-                <div class="text-center p-6">
-                    <h4 class="text-4xl font-bold mb-2">98%</h4>
-                    <p class="text-xs accent-text uppercase tracking-widest">Satisfaction Rate</p>
-                </div>
-                <div class="text-center p-6">
-                    <h4 class="text-4xl font-bold mb-2">5+</h4>
-                    <p class="text-xs accent-text uppercase tracking-widest">Years Experience</p>
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-red-500 text-6xl opacity-70 group-hover:scale-110 transition duration-300"></i>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <h4 class="text-xl font-bold uppercase">Luxe Beauty</h4>
+                        <p class="text-gray-500 text-sm">Social Ads • 2024</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 px-6">
-        <div class="max-w-4xl mx-auto glass-card p-12">
-            <div class="grid md:grid-cols-2 gap-12">
+    <section class="px-6 py-20 max-w-4xl mx-auto">
+        <p class="text-center uppercase text-red-500 text-xs font-bold tracking-widest mb-2">HOW IT WORKS</p>
+        <h2 class="text-center text-4xl font-black mb-16 uppercase italic">Our Process</h2>
+        
+        <div class="space-y-12">
+            <div class="flex gap-6">
+                <div class="text-red-500 font-bold border-2 border-red-500 rounded-full w-10 h-10 flex items-center justify-center shrink-0 text-sm">01</div>
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 italic">Connect with me</h2>
-                    <p class="accent-text mb-8">Feel free to reach out for collaborations or just a friendly hello.</p>
-                    <div class="space-y-4 text-sm">
-                        <p class="flex items-center space-x-3"><span class="accent-text">Phone:</span> <span>+91 8089003038</span></p>
-                        <p class="flex items-center space-x-3"><span class="accent-text">Email:</span> <span>vaishnav@example.com</span></p>
-                    </div>
+                    <h3 class="font-bold text-xl uppercase mb-2">Discovery Call</h3>
+                    <p class="text-gray-400">We learn your brand, goals, and vision. Share your raw footage, references, and style preferences.</p>
                 </div>
-                <form class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-white/30">
-                        <input type="email" placeholder="Email" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-white/30">
-                    </div>
-                    <select class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm accent-text focus:outline-none focus:border-white/30">
-                        <option>Select Budget...</option>
-                        <option>$500 - $1000</option>
-                        <option>$1000+</option>
-                    </select>
-                    <textarea placeholder="Your Message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-white/30"></textarea>
-                    <button class="glow-button w-full py-4 rounded-xl font-bold flex items-center justify-center space-x-2">
-                        <span>Send Message</span>
-                        <span>→</span>
-                    </button>
-                </form>
+            </div>
+            <div class="flex gap-6">
+                <div class="text-red-500 font-bold border-2 border-red-500 rounded-full w-10 h-10 flex items-center justify-center shrink-0 text-sm">02</div>
+                <div>
+                    <h3 class="font-bold text-xl uppercase mb-2">First Cut</h3>
+                    <p class="text-gray-400">We deliver an initial edit within 48 hours. Rough structure, pacing, and narrative flow for your review.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 border-t border-white/5 text-center">
-        <p class="text-xs accent-text">© 2026 Vaishnav KC. All Rights Reserved.</p>
+    <section class="px-6 py-24">
+        <div class="max-w-4xl mx-auto card-bg p-12 rounded-3xl text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-red-500/10 blur-[100px] rounded-full"></div>
+            <h2 class="text-5xl font-black mb-6 leading-tight uppercase">Let's Create <br> Something <span class="accent-red italic">Epic</span></h2>
+            <p class="text-gray-400 mb-8 max-w-md mx-auto">Ready to elevate your content? Get in touch and let's talk about your next project.</p>
+            
+            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input type="email" placeholder="your@email.com" class="bg-black/50 border border-white/10 px-6 py-4 rounded-xl flex-grow focus:outline-none focus:border-red-500">
+                <button class="bg-red-accent text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                    Send <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="p-12 text-center border-t border-white/5">
+        <div class="flex items-center justify-center gap-2 mb-8">
+            <div class="bg-red-accent p-2 rounded">
+                <i class="fas fa-clapperboard text-white text-xs"></i>
+            </div>
+            <span class="font-black text-lg tracking-tighter uppercase">FRAMECUT</span>
+        </div>
+        <div class="flex justify-center gap-6 text-xl text-gray-500 mb-8">
+            <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <p class="text-gray-600 text-xs">© 2025 FrameCut Studios. All rights reserved.</p>
     </footer>
 
 </body>
