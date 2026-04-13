@@ -4,59 +4,45 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vaishnav Edits</title>
+
 <link rel="stylesheet" href="style.css">
+
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- THREE JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </head>
 
 <body>
 
 <header>
-  <h1>Vaishnav Edits</h1>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#works">Works</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <h1>Vaishnav Edits 🔥</h1>
 </header>
 
-<section id="home" class="glass">
+<section class="glass">
   <h2>Professional Video Editor</h2>
   <p>Premiere Pro | After Effects | Photoshop | Substance</p>
 </section>
 
-<section id="works" class="glass">
+<section class="glass">
   <h2>My Works</h2>
 
   <div class="card">
-    <video src="assets/sample.mp4" controls></video>
-    <div class="actions">
-      <button onclick="like()">❤️ Like</button>
-      <span id="likeCount">0</span>
-    </div>
+    <video src="" controls></video>
 
-    <textarea placeholder="Add comment"></textarea>
-    <button onclick="sendWhatsApp()">Send Comment</button>
-  </div>
+    <button onclick="like()">❤️ Like</button>
+    <p id="likeCount">0</p>
 
-</section>
-
-<section id="about" class="glass">
-  <img src="assets/profile.jpg" class="profile">
-  <h2>About Me</h2>
-  <p>I am a professional editor skilled in Adobe tools.</p>
-
-  <div class="skills">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg">
+    <textarea placeholder="Type comment"></textarea>
+    <button onclick="sendWhatsApp()">Send to WhatsApp</button>
   </div>
 </section>
 
-<section id="contact" class="glass">
+<section class="glass">
   <h2>Contact</h2>
-  <a href="https://wa.me/918089003038" target="_blank">Chat on WhatsApp</a>
-  <br>
-  <a href="https://instagram.com" target="_blank">Instagram</a>
+  <a href="https://wa.me/918089003038">Chat on WhatsApp</a>
 </section>
 
 <script src="script.js"></script>
