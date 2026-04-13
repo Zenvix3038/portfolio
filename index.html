@@ -8,13 +8,37 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f0f12; color: #ffffff; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f0f12; color: #ffffff; }
         .grid-bg { background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0); background-size: 40px 40px; }
         .accent-red { color: #ff4d4d; }
-        .video-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; }
+        
+        /* Video Modal Styles */
+        .video-modal { 
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.95); 
+            justify-content: center; 
+            align-items: center; 
+        }
         .video-modal.open { display: flex; }
-        .video-container { position: relative; width: 95%; max-width: 900px; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; }
-        .close-modal { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; z-index: 1100; cursor: pointer; background: rgba(0,0,0,0.5); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: none; }
+        .video-container { 
+            position: relative; 
+            width: 95%; 
+            max-width: 900px; 
+            aspect-ratio: 16/9; 
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .close-modal { 
+            position: absolute; 
+            top: -45px; right: 0; 
+            color: white; font-size: 35px; 
+            cursor: pointer; background: none; border: none;
+        }
     </style>
 </head>
 <body class="grid-bg">
@@ -25,19 +49,16 @@
     </nav>
 
     <section class="px-6 py-10 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-black mb-10 uppercase italic text-center md:text-left">Selected Work</h2>
+        <h2 class="text-4xl font-black mb-10 uppercase italic">Selected Work</h2>
         
         <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10">
             </div>
     </section>
 
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
-        <button class="close-modal" onclick="closeVideo()">&times;</button>
         <div class="video-container" onclick="event.stopPropagation()">
-            <video id="html5Player" class="w-full h-full" controls autoplay playsinline controlsList="nodownload">
-                <source id="videoSource" src="" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <button class="close-modal" onclick="closeVideo()">&times;</button>
+            <iframe id="drivePlayer" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -54,13 +75,15 @@
         function renderGrid() {
             const grid = document.getElementById('video-grid');
             grid.innerHTML = projects.map(p => {
+                // Drive thumbnail API
                 const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
+                
                 return `
                     <div class="group cursor-pointer" onclick="openVideo('${p.driveID}')">
                         <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 border border-white/10 group-hover:border-red-500/50 transition duration-500">
-                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-700">
-                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                                <div class="bg-red-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl">
+                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl">
                                     <i class="fas fa-play text-white text-2xl ml-1"></i>
                                 </div>
                             </div>
@@ -76,22 +99,19 @@
 
         function openVideo(id) {
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('html5Player');
-            const source = document.getElementById('videoSource');
+            const player = document.getElementById('drivePlayer');
             
-            // Direct Download Link Format for direct playback in browser
-            const directLink = `https://drive.google.com/uc?export=download&id=${id}`;
+            // PREVIEW link is best for in-website playback from Drive
+            player.src = `https://drive.google.com/file/d/${id}/preview`;
             
-            source.src = directLink;
-            video.load(); // Reload video with new source
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
 
         function closeVideo() {
             const modal = document.getElementById('videoModal');
-            const video = document.getElementById('html5Player');
-            video.pause();
+            const player = document.getElementById('drivePlayer');
+            player.src = ""; 
             modal.classList.remove('open');
             document.body.style.overflow = '';
         }
