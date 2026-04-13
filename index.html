@@ -7,100 +7,180 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f0f12; color: #ffffff; }
-        .grid-bg { background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0); background-size: 40px 40px; }
-        .accent-red { color: #ff4d4d; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
+        :root {
+            --glass: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --accent: #ff4d4d;
+        }
+
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #08080a; 
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #ff4d4d33 0%, #7000ff33 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        /* Liquid Glass Card Effect */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-10px);
+            border-color: var(--accent);
+        }
+
         .video-modal { 
             display: none; 
             position: fixed; 
             z-index: 1000; 
             left: 0; top: 0; 
             width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.95); 
+            background: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(15px);
             justify-content: center; 
             align-items: center; 
         }
         .video-modal.open { display: flex; }
-        .video-container { 
-            position: relative; 
-            width: 95%; 
-            max-width: 900px; 
-            aspect-ratio: 16/9; 
-            background: #000;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-        .close-modal { 
-            position: absolute; 
-            top: -45px; right: 0; 
-            color: white; font-size: 35px; 
-            cursor: pointer; background: none; border: none;
+        
+        .play-btn {
+            background: rgba(255, 77, 77, 0.9);
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.4);
         }
 
-        /* Tool Icons Styling */
-        .adobe-group i {
-            font-size: 2.2rem;
-            transition: all 0.3s ease;
-            color: #444;
-        }
-        .adobe-group i:hover {
-            color: #ff4d4d;
-            transform: translateY(-5px);
-        }
-        /* Custom SVGs for Adobe branding if icons fail */
-        .adobe-svg {
-            width: 32px;
-            height: 32px;
-            fill: #666;
+        .nav-link {
+            position: relative;
             transition: 0.3s;
         }
-        .adobe-svg:hover {
-            fill: #ff4d4d;
-            transform: translateY(-5px);
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0%; height: 2px;
+            background: var(--accent);
+            transition: 0.3s;
         }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
-<body class="grid-bg">
+<body>
 
-    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
-        <span class="font-black text-xl tracking-tighter uppercase">VAISHNAV KC</span>
-        <a href="https://wa.me/918089003038" class="text-green-500 text-2xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+    <div class="blob"></div>
+    <div class="blob" style="right: -10%; top: 40%; background: linear-gradient(135deg, #00d4ff22 0%, #002eff22 100%);"></div>
+
+    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center sticky top-0 z-50">
+        <span class="font-extrabold text-2xl tracking-tighter italic">V<span class="text-red-500">KC</span></span>
+        <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <a href="https://wa.me/918089003038" class="glass-card px-5 py-2 text-green-400 flex items-center gap-2 hover:bg-green-500 hover:text-white transition-all">
+            <i class="fab fa-whatsapp"></i> <span class="text-xs font-bold">HIRE ME</span>
+        </a>
     </nav>
 
-    <header class="px-6 py-10 max-w-6xl mx-auto text-center md:text-left">
-        <h1 class="text-5xl md:text-7xl font-black uppercase leading-tight mb-2">VAISHNAV KC</h1>
-        <h3 class="text-xl md:text-2xl font-bold accent-red uppercase tracking-widest mb-6 italic">Professional Video Editor & Motion Designer</h3>
+    <header class="px-6 py-20 max-w-6xl mx-auto text-center">
+        <h1 class="text-6xl md:text-8xl font-black uppercase leading-tight mb-4 tracking-tighter">
+            VAISHNAV <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">KC</span>
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-gray-400 mb-8">Crafting Cinematic Stories through <span class="text-white font-bold">Motion & Frames</span></p>
         
-        <div class="adobe-group flex gap-6 justify-center md:justify-start items-center mt-4">
-            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM8.5 16.5H6.3V7.5h3.6c1.5 0 2.4.8 2.4 2.1 0 1.4-1.1 2.2-2.5 2.2H8.5v4.7zm0-6.8v2.1h1.1c.7 0 1-.3 1-.9s-.3-.9-1.1-.9H8.5zm9.2 6.8h-2.2v-4.3h-1.6v4.3h-2.2V7.5h2.2v3.1h1.6V7.5h2.2v9z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.1 16.5l-.6-1.9H6.8l-.6 1.9H4L7.1 7.5h1.9l3.1 9h-2zm-1.1-3.6l-.8-2.6-.8 2.6h1.6zm8.7 3.6h-4.8V7.5h4.7v1.8h-2.5v1.9h2.1v1.8h-2.1v1.8h2.6v1.7z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.3 11.4c0 1.7-1.3 2.6-3.1 2.6H5.4v2.5H3.2V7.5h4.1c1.8 0 3 1 3 2.6v1.3zm-4.9-2.1v1.9h1.6c.7 0 1-.3 1-.8s-.3-.8-1-.8H5.4zm10.7 4.1c0 2.2-1.7 3.3-3.8 3.3-2.1 0-3.6-.9-3.7-2.8h2.1c.1.9.8 1.2 1.6 1.2.9 0 1.5-.4 1.5-1.3 0-.8-.5-1.1-1.6-1.5-1.7-.5-2.8-1.2-2.8-3.1 0-1.8 1.4-3.1 3.5-3.1 1.8 0 3.3.9 3.4 2.6h-2c-.1-.7-.7-1-1.3-1-.8 0-1.3.4-1.3 1.1s.5 1 1.6 1.3c1.9.6 2.8 1.2 2.8 3.3z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24"><path d="M0 0v24h24V0H0zm8.8 17H5.4v-2.2h1.1V9.7H5.4V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3H7.5v1.3h1.3V17zm4.7 0v-2.2h1.1V9.7h-1.1V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3h-1.3v1.3h1.3V17h-3.4z"/></svg>
+        <div class="flex justify-center gap-6 opacity-60">
+            <i class="fab fa-adobe text-3xl"></i>
+            <span class="font-bold border-r border-white/20 pr-6 italic">PR | AE | PS</span>
+            <span class="font-bold italic">DAVINCI RESOLVE</span>
         </div>
     </header>
 
-    <section class="px-6 py-12 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-black mb-10 uppercase italic border-l-4 border-red-500 pl-4">Selected Work</h2>
-        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-10"></div>
+    <section id="work" class="px-6 py-20 max-w-6xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <p class="text-red-500 font-bold tracking-widest uppercase text-sm mb-2">Portfolio</p>
+                <h2 class="text-4xl font-black uppercase">Selected Work</h2>
+            </div>
+        </div>
+        
+        <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            </div>
     </section>
 
+    <section id="services" class="px-6 py-20 bg-white/5 backdrop-blur-sm">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-black mb-12 uppercase text-center">What I Do</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8">
+                    <i class="fas fa-film text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Video Editing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">High-end commercial, documentary, and social media content editing with a focus on rhythm and storytelling.</p>
+                </div>
+                <div class="glass-card p-8">
+                    <i class="fas fa-bezier-curve text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Motion Graphics</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic titles, 2D animations, and VFX to give your videos a professional edge and visual flair.</p>
+                </div>
+                <div class="glass-card p-8">
+                    <i class="fas fa-palette text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Color Grading</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Advanced color correction and cinematic grading to set the perfect mood for your visuals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="px-6 py-20 max-w-6xl mx-auto text-center">
+        <div class="glass-card p-12 relative overflow-hidden">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">READY TO START A PROJECT?</h2>
+            <p class="text-gray-400 mb-8 max-w-xl mx-auto">Let's collaborate and create something extraordinary. Available for freelance opportunities worldwide.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://wa.me/918089003038" class="bg-white text-black font-bold px-8 py-4 rounded-full hover:bg-red-500 hover:text-white transition-all">GET IN TOUCH</a>
+                <a href="mailto:your-email@gmail.com" class="glass-card px-8 py-4 rounded-full font-bold">EMAIL ME</a>
+            </div>
+        </div>
+        <p class="mt-12 text-gray-600 text-sm uppercase tracking-widest">&copy; 2024 Vaishnav KC. All Rights Reserved.</p>
+    </footer>
+
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
-        <div class="video-container" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="closeVideo()">&times;</button>
+        <div class="relative w-[90%] max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl" onclick="event.stopPropagation()">
             <iframe id="drivePlayer" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
     <script>
+        // Projects Data
         const projects = [
             {
                 title: "Nova Fitness",
                 category: "Brand Campaign",
                 year: "2024",
                 driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
-            }
+            },
+            // പുതിയ പ്രോജക്റ്റുകൾ ഇവിടെ ചേർക്കാം
         ];
 
         function renderGrid() {
@@ -108,18 +188,21 @@
             grid.innerHTML = projects.map(p => {
                 const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
                 return `
-                    <div class="group cursor-pointer" onclick="openVideo('${p.driveID}')">
-                        <div class="relative overflow-hidden rounded-2xl aspect-video bg-gray-900 border border-white/10 group-hover:border-red-500/50 transition duration-500">
-                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-105 transition duration-700">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <div class="bg-red-600 w-16 h-16 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-play text-white text-2xl ml-1"></i>
+                    <div class="glass-card p-4 group cursor-pointer" onclick="openVideo('${p.driveID}')">
+                        <div class="relative overflow-hidden rounded-xl aspect-video bg-black">
+                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div class="play-btn w-16 h-16 rounded-full flex items-center justify-center text-white">
+                                    <i class="fas fa-play ml-1"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-4 text-center md:text-left">
-                            <h4 class="text-lg font-bold uppercase text-white">${p.title}</h4>
-                            <p class="text-gray-500 text-xs">${p.category} • ${p.year}</p>
+                        <div class="mt-6 px-2 flex justify-between items-center">
+                            <div>
+                                <h4 class="text-lg font-bold uppercase tracking-tight">${p.title}</h4>
+                                <p class="text-gray-500 text-xs font-semibold uppercase">${p.category}</p>
+                            </div>
+                            <span class="text-xs text-white/30 font-bold">${p.year}</span>
                         </div>
                     </div>
                 `;
