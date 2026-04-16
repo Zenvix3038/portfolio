@@ -3,165 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAISHNAV KC | Portfolio</title>
+    <title>VAISHNAV KC | Video Editor</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
-        :root {
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent: #ff4d4d;
-        }
-
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #08080a; 
+            background-color: #0d0d0b; 
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* Animated Background Blobs */
-        .blob {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #ff4d4d22 0%, #7000ff22 100%);
-            filter: blur(80px);
-            border-radius: 50%;
+        /* Gradient Glow Background */
+        .bg-glow {
+            position: absolute;
+            top: 0; right: 0;
+            width: 60%; height: 100%;
+            background: radial-gradient(circle at center, #4a5d2333 0%, transparent 70%);
             z-index: -1;
-            animation: move 20s infinite alternate;
         }
 
-        @keyframes move {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(20%, 20%); }
+        .accent-color { color: #a3b18a; } /* Olive/Green accent from your reference */
+        .bg-accent { background-color: #a3b18a; }
+
+        /* Glass Stat Bar */
+        .stat-bar {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
         }
 
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            transition: all 0.4s ease;
+        .photo-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
         }
 
         /* Slider Styles */
         .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .project-card {
-            min-width: 280px;
-            max-width: 300px;
-            flex-shrink: 0;
-        }
-
+        .project-card { min-width: 280px; flex-shrink: 0; }
+        
         .video-modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0; top: 0; 
-            width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.9); 
-            backdrop-filter: blur(15px);
-            justify-content: center; 
-            align-items: center; 
+            display: none; position: fixed; z-index: 1000; left: 0; top: 0; 
+            width: 100%; height: 100%; background: rgba(0,0,0,0.95); 
+            backdrop-filter: blur(15px); justify-content: center; align-items: center; 
         }
         .video-modal.open { display: flex; }
-
-        .nav-link { position: relative; transition: 0.3s; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0%; height: 2px;
-            background: var(--accent);
-            transition: 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
 <body>
 
-    <div class="blob"></div>
-    <div class="blob" style="right: -10%; top: 40%; background: linear-gradient(135deg, #00d4ff11 0%, #002eff11 100%);"></div>
+    <div class="bg-glow"></div>
 
-    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center sticky top-0 z-50">
-        <span class="font-extrabold text-2xl tracking-tighter italic">V<span class="text-red-500">KC</span></span>
-        <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
+    <nav class="p-6 max-w-7xl mx-auto flex justify-between items-center relative z-50">
+        <span class="font-bold text-2xl tracking-tighter italic">V<span class="accent-color">KC</span></span>
+        <div class="hidden md:flex gap-10 text-xs font-bold uppercase tracking-[0.2em] text-gray-400">
+            <a href="#home" class="hover:text-white transition">Home</a>
+            <a href="#work" class="hover:text-white transition">Project</a>
+            <a href="#services" class="hover:text-white transition">About</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
         </div>
-        <a href="https://wa.me/918089003038" class="glass-card px-5 py-2 text-green-400 flex items-center gap-2 hover:bg-green-500 hover:text-white transition-all">
-            <i class="fab fa-whatsapp"></i> <span class="text-xs font-bold uppercase">Hire Me</span>
-        </a>
+        <div class="w-10 h-10 rounded-full border border-accent-color/30 flex items-center justify-center">
+            <i class="fas fa-bars text-xs"></i>
+        </div>
     </nav>
 
-    <header class="px-6 py-16 max-w-6xl mx-auto text-center">
-        <h1 class="text-6xl md:text-8xl font-black uppercase leading-tight mb-4 tracking-tighter">
-            VAISHNAV <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">KC</span>
-        </h1>
-        <p class="text-xl md:text-2xl font-light text-gray-400 mb-8 italic">Professional Video Editor & Motion Designer</p>
-        
-        <div class="flex justify-center gap-6 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            <i class="fab fa-adobe text-2xl"></i>
-            <span class="font-bold border-r border-white/20 pr-6">PR | AE | PS</span>
-            <span class="font-bold">DAVINCI RESOLVE</span>
+    <header id="home" class="relative max-w-7xl mx-auto px-6 pt-10 flex flex-col md:flex-row items-center min-h-[80vh]">
+        <div class="w-full md:w-1/2 flex justify-center md:justify-start order-2 md:order-1 mt-10 md:mt-0">
+            <div class="relative max-w-[450px]">
+                <img src="https://i.imgur.com/K1Y9xXJ.png" alt="Vaishnav KC" class="w-full photo-mask object-cover grayscale brightness-110">
+            </div>
+        </div>
+
+        <div class="w-full md:w-1/2 text-center md:text-left order-1 md:order-2">
+            <p class="accent-color font-semibold tracking-widest mb-4">hello I'm Vaishnav</p>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">Video Editor</h1>
+            <p class="text-gray-500 max-w-md leading-relaxed mb-10">
+                Specializing in cinematic storytelling and dynamic motion graphics. Bringing frames to life with professional editing and precise color grading.
+            </p>
+            <a href="https://wa.me/918089003038" class="bg-white/5 border border-white/10 px-10 py-4 rounded-lg font-bold hover:bg-white hover:text-black transition-all uppercase text-sm tracking-widest">
+                About Me
+            </a>
+        </div>
+
+        <div class="absolute bottom-[-50px] left-1/2 -translate-x-1/2 w-[90%] max-w-5xl stat-bar p-8 grid grid-cols-2 md:grid-cols-4 gap-8 z-20">
+            <div class="text-center md:text-left md:border-r border-white/10 px-4">
+                <h3 class="text-3xl font-bold mb-1">5+</h3>
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Years Experience</p>
+            </div>
+            <div class="text-center md:text-left md:border-r border-white/10 px-4">
+                <h3 class="text-3xl font-bold mb-1">150+</h3>
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Clients</p>
+            </div>
+            <div class="text-center md:text-left md:border-r border-white/10 px-4">
+                <h3 class="text-3xl font-bold mb-1">240+</h3>
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Completed Projects</p>
+            </div>
+            <div class="text-center md:text-left px-4">
+                <h3 class="text-3xl font-bold mb-1">20+</h3>
+                <p class="text-gray-500 text-[10px] uppercase tracking-widest font-bold">Achievements</p>
+            </div>
         </div>
     </header>
 
-    <section id="work" class="px-6 py-10 max-w-7xl mx-auto overflow-hidden">
-        <div class="flex justify-between items-end mb-10 px-4">
-            <div>
-                <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-2">Portfolio</p>
-                <h2 class="text-4xl font-black uppercase">Selected Work</h2>
-            </div>
-            <div class="hidden md:flex gap-4">
-                <button onclick="scrollSlider(-320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button onclick="scrollSlider(320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4 scroll-smooth">
+    <section id="work" class="px-6 py-32 max-w-7xl mx-auto overflow-hidden">
+        <h2 class="text-3xl font-black mb-12 uppercase italic">Selected Work</h2>
+        <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 scroll-smooth px-2">
             </div>
     </section>
-
-    <section id="services" class="px-6 py-20 bg-white/5 backdrop-blur-md border-y border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-black mb-12 uppercase text-center">Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-film text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Video Editing</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Commercial, social media and documentary style edits.</p>
-                </div>
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-bezier-curve text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Motion Graphics</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic animations and high-end VFX for your brand.</p>
-                </div>
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-palette text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Color Grading</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Professional cinematic grading to set the right mood.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="px-6 py-20 max-w-6xl mx-auto text-center">
-        <div class="glass-card p-12 bg-gradient-to-br from-white/5 to-red-500/5">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 italic">LET'S CREATE SOMETHING EPIC</h2>
-            <a href="https://wa.me/918089003038" class="inline-block bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-red-500 hover:text-white transition-all transform hover:scale-105 uppercase tracking-widest">Contact Now</a>
-        </div>
-        <p class="mt-12 text-gray-600 text-xs uppercase tracking-widest">&copy; 2026 Vaishnav KC. Kerala, India.</p>
-    </footer>
 
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
         <div class="relative w-[95%] max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10" onclick="event.stopPropagation()">
@@ -171,60 +122,29 @@
 
     <script>
         const projects = [
-            {
-                title: "Pongal", 
-                category: "Photoshop", 
-                year: "2026",
-                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc"
-            },
-            {
-                title: "Choco Bar",
-                category: "After Effects",
-                year: "2024",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
-            },
-            {
-                title: "Product Promo",
-                category: "Motion Design",
-                year: "2025",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" // Placeholder
-            },
-            {
-                title: "Cinematic Reel",
-                category: "Color Grading",
-                year: "2024",
-                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" // Placeholder
-            }
+            { title: "Pongal", category: "Color Grading", year: "2026", driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" },
+            { title: "Choco Bar", category: "Motion Graphics", year: "2024", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" },
+            { title: "Nova Fitness", category: "Brand Campaign", year: "2024", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" }
         ];
 
         function renderGrid() {
             const grid = document.getElementById('video-grid');
-            grid.innerHTML = projects.map(p => {
-                const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
-                return `
-                    <div class="project-card glass-card p-5 snap-center group cursor-pointer" onclick="openVideo('${p.driveID}')">
-                        <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-black">
-                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                                <div class="bg-red-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl">
-                                    <i class="fas fa-play ml-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 px-2">
-                            <h4 class="text-xl font-bold uppercase tracking-tighter mb-1">${p.title}</h4>
-                            <div class="flex justify-between items-center">
-                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">${p.category}</p>
-                                <span class="text-[10px] text-white/20 font-black">${p.year}</span>
+            grid.innerHTML = projects.map(p => `
+                <div class="project-card snap-center group cursor-pointer" onclick="openVideo('${p.driveID}')">
+                    <div class="relative overflow-hidden rounded-[32px] aspect-[3/4] bg-zinc-900 border border-white/5">
+                        <img src="https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000" class="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+                            <div class="w-14 h-14 rounded-full border border-white flex items-center justify-center text-white">
+                                <i class="fas fa-play text-xs"></i>
                             </div>
                         </div>
                     </div>
-                `;
-            }).join('');
-        }
-
-        function scrollSlider(amount) {
-            document.getElementById('video-grid').scrollBy({ left: amount, behavior: 'smooth' });
+                    <div class="mt-6 px-2">
+                        <h4 class="text-xl font-bold uppercase tracking-tighter mb-1">${p.title}</h4>
+                        <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">${p.category}</p>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function openVideo(id) {
