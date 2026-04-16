@@ -22,6 +22,7 @@
             overflow-x: hidden;
         }
 
+        /* Animated Background Blobs */
         .blob {
             position: fixed;
             width: 500px;
@@ -46,6 +47,7 @@
             transition: all 0.4s ease;
         }
 
+        /* Slider Styles */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
@@ -53,16 +55,6 @@
             min-width: 280px;
             max-width: 300px;
             flex-shrink: 0;
-        }
-
-        /* Preview Video Style */
-        .preview-video {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            opacity: 1; /* Always visible instead of black */
-            transform: scale(1.6); /* To hide Drive black bars */
         }
 
         .video-modal { 
@@ -137,6 +129,29 @@
         </div>
         
         <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4 scroll-smooth">
+            </div>
+    </section>
+
+    <section id="services" class="px-6 py-20 bg-white/5 backdrop-blur-md border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-black mb-12 uppercase text-center">Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-film text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Video Editing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Commercial, social media and documentary style edits.</p>
+                </div>
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-bezier-curve text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Motion Graphics</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic animations and high-end VFX for your brand.</p>
+                </div>
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-palette text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Color Grading</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Professional cinematic grading to set the right mood.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -172,13 +187,13 @@
                 title: "Product Promo",
                 category: "Motion Design",
                 year: "2025",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
+                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" // Placeholder
             },
             {
                 title: "Cinematic Reel",
                 category: "Color Grading",
                 year: "2024",
-                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc"
+                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" // Placeholder
             }
         ];
 
@@ -186,16 +201,11 @@
             const grid = document.getElementById('video-grid');
             grid.innerHTML = projects.map(p => {
                 const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
-                const previewUrl = `https://drive.google.com/file/d/${p.driveID}/preview?autoplay=1&mute=1`;
-                
                 return `
                     <div class="project-card glass-card p-5 snap-center group cursor-pointer" onclick="openVideo('${p.driveID}')">
                         <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-black">
-                            <iframe src="${previewUrl}" class="preview-video" frameborder="0"></iframe>
-                            
-                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-100 group-hover:opacity-0 transition duration-700 z-10">
-                            
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0 z-20">
+                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
                                 <div class="bg-red-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl">
                                     <i class="fas fa-play ml-1"></i>
                                 </div>
@@ -220,7 +230,7 @@
         function openVideo(id) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('drivePlayer');
-            player.src = `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
+            player.src = `https://drive.google.com/file/d/${id}/preview`;
             modal.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
