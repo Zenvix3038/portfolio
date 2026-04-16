@@ -7,185 +7,226 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: #0f0f12; 
-            color: #ffffff; 
-            overflow-x: hidden; 
-        }
-        
-        .grid-bg { 
-            background-image: radial-gradient(circle at 2px 2px, #1a1a1e 1px, transparent 0); 
-            background-size: 40px 40px; 
+        :root {
+            --glass: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --accent: #ff4d4d;
         }
 
-        /* Video Modal Styles */
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #08080a; 
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #ff4d4d22 0%, #7000ff22 100%);
+            filter: blur(80px);
+            border-radius: 50%;
+            z-index: -1;
+            animation: move 20s infinite alternate;
+        }
+
+        @keyframes move {
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(20%, 20%); }
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            transition: all 0.4s ease;
+        }
+
+        /* Slider Styles */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .project-card {
+            min-width: 280px;
+            max-width: 300px;
+            flex-shrink: 0;
+        }
+
         .video-modal { 
             display: none; 
             position: fixed; 
             z-index: 1000; 
             left: 0; top: 0; 
             width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.95); 
+            background: rgba(0,0,0,0.9); 
+            backdrop-filter: blur(15px);
             justify-content: center; 
             align-items: center; 
         }
         .video-modal.open { display: flex; }
-        .video-container { 
-            position: relative; 
-            width: 95%; 
-            max-width: 900px; 
-            aspect-ratio: 16/9; 
-            background: #000;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .close-modal { 
-            position: absolute; 
-            top: -45px; right: 10px; 
-            color: white; font-size: 35px; 
-            cursor: pointer; background: none; border: none;
-        }
 
-        /* Horizontal Slider Custom Styles */
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        .project-card {
-            min-width: 280px;
-            max-width: 320px;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 35px;
-            padding: 20px;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-        }
-        .project-card:hover { transform: translateY(-5px); }
-
-        /* Adobe SVG Styles */
-        .adobe-svg {
-            width: 32px;
-            height: 32px;
-            fill: #666;
+        .nav-link { position: relative; transition: 0.3s; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 0;
+            width: 0%; height: 2px;
+            background: var(--accent);
             transition: 0.3s;
         }
-        .adobe-svg:hover {
-            fill: #ff4d4d;
-            transform: scale(1.1);
-        }
+        .nav-link:hover::after { width: 100%; }
     </style>
 </head>
-<body class="grid-bg">
+<body>
 
-    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center">
-        <span class="font-black text-xl tracking-tighter uppercase">VAISHNAV KC</span>
-        <a href="https://wa.me/918089003038" class="text-green-500 text-3xl hover:scale-110 transition">
-            <i class="fab fa-whatsapp"></i>
+    <div class="blob"></div>
+    <div class="blob" style="right: -10%; top: 40%; background: linear-gradient(135deg, #00d4ff11 0%, #002eff11 100%);"></div>
+
+    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center sticky top-0 z-50">
+        <span class="font-extrabold text-2xl tracking-tighter italic">V<span class="text-red-500">KC</span></span>
+        <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <a href="https://wa.me/918089003038" class="glass-card px-5 py-2 text-green-400 flex items-center gap-2 hover:bg-green-500 hover:text-white transition-all">
+            <i class="fab fa-whatsapp"></i> <span class="text-xs font-bold uppercase">Hire Me</span>
         </a>
     </nav>
 
-    <header class="px-6 py-12 max-w-6xl mx-auto text-center md:text-left">
-        <h1 class="text-5xl md:text-7xl font-black uppercase leading-tight mb-2">VAISHNAV KC</h1>
-        <h3 class="text-xl md:text-2xl font-bold text-[#ff4d4d] uppercase tracking-widest mb-8 italic">
-            Professional Video Editor & Motion Designer
-        </h3>
+    <header class="px-6 py-16 max-w-6xl mx-auto text-center">
+        <h1 class="text-6xl md:text-8xl font-black uppercase leading-tight mb-4 tracking-tighter">
+            VAISHNAV <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">KC</span>
+        </h1>
+        <p class="text-xl md:text-2xl font-light text-gray-400 mb-8 italic">Professional Video Editor & Motion Designer</p>
         
-        <div class="flex gap-6 justify-center md:justify-start items-center mt-4">
-            <svg class="adobe-svg" viewBox="0 0 24 24" title="Premiere Pro"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM8.5 16.5H6.3V7.5h3.6c1.5 0 2.4.8 2.4 2.1 0 1.4-1.1 2.2-2.5 2.2H8.5v4.7zm0-6.8v2.1h1.1c.7 0 1-.3 1-.9s-.3-.9-1.1-.9H8.5zm9.2 6.8h-2.2v-4.3h-1.6v4.3h-2.2V7.5h2.2v3.1h1.6V7.5h2.2v9z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24" title="After Effects"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.1 16.5l-.6-1.9H6.8l-.6 1.9H4L7.1 7.5h1.9l3.1 9h-2zm-1.1-3.6l-.8-2.6-.8 2.6h1.6zm8.7 3.6h-4.8V7.5h4.7v1.8h-2.5v1.9h2.1v1.8h-2.1v1.8h2.6v1.7z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24" title="Photoshop"><path d="M19.7 0H4.3C1.9 0 0 1.9 0 4.3v15.4C0 22.1 1.9 24 4.3 24h15.4c2.4 0 4.3-1.9 4.3-4.3V4.3C24 1.9 22.1 0 19.7 0zM10.3 11.4c0 1.7-1.3 2.6-3.1 2.6H5.4v2.5H3.2V7.5h4.1c1.8 0 3 1 3 2.6v1.3zm-4.9-2.1v1.9h1.6c.7 0 1-.3 1-.8s-.3-.8-1-.8H5.4zm10.7 4.1c0 2.2-1.7 3.3-3.8 3.3-2.1 0-3.6-.9-3.7-2.8h2.1c.1.9.8 1.2 1.6 1.2.9 0 1.5-.4 1.5-1.3 0-.8-.5-1.1-1.6-1.5-1.7-.5-2.8-1.2-2.8-3.1 0-1.8 1.4-3.1 3.5-3.1 1.8 0 3.3.9 3.4 2.6h-2c-.1-.7-.7-1-1.3-1-.8 0-1.3.4-1.3 1.1s.5 1 1.6 1.3c1.9.6 2.8 1.2 2.8 3.3z"/></svg>
-            <svg class="adobe-svg" viewBox="0 0 24 24" title="Substance 3D"><path d="M0 0v24h24V0H0zm8.8 17H5.4v-2.2h1.1V9.7H5.4V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3H7.5v1.3h1.3V17zm4.7 0v-2.2h1.1V9.7h-1.1V7.5h3.4c2.4 0 3.6 1.3 3.6 3s-1.2 3-3.6 3h-1.3v1.3h1.3V17h-3.4z"/></svg>
+        <div class="flex justify-center gap-6 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+            <i class="fab fa-adobe text-2xl"></i>
+            <span class="font-bold border-r border-white/20 pr-6">PR | AE | PS</span>
+            <span class="font-bold">DAVINCI RESOLVE</span>
         </div>
     </header>
 
-    <section class="px-6 py-10 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-black mb-10 uppercase italic border-l-4 border-red-500 pl-4">Selected Work</h2>
+    <section id="work" class="px-6 py-10 max-w-7xl mx-auto overflow-hidden">
+        <div class="flex justify-between items-end mb-10 px-4">
+            <div>
+                <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-2">Portfolio</p>
+                <h2 class="text-4xl font-black uppercase">Selected Work</h2>
+            </div>
+            <div class="hidden md:flex gap-4">
+                <button onclick="scrollSlider(-320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button onclick="scrollSlider(320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
         
-        <div class="relative">
-            <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10">
-                </div>
+        <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4 scroll-smooth">
+            </div>
+    </section>
 
-            <div class="flex justify-center gap-6 mt-4">
-                <button onclick="scrollSlider(-300)" class="bg-white/5 hover:bg-[#ff4d4d] w-14 h-14 rounded-full flex items-center justify-center transition shadow-xl">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <button onclick="scrollSlider(300)" class="bg-white/5 hover:bg-[#ff4d4d] w-14 h-14 rounded-full flex items-center justify-center transition shadow-xl">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
+    <section id="services" class="px-6 py-20 bg-white/5 backdrop-blur-md border-y border-white/5">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-black mb-12 uppercase text-center">Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-film text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Video Editing</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Commercial, social media and documentary style edits.</p>
+                </div>
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-bezier-curve text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Motion Graphics</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic animations and high-end VFX for your brand.</p>
+                </div>
+                <div class="glass-card p-8 hover:border-red-500/50">
+                    <i class="fas fa-palette text-3xl text-red-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Color Grading</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Professional cinematic grading to set the right mood.</p>
+                </div>
             </div>
         </div>
     </section>
 
+    <footer id="contact" class="px-6 py-20 max-w-6xl mx-auto text-center">
+        <div class="glass-card p-12 bg-gradient-to-br from-white/5 to-red-500/5">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 italic">LET'S CREATE SOMETHING EPIC</h2>
+            <a href="https://wa.me/918089003038" class="inline-block bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-red-500 hover:text-white transition-all transform hover:scale-105 uppercase tracking-widest">Contact Now</a>
+        </div>
+        <p class="mt-12 text-gray-600 text-xs uppercase tracking-widest">&copy; 2026 Vaishnav KC. Kerala, India.</p>
+    </footer>
+
     <div id="videoModal" class="video-modal" onclick="closeVideo()">
-        <div class="video-container" onclick="event.stopPropagation()">
-            <button class="close-modal" onclick="closeVideo()">&times;</button>
+        <div class="relative w-[95%] max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10" onclick="event.stopPropagation()">
             <iframe id="drivePlayer" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
-    <footer class="p-16 text-center border-t border-white/5 mt-10">
-        <span class="font-black text-lg tracking-tighter uppercase opacity-50">VAISHNAV KC</span>
-    </footer>
-
     <script>
-        // --- Projects Data ---
         const projects = [
             {
-                title: "Nova Fitness",
-                category: "Product Research",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD",
-                color: "rgba(255, 100, 100, 0.05)"
+                title: "Pongal", 
+                category: "Photoshop", 
+                year: "2026",
+                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc"
             },
             {
-                title: "Luxe Ads",
-                category: "Social Media",
-                driveID: "YOUR_SECOND_ID_HERE",
-                color: "rgba(100, 255, 100, 0.05)"
+                title: "Choco Bar",
+                category: "After Effects",
+                year: "2024",
+                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
             },
             {
-                title: "Motion Reel",
-                category: "Visual Effects",
-                driveID: "YOUR_THIRD_ID_HERE",
-                color: "rgba(100, 100, 255, 0.05)"
+                title: "Product Promo",
+                category: "Motion Design",
+                year: "2025",
+                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" // Placeholder
+            },
+            {
+                title: "Cinematic Reel",
+                category: "Color Grading",
+                year: "2024",
+                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" // Placeholder
             }
         ];
 
         function renderGrid() {
             const grid = document.getElementById('video-grid');
             grid.innerHTML = projects.map(p => {
-                if(!p.driveID || p.driveID.includes("YOUR")) {
-                    // ID illatha cards kaanikenda
-                    return '';
-                }
                 const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
-                
                 return `
-                    <div class="project-card snap-center group cursor-pointer" style="background: ${p.color}" onclick="openVideo('${p.driveID}')">
-                        <div class="relative overflow-hidden rounded-[25px] aspect-[4/5] mb-6">
-                            <img src="${thumbUrl}" class="w-full h-full object-cover transition duration-700 group-hover:scale-110">
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                <div class="bg-[#ff4d4d] w-14 h-14 rounded-full flex items-center justify-center shadow-lg">
-                                    <i class="fas fa-play text-white"></i>
+                    <div class="project-card glass-card p-5 snap-center group cursor-pointer" onclick="openVideo('${p.driveID}')">
+                        <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-black">
+                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
+                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                                <div class="bg-red-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl">
+                                    <i class="fas fa-play ml-1"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="px-2">
-                            <h4 class="text-2xl font-bold text-white mb-1 uppercase tracking-tight">${p.title}</h4>
-                            <p class="text-gray-400 text-sm font-medium">${p.category}</p>
+                        <div class="mt-6 px-2">
+                            <h4 class="text-xl font-bold uppercase tracking-tighter mb-1">${p.title}</h4>
+                            <div class="flex justify-between items-center">
+                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">${p.category}</p>
+                                <span class="text-[10px] text-white/20 font-black">${p.year}</span>
+                            </div>
                         </div>
                     </div>
                 `;
             }).join('');
         }
 
-        // Slider Logic
-        function scrollSlider(val) {
-            document.getElementById('video-grid').scrollBy({ left: val, behavior: 'smooth' });
+        function scrollSlider(amount) {
+            document.getElementById('video-grid').scrollBy({ left: amount, behavior: 'smooth' });
         }
 
-        // Modal Logic
         function openVideo(id) {
             const modal = document.getElementById('videoModal');
             const player = document.getElementById('drivePlayer');
