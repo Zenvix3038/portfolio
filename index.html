@@ -90,6 +90,11 @@
             50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
             100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
         }
+
+        /* Before & After Styles */
+        #comparison-container {
+            touch-action: pan-y;
+        }
     </style>
 </head>
 <body>
@@ -142,6 +147,34 @@
                     <div class="px-4 py-2 glass-card rounded-2xl text-xs font-bold border-white/5 uppercase">UI/UX Designer</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-20 max-w-5xl mx-auto">
+        <div class="text-center mb-10">
+            <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-2">Process</p>
+            <h2 class="text-4xl font-black uppercase tracking-tight">The <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">Transformation</span></h2>
+        </div>
+
+        <div class="glass-card p-4 relative overflow-hidden group">
+            <div id="comparison-container" class="relative w-full aspect-video rounded-2xl overflow-hidden cursor-ew-resize select-none">
+                <div class="absolute inset-0">
+                    <img src="https://drive.google.com/thumbnail?id=1hLlLy6c_9bcdOh-pDf3IerOOvIMMDxHZ&sz=w1000" class="w-full h-full object-cover" alt="After Editing">
+                    <div class="absolute bottom-4 right-6 bg-black/50 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold uppercase border border-white/10">After</div>
+                </div>
+
+                <div id="before-layer" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-red-500 shadow-[10px_0_20px_rgba(0,0,0,0.5)]">
+                    <img src="https://drive.google.com/thumbnail?id=1yx6rbO8LrHQ2C2cN2iGizHhT2PkBEO8e&sz=w1000" class="w-full h-full object-cover" alt="Before Editing">
+                    <div class="absolute bottom-4 left-6 bg-black/50 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold uppercase border border-white/10">Before</div>
+                </div>
+
+                <div id="slider-handle" class="absolute top-0 bottom-0 left-1/2 w-1 bg-red-500 -translate-x-1/2 pointer-events-none flex items-center justify-center">
+                    <div class="w-10 h-10 bg-red-500 rounded-full shadow-xl flex items-center justify-center text-white border-4 border-[#08080a]">
+                        <i class="fas fa-arrows-alt-h"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 text-sm mt-6 italic">Slide the handle to see the grading difference</p>
         </div>
     </section>
 
@@ -203,32 +236,31 @@
     </div>
 
     <script>
+        // Projects Data
         const projects = [
-            {
-                title: "Pongal", 
-                category: "Photoshop", 
-                year: "2026",
-                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc"
-            },
-            {
-                title: "Choco Bar",
-                category: "After Effects",
-                year: "2024",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
-            },
-            {
-                title: "Product Promo",
-                category: "Motion Design",
-                year: "2025",
-                driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD"
-            },
-            {
-                title: "Cinematic Reel",
-                category: "Color Grading",
-                year: "2024",
-                driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc"
-            }
+            { title: "Pongal", category: "Photoshop", year: "2026", driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" },
+            { title: "Choco Bar", category: "After Effects", year: "2024", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" },
+            { title: "Product Promo", category: "Motion Design", year: "2025", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" },
+            { title: "Cinematic Reel", category: "Color Grading", year: "2024", driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" }
         ];
+
+        // Before & After Interaction Logic
+        const container = document.getElementById('comparison-container');
+        const beforeLayer = document.getElementById('before-layer');
+        const handle = document.getElementById('slider-handle');
+
+        const moveSlider = (e) => {
+            let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            let rect = container.getBoundingClientRect();
+            let position = ((x - rect.left) / rect.width) * 100;
+            if (position >= 0 && position <= 100) {
+                beforeLayer.style.width = `${position}%`;
+                handle.style.left = `${position}%`;
+            }
+        };
+
+        container.addEventListener('mousemove', moveSlider);
+        container.addEventListener('touchmove', moveSlider);
 
         function renderGrid() {
             const grid = document.getElementById('video-grid');
