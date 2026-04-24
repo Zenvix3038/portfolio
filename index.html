@@ -1,269 +1,709 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ZENVIX MOTION | ALL-IN-ONE</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
-    <script id="tailwind-config">
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     "colors": {
-                        "primary-container": "#c3f400",
-                        "primary-fixed": "#c3f400",
-                        "primary-fixed-dim": "#abd600",
-                        "on-primary-fixed": "#161e00",
-                        "background": "#080808",
-                        "surface": "#131313",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-background": "#e5e2e1",
-                        "on-surface": "#e5e2e1",
-                        "on-surface-variant": "#c4c9ac",
+                        "on-primary-fixed": "#002021",
+                        "surface-tint": "#00dce5",
+                        "primary-fixed-dim": "#00dce5",
+                        "background": "#131314",
+                        "on-tertiary-fixed-variant": "#454749",
+                        "inverse-on-surface": "#313031",
+                        "on-error": "#690005",
+                        "surface-bright": "#3a393a",
+                        "on-secondary-container": "#f7e6ff",
+                        "tertiary-container": "#dddddf",
+                        "on-tertiary": "#2f3132",
+                        "tertiary-fixed": "#e2e2e4",
+                        "on-secondary-fixed-variant": "#6b00b0",
+                        "error": "#ffb4ab",
+                        "primary": "#e9feff",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#63f7ff",
+                        "surface-container-high": "#2a2a2b",
+                        "on-background": "#e5e2e3",
+                        "surface-container": "#201f20",
+                        "on-secondary-fixed": "#2d004f",
+                        "outline": "#849495",
+                        "inverse-surface": "#e5e2e3",
+                        "secondary": "#dfb7ff",
+                        "secondary-container": "#9d05ff",
+                        "outline-variant": "#3a494a",
+                        "primary-container": "#00f5ff",
+                        "surface-variant": "#353436",
+                        "on-primary-fixed-variant": "#004f53",
+                        "tertiary-fixed-dim": "#c6c6c8",
+                        "surface-container-highest": "#353436",
+                        "on-primary": "#003739",
+                        "on-tertiary-container": "#606163",
+                        "secondary-fixed-dim": "#dfb7ff",
+                        "on-secondary": "#4b007e",
+                        "surface": "#131314",
+                        "surface-container-low": "#1c1b1c",
+                        "on-surface-variant": "#b9caca",
+                        "secondary-fixed": "#f1daff",
+                        "surface-container-lowest": "#0e0e0f",
+                        "inverse-primary": "#00696e",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#e5e2e3",
+                        "on-tertiary-fixed": "#1a1c1d",
+                        "on-primary-container": "#006c71",
+                        "surface-dim": "#131314",
+                        "tertiary": "#fafafc"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-gap": "120px",
+                        "container-max": "1440px",
+                        "margin-edge": "48px",
+                        "gutter": "24px",
+                        "unit": "8px"
                     },
                     "fontFamily": {
-                        "h1": ["Space Grotesk"],
-                        "h2": ["Space Grotesk"],
-                        "h3": ["Space Grotesk"],
-                        "label-caps": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"]
+                        "body-md": ["Manrope"],
+                        "headline-h1": ["Space Grotesk"],
+                        "body-lg": ["Manrope"],
+                        "headline-h2": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"],
+                        "display-hero": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "display-hero": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
                     }
-                }
-            }
+                },
+            },
         }
     </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            background: rgba(20, 20, 22, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+        .scan-line {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 245, 255, 0.05) 50%);
+            background-size: 100% 4px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-zinc-950/60 backdrop-blur-2xl border-b border-white/10 shadow-[0_0_30px_rgba(0,245,255,0.1)]">
+<div class="max-w-[1440px] mx-auto flex justify-between items-center px-12 h-24">
+<div class="text-2xl font-black italic tracking-tighter text-white">CINE_MOTION</div>
+<nav class="hidden md:flex items-center gap-10 font-space-grotesk uppercase tracking-widest text-sm font-bold">
+<a class="text-zinc-400 hover:text-white transition-all hover:text-cyan-400" href="#">Showcase</a>
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Marketplace</a>
+<a class="text-zinc-400 hover:text-white transition-all hover:text-cyan-400" href="#">Services</a>
+<a class="text-zinc-400 hover:text-white transition-all hover:text-cyan-400" href="#">Dashboard</a>
+</nav>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-white/5 border border-white/10 px-4 py-2 rounded-full focus-within:border-cyan-400 transition-colors">
+<span class="material-symbols-outlined text-zinc-500 text-lg mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label-caps tracking-widest text-white w-48 placeholder-zinc-600" placeholder="SEARCH ASSETS..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-zinc-400 hover:text-cyan-400 transition-colors">shopping_cart</button>
+<button class="material-symbols-outlined text-zinc-400 hover:text-cyan-400 transition-colors">account_circle</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 font-label-caps text-[10px] tracking-widest hover:shadow-[0_0_15px_rgba(0,245,255,0.4)] transition-all active:scale-95">START PROJECT</button>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-gap px-12 max-w-[1440px] mx-auto">
+<!-- Marketplace Hero / Header -->
+<div class="mb-16">
+<h1 class="font-display-hero text-display-hero uppercase mb-4 text-white">Marketplace</h1>
+<p class="text-zinc-500 max-w-2xl font-body-lg text-body-lg">
+                High-performance visual building blocks for the modern director. Curated motion templates, premium color grades, and technical overlays.
+            </p>
+</div>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 space-y-12 flex-shrink-0">
+<div class="space-y-6">
+<h3 class="font-label-caps text-label-caps text-white tracking-widest border-b border-white/10 pb-4">CATEGORIES</h3>
+<div class="flex flex-col gap-4">
+<label class="flex items-center justify-between group cursor-pointer">
+<span class="text-cyan-400 font-medium">All Assets</span>
+<span class="text-[10px] bg-cyan-400/10 text-cyan-400 px-2 py-0.5 rounded">128</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer text-zinc-500 hover:text-white transition-colors">
+<span>Transitions</span>
+<span class="text-[10px] bg-white/5 px-2 py-0.5 rounded">42</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer text-zinc-500 hover:text-white transition-colors">
+<span>LUTS</span>
+<span class="text-[10px] bg-white/5 px-2 py-0.5 rounded">31</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer text-zinc-500 hover:text-white transition-colors">
+<span>Overlays</span>
+<span class="text-[10px] bg-white/5 px-2 py-0.5 rounded">24</span>
+</label>
+<label class="flex items-center justify-between group cursor-pointer text-zinc-500 hover:text-white transition-colors">
+<span>Motion Templates</span>
+<span class="text-[10px] bg-white/5 px-2 py-0.5 rounded">31</span>
+</label>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-label-caps text-label-caps text-white tracking-widest border-b border-white/10 pb-4">COMPATIBILITY</h3>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-white/10 text-[10px] font-label-caps tracking-wider text-zinc-400 hover:border-secondary transition-colors cursor-pointer">PR PRO</span>
+<span class="px-3 py-1 border border-white/10 text-[10px] font-label-caps tracking-wider text-zinc-400 hover:border-secondary transition-colors cursor-pointer">DA VINCI</span>
+<span class="px-3 py-1 border border-white/10 text-[10px] font-label-caps tracking-wider text-zinc-400 hover:border-secondary transition-colors cursor-pointer">AFTER EFFECTS</span>
+<span class="px-3 py-1 border border-white/10 text-[10px] font-label-caps tracking-wider text-zinc-400 hover:border-secondary transition-colors cursor-pointer">FCPX</span>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-label-caps text-label-caps text-white tracking-widest border-b border-white/10 pb-4">PRICE RANGE</h3>
+<input class="w-full h-1 bg-white/10 appearance-none rounded-full accent-cyan-400" type="range"/>
+<div class="flex justify-between text-xs font-mono text-zinc-500">
+<span>$0</span>
+<span>$500</span>
+</div>
+</div>
+</aside>
+<!-- Asset Grid -->
+<section class="flex-grow">
+<div class="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
+<div class="flex items-center gap-4">
+<span class="text-zinc-500 text-xs font-label-caps tracking-tighter">SORT BY:</span>
+<select class="bg-transparent border-none text-white text-xs font-bold tracking-widest focus:ring-0 cursor-pointer">
+<option>NEWEST ARRIVALS</option>
+<option>POPULARITY</option>
+<option>PRICE: LOW TO HIGH</option>
+<option>PRICE: HIGH TO LOW</option>
+</select>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 flex items-center justify-center border border-white/10 text-cyan-400">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+</button>
+<button class="w-8 h-8 flex items-center justify-center border border-white/10 text-zinc-600">
+<span class="material-symbols-outlined text-lg">view_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-gutter gap-y-12">
+<!-- Asset Card 1 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Abstract dynamic light trails and glowing cyan particles moving across a dark cinematic digital background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdz8llwCKIOL3DZPyvAbxl19zhOMgmbABLnd1UPRTGkGSjU8XiF_drwYRvLpB_TfCUwUibQJUJEYqxKpa5mJMN1sxgCr-cG7kimzaxh9kDrPiYlJwr8Kkktl9uMHfmQSmSZzTsPmQxYeILLGcSHqVK7T2KFYTrXUAMzNdHQ_oLe-7Df2G2YgF3BbX5eMsFKllToTy4JvPC6HX8Qj-qPCCENzOsvENGROABm5U56TgUM1cYDEqSTX1EZ_Hgv6MPBJm69bEhDYkvfgQ7"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">4K ULTRA</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">VFX</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">PREVIEW CLIP</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">NEON VELOCITY PACK</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">32 TRANSITIONS</p>
+</div>
+<div class="text-white font-bold text-lg">$49</div>
+</div>
+</div>
+<!-- Asset Card 2 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Moody cinematic close-up of a vintage film camera lens with dramatic orange and teal studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhsOOXoz1Lk5GmEWHAYYj10l4qi4wlxurnKULu5S_hAyOIKg_1ujhYe8spYmsQejF3r3XWNBTezA7Pu5vekfj8VbjivUQfmXCW8tmHMCI5Ea2GiUyoDaxfseaCsk17AeJfCn5xPBDgqdJ8kukMljqnUsU35UIgzz3MR3j3RDx-Eea3Hybhvm0WkAp-01x7h4BARU2Ifp5e03EN5r10IGjo4t80gbTc-oGhYogqZsuQ23eHUn0up4bOR_Ij9nzBNvhshQ7cfbJi_Uul"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">LOG SUPPORT</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">LUTS</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">PREVIEW SAMPLES</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">HEIRLOOM ANALOG LUTS</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">12 FILM STOCKS</p>
+</div>
+<div class="text-white font-bold text-lg">$29</div>
+</div>
+</div>
+<!-- Asset Card 3 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Fluid organic 3D shapes in vibrant violet and blue gradients floating in a minimalist dark void space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX0ADQnyw-O8k35YbVWR-WECd2pTuQHGVjKz0KeFN2i55Eh0oa8Z2t5PUt1G3hJO_mqvB6aUMFW0hTuvnzFrCXhROtNAxq9oz_IpaPRzfP2PeJ3UeOhWDK4bzrkWovYjMTFqBG2TCrdBAVgWaQ7NfYol6_EpBtmIIBrtD2v2LtIoycy48MDyleI41jDr9LUwVfJMVGNY1AIGpAZWogRUlpttw06xdZ8rj4C5bvOKyIuraghvvcUHtcEidg2ETRXlOcI5yjCQGIufkt"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">8K MASTER</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">OVERLAYS</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">VIEW BUNDLE</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">CHROMATIC GRAIN 2.0</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">50+ OVERLAYS</p>
+</div>
+<div class="text-white font-bold text-lg">$75</div>
+</div>
+</div>
+<!-- Asset Card 4 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Modern cyberpunk computer interface with complex UI elements, glowing timecodes and data visualizations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQZSuHhc4wkaPmYve0gezrYwYxenYx_H74w0PEgpNYIeNzy1i5f8eAQN2LP4jT_B9S2Ruc3mat6cWwzCXOAmlpGvBf607UR9HqQIbARJpBD2i5Q4xAvScBfQwL_D1IPdJyQY6_gsoBfSG0KlKny3gKjTeTFBQVtCeWZRCOi-9RluXUxveLIoC_lMQNyP3z6kSnUHISn7aFqv927OuoBWA-NukY7m1Bm-UzS-TbXCjrFJLBSHiMTZwP2svjXzX9ozzozcBZT5WopdFY"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">EDITABLE</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">TEMPLATES</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">OPEN IN AE</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">SYBERIA TITLES PACK</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">20 MOGRAPH SETS</p>
+</div>
+<div class="text-white font-bold text-lg">$59</div>
+</div>
+</div>
+<!-- Asset Card 5 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Professional color grading suite with large monitors showing high-contrast cinematic desert landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjUh4C9K2u4lma7-xbRVHfZqa4T9z6EPY9KhbUEzgunXebnw9zczvOBEPb2AD2zgJBO4rSyFK4vX_-ryQwQ1yKKMK8kI5mvXP6BzFyTL737cQ2d3Nwy5vqQPtFJAIGvHZHSgMBt779H1r4pXfN9R5WUcTym-X0Ul50hggcPX2OnHSP8LgcggrJ9pD79YUMAq55mL5qDaW7Sh_QMjlz8IgAA2Vj9vhjN-zzhcwXgWQp6P8Y1CLoquiDfoRplvGw85b15eRAgXbbETad"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">PREMIUM</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">LUTS</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">VIEW ALL</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">HORIZON GRADE BUNDLE</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">MASTER COLLECTION</p>
+</div>
+<div class="text-white font-bold text-lg">$120</div>
+</div>
+</div>
+<!-- Asset Card 6 -->
+<div class="group">
+<div class="relative aspect-video overflow-hidden glass-panel mb-4">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" data-alt="Extreme close-up of a 35mm film strip with visible sprocket holes and light leaks on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-65OmRsbbBeTHsr1Y6htaT2cPuDV_-gMh5byE0WUnPW1tlyg0ukiyw0kcd8ThDUpkxrxiHLucuxju2tfN4I2Y0HNTtlgnSM15asthJakjM9lH0cqIPVr858HNJt_jzJqtEJyIs9j5a4YtxIcMtX7BUwNeQU8cHlaPLyBZaGbbljC_TIo4xNxQoaTZUIvASDOBMYM0P9_kC08f-oz_kRGYwb3OdmhBm7NLbwd_uu8fJv_X_qbTTWdIiZR1E0pD63q8rd9DwH_dJtc-"/>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="bg-black/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5 border border-white/10">REAL SCAN</span>
+<span class="bg-secondary-container/80 backdrop-blur-md text-[9px] font-label-caps text-white px-2 py-0.5">TRANSITIONS</span>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-6">
+<button class="bg-white text-black px-6 py-2 text-[10px] font-label-caps tracking-widest hover:bg-cyan-400 transition-colors">PREVIEW BURNS</button>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-white font-headline-h2 text-lg tracking-tight mb-1 group-hover:text-cyan-400 transition-colors">FILM BURN TRANSITIONS</h3>
+<p class="text-zinc-500 text-xs font-label-caps tracking-widest">AUTHENTIC 35MM</p>
+</div>
+<div class="text-white font-bold text-lg">$35</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center border border-white/10 text-zinc-600 hover:text-white hover:border-cyan-400 transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center border border-cyan-400 text-cyan-400 font-bold font-mono text-xs">01</button>
+<button class="w-10 h-10 flex items-center justify-center border border-white/10 text-zinc-500 hover:text-white font-mono text-xs">02</button>
+<button class="w-10 h-10 flex items-center justify-center border border-white/10 text-zinc-500 hover:text-white font-mono text-xs">03</button>
+<button class="w-10 h-10 flex items-center justify-center border border-white/10 text-zinc-600 hover:text-white hover:border-cyan-400 transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-950 w-full border-t border-white/5 py-20">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center px-12 gap-8">
+<div class="space-y-4 text-center md:text-left">
+<div class="text-lg font-bold text-white uppercase tracking-tighter">CINE_MOTION STUDIOS</div>
+<div class="font-space-grotesk text-xs tracking-tighter text-zinc-500 uppercase">© 2024 CINE_MOTION STUDIOS. ALL RIGHTS RESERVED.</div>
+</div>
+<div class="flex gap-8">
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors uppercase" href="#">Terms</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors uppercase" href="#">Privacy</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors uppercase" href="#">Careers</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors uppercase" href="#">Contact</a>
+</div>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-white/5 hover:text-cyan-400 transition-all">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</button>
+<button class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center hover:bg-white/5 hover:text-cyan-400 transition-all">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</button>
+</div>
+</div>
+</footer>
+<!-- FAB -->
+<div class="fixed bottom-12 right-12 z-50">
+<button class="w-16 h-16 bg-primary-container text-on-primary-container rounded-full shadow-[0_0_30px_rgba(0,245,255,0.4)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl">add_shopping_cart</span>
+</button>
+</div>
+</body></html>
 
-    <style>
-        .glass-panel, .glass-card {
-            background: rgba(19, 19, 19, 0.7);
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#002021",
+                    "surface-tint": "#00dce5",
+                    "primary-fixed-dim": "#00dce5",
+                    "background": "#131314",
+                    "on-tertiary-fixed-variant": "#454749",
+                    "inverse-on-surface": "#313031",
+                    "on-error": "#690005",
+                    "surface-bright": "#3a393a",
+                    "on-secondary-container": "#f7e6ff",
+                    "tertiary-container": "#dddddf",
+                    "on-tertiary": "#2f3132",
+                    "tertiary-fixed": "#e2e2e4",
+                    "on-secondary-fixed-variant": "#6b00b0",
+                    "error": "#ffb4ab",
+                    "primary": "#e9feff",
+                    "error-container": "#93000a",
+                    "primary-fixed": "#63f7ff",
+                    "surface-container-high": "#2a2a2b",
+                    "on-background": "#e5e2e3",
+                    "surface-container": "#201f20",
+                    "on-secondary-fixed": "#2d004f",
+                    "outline": "#849495",
+                    "inverse-surface": "#e5e2e3",
+                    "secondary": "#dfb7ff",
+                    "secondary-container": "#9d05ff",
+                    "outline-variant": "#3a494a",
+                    "primary-container": "#00f5ff",
+                    "surface-variant": "#353436",
+                    "on-primary-fixed-variant": "#004f53",
+                    "tertiary-fixed-dim": "#c6c6c8",
+                    "surface-container-highest": "#353436",
+                    "on-primary": "#003739",
+                    "on-tertiary-container": "#606163",
+                    "secondary-fixed-dim": "#dfb7ff",
+                    "on-secondary": "#4b007e",
+                    "surface": "#131314",
+                    "surface-container-low": "#1c1b1c",
+                    "on-surface-variant": "#b9caca",
+                    "secondary-fixed": "#f1daff",
+                    "surface-container-lowest": "#0e0e0f",
+                    "inverse-primary": "#00696e",
+                    "on-error-container": "#ffdad6",
+                    "on-surface": "#e5e2e3",
+                    "on-tertiary-fixed": "#1a1c1d",
+                    "on-primary-container": "#006c71",
+                    "surface-dim": "#131314",
+                    "tertiary": "#fafafc"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "section-gap": "120px",
+                    "container-max": "1440px",
+                    "margin-edge": "48px",
+                    "gutter": "24px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Manrope"],
+                    "headline-h1": ["Space Grotesk"],
+                    "body-lg": ["Manrope"],
+                    "headline-h2": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "display-hero": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "display-hero": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(26, 26, 28, 0.6);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .vignette {
-            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
+        .neon-glow:hover {
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.4);
         }
-        .technical-grid {
-            background-image: 
-                linear-gradient(to right, rgba(204, 255, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(204, 255, 0, 0.05) 1px, transparent 1px);
-            background-size: 40px 40px;
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
-        section { display: none; }
-        section:target, section.active { display: block; }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
+        .scanline-btn::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 245, 255, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .scanline-btn:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
-<body class="bg-[#080808] text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-
-<header class="bg-[#080808]/80 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50 shadow-2xl shadow-black/50">
-    <nav class="flex justify-between items-center px-6 md:px-16 py-4 md:py-6 w-full max-w-[1920px] mx-auto">
-        <div class="text-xl md:text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
-        
-        <div class="hidden xl:flex items-center space-x-8">
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#home">Home</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#portfolio">Portfolio</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#services">Services</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#assets">Assets</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#about">About</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#hub">Hub</a>
-        </div>
-        
-        <a href="#contact" class="hidden sm:block bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-[10px] tracking-widest px-6 py-3 transition-transform active:scale-95">START PROJECT</a>
-        
-        <div class="xl:hidden text-white">
-            <span class="material-symbols-outlined">menu</span>
-        </div>
-    </nav>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<header class="fixed top-0 w-full z-50 border-b border-white/10 bg-zinc-950/60 backdrop-blur-2xl shadow-[0_0_30px_rgba(0,245,255,0.1)]">
+<nav class="max-w-[1440px] mx-auto flex justify-between items-center px-12 h-24">
+<div class="text-2xl font-black italic tracking-tighter text-white">CINE_MOTION</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-space-grotesk uppercase tracking-widest text-sm font-bold text-zinc-400 hover:text-white transition-all" href="#">Showcase</a>
+<a class="font-space-grotesk uppercase tracking-widest text-sm font-bold text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Marketplace</a>
+<a class="font-space-grotesk uppercase tracking-widest text-sm font-bold text-zinc-400 hover:text-white transition-all" href="#">Services</a>
+<a class="font-space-grotesk uppercase tracking-widest text-sm font-bold text-zinc-400 hover:text-white transition-all" href="#">Dashboard</a>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer hover:text-cyan-400 transition-colors" data-icon="shopping_cart">shopping_cart</span>
+<span class="material-symbols-outlined text-white cursor-pointer hover:text-cyan-400 transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+<button class="bg-primary-container text-on-primary-container font-space-grotesk px-6 py-3 font-bold text-xs tracking-widest transition-transform active:scale-95 hover:shadow-[0_0_15px_rgba(0,245,255,0.4)]">
+                    START PROJECT
+                </button>
+</div>
+</nav>
 </header>
-
-<main class="relative z-10 pt-20">
-
-    <section id="home" class="active">
-        <div class="min-h-screen flex flex-col justify-center px-6 md:px-16 py-12">
-            <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12">
-                <div class="col-span-12 lg:col-span-8 flex flex-col justify-center">
-                    <span class="font-label-caps text-[10px] text-primary-fixed mb-4 block">MOTION PRODUCTION STUDIO</span>
-                    <h1 class="font-h1 text-5xl md:text-7xl lg:text-8xl text-white uppercase mb-8 md:mb-12 max-w-4xl">REDEFINING <span class="text-[#CCFF00]">MOTION</span></h1>
-                    <button class="w-fit bg-primary-fixed text-on-primary-fixed px-8 py-4 md:px-10 md:py-5 font-label-caps text-xs hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
-                        <span class="material-symbols-outlined">play_arrow</span> PLAY SHOWREEL
-                    </button>
-                </div>
-            </div>
-            <div class="mt-12 md:mt-24 aspect-video md:aspect-[21/9] w-full relative overflow-hidden group rounded-lg">
-                <div class="absolute inset-0 vignette z-20"></div>
-                <img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
-                <div class="absolute inset-0 flex items-center justify-center z-30">
-                    <div class="w-16 h-16 md:w-24 md:h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
-                        <span class="material-symbols-outlined text-primary-fixed text-3xl md:text-4xl">play_circle</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <div class="px-6 md:px-16 py-20 max-w-[1920px] mx-auto">
-            <header class="mb-12 border-l-2 border-[#CCFF00] pl-6 md:pl-8">
-                <span class="font-label-caps text-[#CCFF00] text-xs mb-2 block">ARCHIVE_024</span>
-                <h1 class="font-h1 text-5xl md:text-7xl lg:text-8xl text-white leading-none uppercase">WORK.</h1>
-            </header>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-                <div class="md:col-span-8 group relative overflow-hidden aspect-video md:aspect-[21/9] bg-surface-container-low rounded-lg">
-                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgzHtmO3CExdNuBrnQ8bdr-FI_PaN6s-B_cw5U86iMzSgvsLli8KuPrbNmhVb-duGzzZ4HmSU2Fi9g-ASDb_cLS6Muop4LJdYqpOkHnLj4K2b1E19bt_T8NcJR5YKNYsyr-WbZtlaKLdxKltqaJ25eJ_5jPMQ77bTdFYP4EMRbOPOm1RIn8nkgyvM_-daPjBUC119nKqfZeZlXRik-InwP7kqHyf4dawFEQv2LwmJ7PEMf_qD6D2gHGQbXFSPCv4L1Xo0RVgRhTi6"/>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 md:p-12">
-                        <h3 class="font-h2 text-white text-2xl md:text-4xl uppercase">THE NEON PARADOX</h3>
-                    </div>
-                </div>
-                <div class="md:col-span-4 group relative overflow-hidden aspect-[4/5] bg-surface-container-low rounded-lg">
-                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj32m4DMMV1FxtoUgUFGXRj4haRbNp5B0d1qqRC0QleHDk7VYU0Oud4zWQHv-Lr-ZydREUgwMYzhgVP4bYZknXvUv14wJ9dag7KmLbih_Sb6xuqQ7KpDGX9IXnhX8XJ3ZEOAH4qonYXmAGEWsYYuxImk39BQNtx-Eh6DNO4WXxKCbhMhR8xNSHlL0ClOuR0L_kX0qFNZW9DUCl1sO_7iMob1XC-seFfS_3PaWXhmZvIMuUtIKDCZY4zwhFiKUyRl0BT8KVgZaQLGr4"/>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 md:p-8">
-                        <h3 class="font-h3 text-white text-xl md:text-2xl uppercase">ANALOG GHOSTS</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services">
-        <div class="px-6 md:px-16 py-20 md:py-32 max-w-[1920px] mx-auto">
-            <h2 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-16 md:mb-24">OUR EXPERTISE</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
-                <div class="glass-card p-6 md:p-12 relative overflow-hidden aspect-video rounded-lg">
-                    <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JtUUPox8_-fz1p6RYixkqhvWYnBK22DVFXnQCv7HQ8xTmtLAzrHuJpheUGScreLMeCav9k8Paa0wzv9zkFLIB1v8TljMSDxUZ9oCSnuyZcPJZ_OuJUZAs3MC-VEWe3P8bOAY7_w_hTg8ekUGEs5w1jmphHT9z6lVJjMvMdI87rsFZAJKvcUaCJ7XzUOz0DsLuUkBxd6IuCNBwG_8Hiq8w2Jb-SX7Sa59zCYq8YpltSwp7DTN7TSUoH-FwYs-jGwxB0Sy7pJqhicA"/>
-                    <div class="relative z-10">
-                        <span class="text-[#CCFF00] text-[10px] tracking-widest block mb-4">01 / ANIMATION</span>
-                        <h3 class="text-white text-2xl md:text-5xl mb-4 md:mb-6">3D ANIMATION</h3>
-                        <p class="text-white/60 text-sm md:text-base max-w-md">Hyper-realistic environments and character movements.</p>
-                    </div>
-                </div>
-                <div class="glass-card p-6 md:p-12 relative overflow-hidden aspect-video rounded-lg">
-                    <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByBg18xPbFQTyg5KGRoxM5nqyzFxr5Jo5p_uSDcpR3s7xi7F_ByyBr4_SpzZqansoGyF6hPIXbChjiYIpipV4CCWvXwSgaz8fUYZPwYttAYZjWyWD9PHbW4t0jFJ6y7wfPIwbTnu8j7JSuDRR9NsLYHyKGwLDFZS1jbc5jvJnsakALBwfTElGvfQ1gAAgVhWtcs0bCSEs9hYVp1NEIPOXn5j0vOs0g1XXhCok17tUO8reV_qPLT0N1DXkRT_vfgz_Yt8TX2RJpdCe4"/>
-                    <div class="relative z-10">
-                        <span class="text-[#CCFF00] text-[10px] tracking-widest block mb-4">02 / EFFECTS</span>
-                        <h3 class="text-white text-2xl md:text-5xl mb-4 md:mb-6">VISUAL EFFECTS</h3>
-                        <p class="text-white/60 text-sm md:text-base max-w-md">Seamless integration of digital artifacts.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="assets">
-        <div class="px-6 md:px-16 py-20 max-w-[1920px] mx-auto">
-            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12 uppercase">Elite Assets</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-                <div class="glass-card flex flex-col rounded-lg overflow-hidden">
-                    <img class="aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
-                    <div class="p-6">
-                        <h3 class="text-white text-lg md:text-xl uppercase">Anamorphic Dust Vol. 1</h3>
-                        <span class="text-[#CCFF00] text-lg block mt-4">$79.00</span>
-                        <button class="mt-6 w-full py-3 bg-white/5 border border-white/10 text-[10px] font-bold hover:bg-[#CCFF00] hover:text-black transition-colors">ADD TO CART</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="px-6 md:px-16 py-20 technical-grid min-h-screen flex flex-col justify-center">
-            <h1 class="font-h1 text-6xl md:text-8xl lg:text-9xl text-white mb-8 leading-none">THE STUDIO</h1>
-            <p class="text-lg md:text-2xl text-white/60 max-w-4xl mb-16 md:mb-24">ZENVIX MOTION is a creative sanctuary where technical precision meets untethered imagination.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16 border-y border-white/5 py-12 md:py-24">
-                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">10+</span><p class="text-white/40 text-xs mt-2 uppercase">Years Experience</p></div>
-                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">450</span><p class="text-white/40 text-xs mt-2 uppercase">Projects Done</p></div>
-                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">32</span><p class="text-white/40 text-xs mt-2 uppercase">Awards Won</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hub">
-        <div class="px-6 md:px-16 py-20 technical-grid">
-            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12">Project Pipeline</h1>
-            <div class="grid grid-cols-12 gap-6 md:gap-8">
-                <div class="col-span-12 lg:col-span-8 glass-panel p-6 md:p-8 rounded-lg">
-                    <h3 class="text-white text-xl md:text-3xl font-bold uppercase mb-6">Active Projects</h3>
-                    <div class="aspect-video relative overflow-hidden rounded-lg">
-                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zamgshnHyX_-6ioHEe4STtZ-OxKKOVXPZffCqfdlWZCMvfc5JpjEhyJc-u_wylH4WB5-EE0-C6C5iMbihhgk9rYa4VR58Kk04g1TLi1b4PqCmpt6KUzwV8LG0mvBVBkJNmMCZMM_i4rP6o9EOUKsqS0lPMl9_TqoWPO-XdNu7evWmfyYgVVIqlj4gXRmkuyyzHFgI7OYiMDGR6FybpFggxGbD2aNV2h4rfUvUWo6yfTAAaeAowx4bFBwCpt4aAbbyAESChX1pIoL"/>
-                        <div class="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
-                            <h3 class="text-xl md:text-4xl text-white font-bold">Summer Anthology Campaign</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-12 lg:col-span-4 glass-panel p-6 md:p-8 rounded-lg">
-                    <h3 class="text-white text-xl font-bold mb-6 uppercase">Production Chat</h3>
-                    <div class="h-64 md:h-96 overflow-y-auto space-y-4 pr-2">
-                        <div class="bg-surface-container-high p-4 border border-white/5 rounded">
-                            <span class="text-[#CCFF00] text-[10px] font-bold">KAI_VFX</span>
-                            <p class="text-white/80 text-sm">Latest sim is ready for review.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="px-6 md:px-16 py-20 technical-grid min-h-screen">
-            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12 uppercase">Contact Us.</h1>
-            <div class="grid grid-cols-12 gap-8 md:gap-16">
-                <form class="col-span-12 lg:col-span-8 space-y-10 md:space-y-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                        <div class="border-b border-white/10 p-2">
-                            <label class="text-white/40 text-[10px] uppercase">Full Name</label>
-                            <input type="text" class="w-full bg-transparent outline-none text-white text-lg py-2" placeholder="John Wick">
-                        </div>
-                        <div class="border-b border-white/10 p-2">
-                            <label class="text-white/40 text-[10px] uppercase">Email</label>
-                            <input type="email" class="w-full bg-transparent outline-none text-white text-lg py-2" placeholder="john@continental.com">
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full md:w-auto bg-[#CCFF00] text-black px-12 py-5 font-bold uppercase tracking-widest text-xs">SUBMIT ENQUIRY</button>
-                </form>
-                <div class="col-span-12 lg:col-span-4 glass-panel p-8 md:p-10 space-y-8 rounded-lg">
-                    <div>
-                        <span class="text-[#CCFF00] text-xs block mb-2 uppercase">Digital Direct</span>
-                        <p class="text-lg md:text-2xl text-white break-words">hello@zenvixmotion.pro</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+<main class="pt-32 pb-section-gap max-w-[1440px] mx-auto px-12">
+<!-- Breadcrumbs & Back -->
+<div class="flex items-center gap-4 mb-12 group cursor-pointer">
+<span class="material-symbols-outlined text-primary-fixed-dim group-hover:-translate-x-1 transition-transform" data-icon="arrow_back">arrow_back</span>
+<span class="font-label-caps text-label-caps text-surface-tint">BACK TO MARKETPLACE</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Hero Viewport -->
+<div class="lg:col-span-8 space-y-8">
+<div class="relative aspect-video glass-panel overflow-hidden group">
+<img alt="Cinematic anamorphic flares" class="w-full h-full object-cover" data-alt="Wide shot of anamorphic lens flares with blue horizontal streaks and cinematic bokeh highlights against a dark studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRuYD2iAo2HTwbZw_IySyqy_ahlIM13xckIj0r7nmueZNqYfhsIxMx5MN47z1YCfcTip9aGSmyp8m4UQ9a_cWCvJ3xxqxe1BX1LBT4Oy78jhrJHtH7QgFTObN6411LyZk1bOCUlWR2kmgm2O9DVUxFpHj2SMj_kEFGBCqFMCkYZD688LWgaSH48js3FT1Or7u5ktOhJAe1PEWd2GHsB0d1y-oItILi_Nkn_QAU1iDfVq3rfZppCcWngSBS9KpqaGctbqiQWAy2A-1q"/>
+<!-- Viewport Overlay UI -->
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="absolute bottom-8 left-8 right-8 flex items-center gap-6">
+<button class="w-16 h-16 rounded-full bg-cyan-400 flex items-center justify-center text-black shadow-2xl transition-transform hover:scale-110">
+<span class="material-symbols-outlined" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<div class="flex-grow">
+<div class="h-1 bg-white/20 relative">
+<div class="absolute top-0 left-0 h-full w-1/3 bg-cyan-400 shadow-[0_0_10px_rgba(0,245,255,0.8)]"></div>
+<div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-3 h-3 rounded-full bg-white"></div>
+</div>
+<div class="flex justify-between mt-3">
+<span class="font-label-caps text-[10px] text-zinc-400">01:42</span>
+<span class="font-label-caps text-[10px] text-zinc-400">03:00</span>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="fullscreen">fullscreen</span>
+<span class="material-symbols-outlined text-white cursor-pointer" data-icon="settings">settings</span>
+</div>
+</div>
+<!-- Category Tags -->
+<div class="absolute top-6 left-6 flex gap-2">
+<span class="bg-zinc-950/80 border border-secondary-container text-secondary text-[10px] px-3 py-1 font-bold tracking-widest font-label-caps">4K RESOLUTION</span>
+<span class="bg-zinc-950/80 border border-secondary-container text-secondary text-[10px] px-3 py-1 font-bold tracking-widest font-label-caps">PRORES 4444</span>
+</div>
+</div>
+<!-- Asset Story -->
+<div class="space-y-6 max-w-2xl">
+<h1 class="font-headline-h1 text-headline-h1 text-white">Anamorphic Flare Pack</h1>
+<p class="font-body-lg text-body-lg text-zinc-400">
+                        Our flagship collection of authentic optical flares captured on vintage anamorphic glass. These are not digitally generated; every streak, glint, and organic texture was physically shot on 35mm film sensors to ensure maximum cinematic fidelity.
+                    </p>
+</div>
+</div>
+<!-- Quick Purchase & Specs -->
+<div class="lg:col-span-4 space-y-gutter">
+<!-- Purchase Card -->
+<div class="glass-panel p-8 space-y-8">
+<div class="flex justify-between items-end">
+<span class="font-label-caps text-label-caps text-zinc-500 uppercase">Single License</span>
+<span class="font-headline-h2 text-headline-h2 text-cyan-400">$149.00</span>
+</div>
+<div class="space-y-4">
+<button class="w-full bg-cyan-400 text-black py-5 font-space-grotesk font-black text-sm tracking-[0.2em] neon-glow transition-all active:scale-[0.98] flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            FAST PAY
+                        </button>
+<button class="w-full border border-white/10 hover:border-cyan-400/50 text-white py-5 font-space-grotesk font-bold text-sm tracking-[0.2em] transition-all scanline-btn relative">
+                            ADD TO CART
+                        </button>
+</div>
+<div class="pt-6 border-t border-white/5 flex flex-col gap-3">
+<div class="flex items-center gap-3 text-zinc-400">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-xs font-label-caps">INSTANT SECURE DOWNLOAD</span>
+</div>
+<div class="flex items-center gap-3 text-zinc-400">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-xs font-label-caps">COMMERCIAL USAGE READY</span>
+</div>
+</div>
+</div>
+<!-- Tech Specs Card -->
+<div class="glass-panel p-8">
+<h3 class="font-label-caps text-label-caps text-white mb-8 border-b border-white/5 pb-4">TECHNICAL SPECS</h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="text-zinc-500 text-xs font-label-caps uppercase">Format</span>
+<span class="text-white text-sm font-bold">.MOV (ProRes 4444)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-zinc-500 text-xs font-label-caps uppercase">Resolution</span>
+<span class="text-white text-sm font-bold">3840 x 2160 (4K)</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-zinc-500 text-xs font-label-caps uppercase">Frame Rate</span>
+<span class="text-white text-sm font-bold">23.976 fps</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-zinc-500 text-xs font-label-caps uppercase">Software</span>
+<span class="text-white text-sm font-bold">AE, PR, DaVinci, FCP</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-zinc-500 text-xs font-label-caps uppercase">Size</span>
+<span class="text-white text-sm font-bold">14.2 GB</span>
+</div>
+</div>
+</div>
+<!-- Compatibility Chips -->
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-container border border-white/5 px-3 py-1 rounded-sm text-[10px] font-bold text-zinc-400 font-label-caps">ADOBE CLOUD</div>
+<div class="bg-surface-container border border-white/5 px-3 py-1 rounded-sm text-[10px] font-bold text-zinc-400 font-label-caps">DAVINCI RESOLVE</div>
+<div class="bg-surface-container border border-white/5 px-3 py-1 rounded-sm text-[10px] font-bold text-zinc-400 font-label-caps">METAL ACCELERATED</div>
+</div>
+</div>
+</div>
+<!-- Secondary Assets / Recommended -->
+<section class="mt-section-gap">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h4 class="font-label-caps text-label-caps text-cyan-400 mb-2 uppercase">Expansion Packs</h4>
+<h2 class="font-headline-h2 text-headline-h2 text-white">Recommended Add-ons</h2>
+</div>
+<a class="text-zinc-400 hover:text-white text-xs font-label-caps transition-colors underline underline-offset-8" href="#">VIEW FULL CATALOG</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Suggestion 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-video glass-panel overflow-hidden mb-6">
+<img alt="Light leaks effect" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dreamy light leak texture with organic warm orange and red gradients flowing across the frame, highly cinematic and soft" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVR2oskYLvHHdyct9Bvp9kJrvnAzdNDsQ9h6Ls6IKZZhoc3j29jpcP_vuw6gAus2v0GPl_9CB_IjyVucXrKLsuxoQ7L8HL6TfEYhuakY4hTPO7gz8DYRi9rj-gwkfUM2EvBm5w0h8ZAlLYFcEe7Dq1XrRNDu0uaiFc2rWPHqsoyGrP_ST2zNbZLk0sOwJNryprbeWLZllbEZfeB44HLnc0vLAXJ-vFHlz5qZ2BFx3fSdkfnS18nNgEqe38-dAk502-q4D9iVnmzs51"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-space-grotesk font-bold text-white group-hover:text-cyan-400 transition-colors">ORGANIC LEAKS 01</h5>
+<p class="text-xs text-zinc-500 mt-1 uppercase tracking-tighter">45 Assets • 4K High Dynamic</p>
+</div>
+<span class="text-cyan-400 font-bold">$79</span>
+</div>
+</div>
+<!-- Suggestion 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-video glass-panel overflow-hidden mb-6">
+<img alt="Dust and scratches texture" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Microscopic view of dust particles and film scratches floating against a dark background, textured and vintage film aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR4RRLh4b9EEIdLyW1RpmEC_uRvF_nMPL2rpLsK2_NAqMMDDS_y8oWLOwKFBcpP3BS3mh_b-UeLanopQ6_QOElh0mMXunrLFhl7Gn63s9o_-aA6BY0-PMc8j9AUJAJrq2O9Gzaiod1tiqhVmKuGyeg50IFyasJ8NakQAXqJ0WP0johwCLcZrLwB0ZVJiTpgwV3mV4JEAwoYhFr46vFgCxUedfJQdC2CEqL6ih8a-69iNbHgZo1TzXWqxgMUhRvb5XLE3HublfJqn8q"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-space-grotesk font-bold text-white group-hover:text-cyan-400 transition-colors">FILM DIRT MASTER</h5>
+<p class="text-xs text-zinc-500 mt-1 uppercase tracking-tighter">12 Overlays • 16mm Scan</p>
+</div>
+<span class="text-cyan-400 font-bold">$49</span>
+</div>
+</div>
+<!-- Suggestion 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-video glass-panel overflow-hidden mb-6">
+<img alt="Cinematic film grain" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Fine cinematic film grain texture over a dark neutral gray background, showing organic noise and high-fidelity details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCouZZIn9iH-RGOM74md5SBEwaI77pKStpPeuIZxUEvltEAumvqG-LQXA0GB-tf4KZTEu4Wn8-4FuOL-AW-4gp_uAe-aV5RWadScta8o4VKQAShZH4DHDcOSa3S5lY2ZIA-KqL41RVGRTzv_X47llpkbNEKDasIpH9jEuzrn5OYguFcUaKdn7ESX96Otdz_ge5g9cjXxsmUJjeMea-JSidOd2z-6bdvJAQBKS0JufHwMBDFFEBQtzQXcN3K0fUGmZ92-KuhH1beawmm"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h5 class="font-space-grotesk font-bold text-white group-hover:text-cyan-400 transition-colors">35MM GRAIN CORE</h5>
+<p class="text-xs text-zinc-500 mt-1 uppercase tracking-tighter">True Film Emulation</p>
+</div>
+<span class="text-cyan-400 font-bold">$129</span>
+</div>
+</div>
+</div>
+</section>
 </main>
-
-<footer class="bg-[#080808] w-full py-12 md:py-20 px-6 md:px-16 border-t border-[#CCFF00]/10">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
-        <div class="text-xl font-black text-[#CCFF00]">ZENVIX MOTION</div>
-        <div class="flex gap-6 md:gap-8">
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">Vimeo</a>
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">Instagram</a>
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">LinkedIn</a>
-        </div>
-        <p class="text-[9px] text-white/40">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
-    </div>
+<!-- Footer Shell -->
+<footer class="w-full border-t border-white/5 py-20 bg-zinc-950">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-center px-12 gap-8">
+<div class="flex flex-col gap-2">
+<div class="text-lg font-bold text-white">CINE_MOTION STUDIOS</div>
+<p class="font-space-grotesk text-xs tracking-tighter text-zinc-500">© 2024 CINE_MOTION STUDIOS. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-12">
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors" href="#">Terms</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors" href="#">Privacy</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors" href="#">Careers</a>
+<a class="font-space-grotesk text-xs tracking-tighter text-zinc-600 hover:text-cyan-400 transition-colors" href="#">Contact</a>
+</div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-zinc-500 cursor-pointer hover:text-white" data-icon="language">language</span>
+<span class="material-symbols-outlined text-zinc-500 cursor-pointer hover:text-white" data-icon="share">share</span>
+</div>
+</div>
 </footer>
-
-<script>
-    function handleRouting() {
-        const hash = window.location.hash || '#home';
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        const activeSection = document.querySelector(hash);
-        if(activeSection) {
-            activeSection.classList.add('active');
-        }
-        window.scrollTo(0,0);
-    }
-
-    window.addEventListener('hashchange', handleRouting);
-    window.addEventListener('load', handleRouting);
-</script>
-
-</body>
-</html>
+</body></html>
