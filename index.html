@@ -55,45 +55,53 @@
         }
         section { display: none; }
         section:target, section.active { display: block; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body class="bg-[#080808] text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
 
 <header class="bg-[#080808]/80 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50 shadow-2xl shadow-black/50">
-    <nav class="flex justify-between items-center px-16 py-6 w-full max-w-[1920px] mx-auto">
-        <div class="text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
-        <div class="hidden md:flex items-center space-x-12">
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#home">Home</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#portfolio">Portfolio</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#services">Services</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#assets">Assets</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#about">About</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#contact">Contact</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#hub">Hub</a>
+    <nav class="flex justify-between items-center px-6 md:px-16 py-4 md:py-6 w-full max-w-[1920px] mx-auto">
+        <div class="text-xl md:text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
+        
+        <div class="hidden xl:flex items-center space-x-8">
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#home">Home</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#portfolio">Portfolio</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#services">Services</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#assets">Assets</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#about">About</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[10px] text-white/60 hover:text-white transition-all" href="#hub">Hub</a>
         </div>
-        <a href="#contact" class="bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-xs tracking-widest px-8 py-3 transition-transform active:scale-95 duration-200">START PROJECT</a>
+        
+        <a href="#contact" class="hidden sm:block bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-[10px] tracking-widest px-6 py-3 transition-transform active:scale-95">START PROJECT</a>
+        
+        <div class="xl:hidden text-white">
+            <span class="material-symbols-outlined">menu</span>
+        </div>
     </nav>
 </header>
 
-<main class="relative z-10 pt-24">
+<main class="relative z-10 pt-20">
 
     <section id="home" class="active">
-        <div class="min-h-screen flex flex-col justify-center px-16 pt-12">
+        <div class="min-h-screen flex flex-col justify-center px-6 md:px-16 py-12">
             <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12">
                 <div class="col-span-12 lg:col-span-8 flex flex-col justify-center">
-                    <span class="font-label-caps text-xs text-primary-fixed mb-6 block">MOTION PRODUCTION STUDIO</span>
-                    <h1 class="font-h1 text-8xl text-white uppercase mb-12 max-w-4xl">REDEFINING <span class="text-[#CCFF00]">MOTION</span></h1>
-                    <button class="w-fit bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-caps text-xs hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
-                        <span class="material-symbols-outlined" data-weight="fill">play_arrow</span> PLAY SHOWREEL
+                    <span class="font-label-caps text-[10px] text-primary-fixed mb-4 block">MOTION PRODUCTION STUDIO</span>
+                    <h1 class="font-h1 text-5xl md:text-7xl lg:text-8xl text-white uppercase mb-8 md:mb-12 max-w-4xl">REDEFINING <span class="text-[#CCFF00]">MOTION</span></h1>
+                    <button class="w-fit bg-primary-fixed text-on-primary-fixed px-8 py-4 md:px-10 md:py-5 font-label-caps text-xs hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
+                        <span class="material-symbols-outlined">play_arrow</span> PLAY SHOWREEL
                     </button>
                 </div>
             </div>
-            <div class="mt-24 aspect-[21/9] w-full relative overflow-hidden group">
+            <div class="mt-12 md:mt-24 aspect-video md:aspect-[21/9] w-full relative overflow-hidden group rounded-lg">
                 <div class="absolute inset-0 vignette z-20"></div>
                 <img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
                 <div class="absolute inset-0 flex items-center justify-center z-30">
-                    <div class="w-24 h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
-                        <span class="material-symbols-outlined text-primary-fixed text-4xl">play_circle</span>
+                    <div class="w-16 h-16 md:w-24 md:h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
+                        <span class="material-symbols-outlined text-primary-fixed text-3xl md:text-4xl">play_circle</span>
                     </div>
                 </div>
             </div>
@@ -101,22 +109,22 @@
     </section>
 
     <section id="portfolio">
-        <div class="px-16 py-20 max-w-[1920px] mx-auto">
-            <header class="mb-16 border-l-2 border-[#CCFF00] pl-8">
-                <span class="font-label-caps text-[#CCFF00] text-xs mb-4 block">Our visual world</span>
-                <h1 class="font-h1 text-8xl text-white leading-none uppercase">WORK.</h1>
+        <div class="px-6 md:px-16 py-20 max-w-[1920px] mx-auto">
+            <header class="mb-12 border-l-2 border-[#CCFF00] pl-6 md:pl-8">
+                <span class="font-label-caps text-[#CCFF00] text-xs mb-2 block">ARCHIVE_024</span>
+                <h1 class="font-h1 text-5xl md:text-7xl lg:text-8xl text-white leading-none uppercase">WORK.</h1>
             </header>
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <div class="md:col-span-8 group relative overflow-hidden aspect-[21/9] bg-surface-container-low">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+                <div class="md:col-span-8 group relative overflow-hidden aspect-video md:aspect-[21/9] bg-surface-container-low rounded-lg">
                     <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgzHtmO3CExdNuBrnQ8bdr-FI_PaN6s-B_cw5U86iMzSgvsLli8KuPrbNmhVb-duGzzZ4HmSU2Fi9g-ASDb_cLS6Muop4LJdYqpOkHnLj4K2b1E19bt_T8NcJR5YKNYsyr-WbZtlaKLdxKltqaJ25eJ_5jPMQ77bTdFYP4EMRbOPOm1RIn8nkgyvM_-daPjBUC119nKqfZeZlXRik-InwP7kqHyf4dawFEQv2LwmJ7PEMf_qD6D2gHGQbXFSPCv4L1Xo0RVgRhTi6"/>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-12">
-                        <h3 class="font-h2 text-white text-4xl uppercase">THE NEON PARADOX</h3>
+                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 md:p-12">
+                        <h3 class="font-h2 text-white text-2xl md:text-4xl uppercase">THE NEON PARADOX</h3>
                     </div>
                 </div>
-                <div class="md:col-span-4 group relative overflow-hidden aspect-[4/5] bg-surface-container-low">
+                <div class="md:col-span-4 group relative overflow-hidden aspect-[4/5] bg-surface-container-low rounded-lg">
                     <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj32m4DMMV1FxtoUgUFGXRj4haRbNp5B0d1qqRC0QleHDk7VYU0Oud4zWQHv-Lr-ZydREUgwMYzhgVP4bYZknXvUv14wJ9dag7KmLbih_Sb6xuqQ7KpDGX9IXnhX8XJ3ZEOAH4qonYXmAGEWsYYuxImk39BQNtx-Eh6DNO4WXxKCbhMhR8xNSHlL0ClOuR0L_kX0qFNZW9DUCl1sO_7iMob1XC-seFfS_3PaWXhmZvIMuUtIKDCZY4zwhFiKUyRl0BT8KVgZaQLGr4"/>
-                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
-                        <h3 class="font-h3 text-white text-2xl uppercase uppercase">ANALOG GHOSTS</h3>
+                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-6 md:p-8">
+                        <h3 class="font-h3 text-white text-xl md:text-2xl uppercase">ANALOG GHOSTS</h3>
                     </div>
                 </div>
             </div>
@@ -124,23 +132,23 @@
     </section>
 
     <section id="services">
-        <div class="px-16 py-32 max-w-[1920px] mx-auto">
-            <h2 class="font-h1 text-8xl text-white mb-24">OUR EXPERTISE</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <div class="glass-card p-12 relative overflow-hidden aspect-[16/9]">
+        <div class="px-6 md:px-16 py-20 md:py-32 max-w-[1920px] mx-auto">
+            <h2 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-16 md:mb-24">OUR EXPERTISE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                <div class="glass-card p-6 md:p-12 relative overflow-hidden aspect-video rounded-lg">
                     <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JtUUPox8_-fz1p6RYixkqhvWYnBK22DVFXnQCv7HQ8xTmtLAzrHuJpheUGScreLMeCav9k8Paa0wzv9zkFLIB1v8TljMSDxUZ9oCSnuyZcPJZ_OuJUZAs3MC-VEWe3P8bOAY7_w_hTg8ekUGEs5w1jmphHT9z6lVJjMvMdI87rsFZAJKvcUaCJ7XzUOz0DsLuUkBxd6IuCNBwG_8Hiq8w2Jb-SX7Sa59zCYq8YpltSwp7DTN7TSUoH-FwYs-jGwxB0Sy7pJqhicA"/>
                     <div class="relative z-10">
-                        <span class="text-[#CCFF00] text-xs tracking-widest block mb-4">01 / ANIMATION</span>
-                        <h3 class="text-white text-5xl mb-6">3D ANIMATION</h3>
-                        <p class="text-white/60 max-w-md">Hyper-realistic environments and character movements.</p>
+                        <span class="text-[#CCFF00] text-[10px] tracking-widest block mb-4">01 / ANIMATION</span>
+                        <h3 class="text-white text-2xl md:text-5xl mb-4 md:mb-6">3D ANIMATION</h3>
+                        <p class="text-white/60 text-sm md:text-base max-w-md">Hyper-realistic environments and character movements.</p>
                     </div>
                 </div>
-                <div class="glass-card p-12 relative overflow-hidden aspect-[16/9]">
+                <div class="glass-card p-6 md:p-12 relative overflow-hidden aspect-video rounded-lg">
                     <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByBg18xPbFQTyg5KGRoxM5nqyzFxr5Jo5p_uSDcpR3s7xi7F_ByyBr4_SpzZqansoGyF6hPIXbChjiYIpipV4CCWvXwSgaz8fUYZPwYttAYZjWyWD9PHbW4t0jFJ6y7wfPIwbTnu8j7JSuDRR9NsLYHyKGwLDFZS1jbc5jvJnsakALBwfTElGvfQ1gAAgVhWtcs0bCSEs9hYVp1NEIPOXn5j0vOs0g1XXhCok17tUO8reV_qPLT0N1DXkRT_vfgz_Yt8TX2RJpdCe4"/>
                     <div class="relative z-10">
-                        <span class="text-[#CCFF00] text-xs tracking-widest block mb-4">02 / EFFECTS</span>
-                        <h3 class="text-white text-5xl mb-6">VISUAL EFFECTS</h3>
-                        <p class="text-white/60 max-w-md">Seamless integration of digital artifacts.</p>
+                        <span class="text-[#CCFF00] text-[10px] tracking-widest block mb-4">02 / EFFECTS</span>
+                        <h3 class="text-white text-2xl md:text-5xl mb-4 md:mb-6">VISUAL EFFECTS</h3>
+                        <p class="text-white/60 text-sm md:text-base max-w-md">Seamless integration of digital artifacts.</p>
                     </div>
                 </div>
             </div>
@@ -148,15 +156,15 @@
     </section>
 
     <section id="assets">
-        <div class="px-16 py-24 max-w-[1920px] mx-auto">
-            <h1 class="font-h1 text-8xl text-white mb-16 uppercase">Elite Assets</h1>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card flex flex-col">
-                    <img class="aspect-[16/9] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
+        <div class="px-6 md:px-16 py-20 max-w-[1920px] mx-auto">
+            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12 uppercase">Elite Assets</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="glass-card flex flex-col rounded-lg overflow-hidden">
+                    <img class="aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
                     <div class="p-6">
-                        <h3 class="text-white text-2xl uppercase">Anamorphic Dust Vol. 1</h3>
-                        <span class="text-[#CCFF00] text-xl block mt-4">$79.00</span>
-                        <button class="mt-6 w-full py-3 bg-white/5 border border-white/10 text-xs font-bold hover:bg-[#CCFF00] hover:text-black">ADD TO CART</button>
+                        <h3 class="text-white text-lg md:text-xl uppercase">Anamorphic Dust Vol. 1</h3>
+                        <span class="text-[#CCFF00] text-lg block mt-4">$79.00</span>
+                        <button class="mt-6 w-full py-3 bg-white/5 border border-white/10 text-[10px] font-bold hover:bg-[#CCFF00] hover:text-black transition-colors">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -164,38 +172,36 @@
     </section>
 
     <section id="about">
-        <div class="px-16 py-32 technical-grid min-h-screen">
-            <h1 class="font-h1 text-9xl text-white mb-10 leading-none">THE STUDIO</h1>
-            <p class="text-2xl text-white/60 max-w-4xl mb-24">ZENVIX MOTION is a creative sanctuary where technical precision meets untethered imagination.</p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 border-y border-white/5 py-24">
-                <div><span class="text-8xl text-[#CCFF00]">10+</span><p class="text-white/40 mt-4">YEARS OF EXPERIENCE</p></div>
-                <div><span class="text-8xl text-[#CCFF00]">450</span><p class="text-white/40 mt-4">PROJECTS COMPLETED</p></div>
-                <div><span class="text-8xl text-[#CCFF00]">32</span><p class="text-white/40 mt-4">AWARDS WON</p></div>
+        <div class="px-6 md:px-16 py-20 technical-grid min-h-screen flex flex-col justify-center">
+            <h1 class="font-h1 text-6xl md:text-8xl lg:text-9xl text-white mb-8 leading-none">THE STUDIO</h1>
+            <p class="text-lg md:text-2xl text-white/60 max-w-4xl mb-16 md:mb-24">ZENVIX MOTION is a creative sanctuary where technical precision meets untethered imagination.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-16 border-y border-white/5 py-12 md:py-24">
+                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">10+</span><p class="text-white/40 text-xs mt-2 uppercase">Years Experience</p></div>
+                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">450</span><p class="text-white/40 text-xs mt-2 uppercase">Projects Done</p></div>
+                <div><span class="text-5xl md:text-8xl text-[#CCFF00]">32</span><p class="text-white/40 text-xs mt-2 uppercase">Awards Won</p></div>
             </div>
         </div>
     </section>
 
     <section id="hub">
-        <div class="px-16 py-24 technical-grid">
-            <h1 class="font-h1 text-8xl text-white mb-12">Project Pipeline</h1>
-            <div class="grid grid-cols-12 gap-8">
-                <div class="col-span-12 lg:col-span-8 glass-panel p-8">
-                    <div class="flex justify-between items-center mb-8">
-                        <h3 class="text-white text-3xl font-bold uppercase">Active Projects</h3>
-                    </div>
-                    <div class="aspect-video relative overflow-hidden">
+        <div class="px-6 md:px-16 py-20 technical-grid">
+            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12">Project Pipeline</h1>
+            <div class="grid grid-cols-12 gap-6 md:gap-8">
+                <div class="col-span-12 lg:col-span-8 glass-panel p-6 md:p-8 rounded-lg">
+                    <h3 class="text-white text-xl md:text-3xl font-bold uppercase mb-6">Active Projects</h3>
+                    <div class="aspect-video relative overflow-hidden rounded-lg">
                         <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zamgshnHyX_-6ioHEe4STtZ-OxKKOVXPZffCqfdlWZCMvfc5JpjEhyJc-u_wylH4WB5-EE0-C6C5iMbihhgk9rYa4VR58Kk04g1TLi1b4PqCmpt6KUzwV8LG0mvBVBkJNmMCZMM_i4rP6o9EOUKsqS0lPMl9_TqoWPO-XdNu7evWmfyYgVVIqlj4gXRmkuyyzHFgI7OYiMDGR6FybpFggxGbD2aNV2h4rfUvUWo6yfTAAaeAowx4bFBwCpt4aAbbyAESChX1pIoL"/>
-                        <div class="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end">
-                            <h3 class="text-4xl text-white font-bold">Summer Anthology Campaign</h3>
+                        <div class="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
+                            <h3 class="text-xl md:text-4xl text-white font-bold">Summer Anthology Campaign</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 lg:col-span-4 glass-panel p-8">
-                    <h3 class="text-white text-2xl font-bold mb-6 uppercase">Production Chat</h3>
-                    <div class="h-96 overflow-y-auto space-y-4 pr-2">
-                        <div class="bg-surface-container-high p-4 border border-white/5">
+                <div class="col-span-12 lg:col-span-4 glass-panel p-6 md:p-8 rounded-lg">
+                    <h3 class="text-white text-xl font-bold mb-6 uppercase">Production Chat</h3>
+                    <div class="h-64 md:h-96 overflow-y-auto space-y-4 pr-2">
+                        <div class="bg-surface-container-high p-4 border border-white/5 rounded">
                             <span class="text-[#CCFF00] text-[10px] font-bold">KAI_VFX</span>
-                            <p class="text-white/80">Latest sim is ready for review.</p>
+                            <p class="text-white/80 text-sm">Latest sim is ready for review.</p>
                         </div>
                     </div>
                 </div>
@@ -204,26 +210,26 @@
     </section>
 
     <section id="contact">
-        <div class="px-16 py-32 technical-grid min-h-screen">
-            <h1 class="font-h1 text-8xl text-white mb-20 uppercase">Let's craft your vision.</h1>
-            <div class="grid grid-cols-12 gap-16">
-                <form class="col-span-12 lg:col-span-8 space-y-16">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div class="border-b border-white/10 p-4">
-                            <label class="text-white/40 block">FULL NAME</label>
-                            <input type="text" class="w-full bg-transparent outline-none text-white text-xl py-2" placeholder="John Wick">
+        <div class="px-6 md:px-16 py-20 technical-grid min-h-screen">
+            <h1 class="font-h1 text-4xl md:text-7xl lg:text-8xl text-white mb-12 uppercase">Contact Us.</h1>
+            <div class="grid grid-cols-12 gap-8 md:gap-16">
+                <form class="col-span-12 lg:col-span-8 space-y-10 md:space-y-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                        <div class="border-b border-white/10 p-2">
+                            <label class="text-white/40 text-[10px] uppercase">Full Name</label>
+                            <input type="text" class="w-full bg-transparent outline-none text-white text-lg py-2" placeholder="John Wick">
                         </div>
-                        <div class="border-b border-white/10 p-4">
-                            <label class="text-white/40 block">EMAIL ADDRESS</label>
-                            <input type="email" class="w-full bg-transparent outline-none text-white text-xl py-2" placeholder="john@continental.com">
+                        <div class="border-b border-white/10 p-2">
+                            <label class="text-white/40 text-[10px] uppercase">Email</label>
+                            <input type="email" class="w-full bg-transparent outline-none text-white text-lg py-2" placeholder="john@continental.com">
                         </div>
                     </div>
-                    <button type="submit" class="bg-[#CCFF00] text-black px-12 py-5 font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(204,255,0,0.2)]">SUBMIT ENQUIRY</button>
+                    <button type="submit" class="w-full md:w-auto bg-[#CCFF00] text-black px-12 py-5 font-bold uppercase tracking-widest text-xs">SUBMIT ENQUIRY</button>
                 </form>
-                <div class="col-span-12 lg:col-span-4 glass-panel p-10 space-y-10">
+                <div class="col-span-12 lg:col-span-4 glass-panel p-8 md:p-10 space-y-8 rounded-lg">
                     <div>
-                        <span class="text-[#CCFF00] block mb-4">DIGITAL_DIRECT</span>
-                        <p class="text-2xl text-white">hello@zenvixmotion.pro</p>
+                        <span class="text-[#CCFF00] text-xs block mb-2 uppercase">Digital Direct</span>
+                        <p class="text-lg md:text-2xl text-white break-words">hello@zenvixmotion.pro</p>
                     </div>
                 </div>
             </div>
@@ -232,30 +238,31 @@
 
 </main>
 
-<footer class="bg-[#080808] w-full py-20 px-16 border-t border-[#CCFF00]/10">
+<footer class="bg-[#080808] w-full py-12 md:py-20 px-6 md:px-16 border-t border-[#CCFF00]/10">
     <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
-        <div class="text-xl font-bold text-[#CCFF00]">ZENVIX MOTION</div>
-        <div class="flex gap-8">
-            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">Vimeo</a>
-            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">Instagram</a>
-            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">LinkedIn</a>
+        <div class="text-xl font-black text-[#CCFF00]">ZENVIX MOTION</div>
+        <div class="flex gap-6 md:gap-8">
+            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">Vimeo</a>
+            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">Instagram</a>
+            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00]" href="#">LinkedIn</a>
         </div>
-        <p class="text-[10px] text-white/40">© 2026 ZENVIX MOTIONS. ALL RIGHTS RESERVED.</p>
+        <p class="text-[9px] text-white/40">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
     </div>
 </footer>
 
 <script>
-    // Navigation logic
-    window.addEventListener('hashchange', function() {
+    function handleRouting() {
         const hash = window.location.hash || '#home';
         document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
         const activeSection = document.querySelector(hash);
-        if(activeSection) activeSection.classList.add('active');
+        if(activeSection) {
+            activeSection.classList.add('active');
+        }
         window.scrollTo(0,0);
-    });
-    
-    // Trigger first load
-    if(!window.location.hash) window.location.hash = '#home';
+    }
+
+    window.addEventListener('hashchange', handleRouting);
+    window.addEventListener('load', handleRouting);
 </script>
 
 </body>
