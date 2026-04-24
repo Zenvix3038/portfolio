@@ -1,100 +1,45 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>ZENVIX MOTION | ALL-IN-ONE</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     "colors": {
-                        "on-tertiary-fixed-variant": "#374956",
-                        "on-secondary": "#1000a9",
-                        "surface-container-highest": "#353534",
-                        "tertiary-container": "#d2e5f5",
-                        "on-tertiary-container": "#556774",
-                        "surface-dim": "#131313",
-                        "on-tertiary": "#21323e",
-                        "on-primary-container": "#556d00",
-                        "primary": "#ffffff",
                         "primary-container": "#c3f400",
-                        "background": "#080808",
-                        "error": "#ffb4ab",
-                        "secondary-fixed-dim": "#c0c1ff",
-                        "on-tertiary-fixed": "#0b1d29",
-                        "secondary-fixed": "#e1e0ff",
-                        "on-surface-variant": "#c4c9ac",
-                        "outline-variant": "#444933",
-                        "on-primary-fixed": "#161e00",
-                        "surface-container-low": "#1c1b1b",
-                        "outline": "#8e9379",
-                        "on-error": "#690005",
-                        "surface": "#131313",
-                        "secondary-container": "#3131c0",
-                        "on-primary-fixed-variant": "#3c4d00",
-                        "error-container": "#93000a",
-                        "on-secondary-fixed-variant": "#2f2ebe",
-                        "on-secondary-container": "#b0b2ff",
-                        "secondary": "#c0c1ff",
-                        "surface-bright": "#393939",
-                        "inverse-on-surface": "#313030",
-                        "primary-fixed-dim": "#abd600",
-                        "surface-tint": "#abd600",
-                        "tertiary-fixed-dim": "#b6c9d8",
-                        "on-surface": "#e5e2e1",
-                        "on-secondary-fixed": "#07006c",
-                        "surface-container-lowest": "#0e0e0e",
-                        "on-error-container": "#ffdad6",
-                        "on-primary": "#283500",
-                        "surface-container-high": "#2a2a2a",
-                        "on-background": "#e5e2e1",
-                        "tertiary": "#ffffff",
-                        "surface-variant": "#353534",
-                        "tertiary-fixed": "#d2e5f5",
-                        "inverse-primary": "#506600",
                         "primary-fixed": "#c3f400",
-                        "inverse-surface": "#e5e2e1",
-                        "surface-container": "#201f1f"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "margin": "64px",
-                        "grid_opacity": "0.1",
-                        "gutter": "24px",
-                        "unit": "8px"
+                        "primary-fixed-dim": "#abd600",
+                        "on-primary-fixed": "#161e00",
+                        "background": "#080808",
+                        "surface": "#131313",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-background": "#e5e2e1",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#c4c9ac",
                     },
                     "fontFamily": {
-                        "label-caps": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "body-md": ["Inter"],
+                        "h1": ["Space Grotesk"],
                         "h2": ["Space Grotesk"],
                         "h3": ["Space Grotesk"],
-                        "h1": ["Space Grotesk"]
-                    },
-                    "fontSize": {
-                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
-                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
-                        "h2": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "h3": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "h1": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
                     }
                 }
             }
         }
     </script>
-<style>
-        .glass-panel {
+
+    <style>
+        .glass-panel, .glass-card {
             background: rgba(19, 19, 19, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -102,188 +47,216 @@
         .vignette {
             background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
         }
-        .grid-line-v {
-            width: 1px;
-            background: #abd600;
-            opacity: 0.1;
+        .technical-grid {
+            background-image: 
+                linear-gradient(to right, rgba(204, 255, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(204, 255, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        .grid-line-h {
-            height: 1px;
-            background: #abd600;
-            opacity: 0.1;
-        }
+        section { display: none; }
+        section:target, section.active { display: block; }
     </style>
 </head>
 <body class="bg-[#080808] text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
-<!-- Top Navigation Shell -->
+
 <header class="bg-[#080808]/80 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50 shadow-2xl shadow-black/50">
-<nav class="flex justify-between items-center px-16 py-6 w-full max-w-[1920px] mx-auto">
-<div class="text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
-<div class="hidden md:flex items-center space-x-12">
-<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Portfolio</a>
-<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Services</a>
-<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">About</a>
-<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Contact</a>
-</div>
-<button class="bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-xs tracking-widest px-8 py-3 transition-transform active:scale-95 duration-200">
-                START PROJECT
-            </button>
-</nav>
+    <nav class="flex justify-between items-center px-16 py-6 w-full max-w-[1920px] mx-auto">
+        <div class="text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
+        <div class="hidden md:flex items-center space-x-12">
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#home">Home</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#portfolio">Portfolio</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#services">Services</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#assets">Assets</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#about">About</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#contact">Contact</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#hub">Hub</a>
+        </div>
+        <a href="#contact" class="bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-xs tracking-widest px-8 py-3 transition-transform active:scale-95 duration-200">START PROJECT</a>
+    </nav>
 </header>
-<!-- Technical Grid Background Layer -->
-<div class="fixed inset-0 pointer-events-none z-0">
-<div class="absolute left-16 h-full grid-line-v"></div>
-<div class="absolute right-16 h-full grid-line-v"></div>
-<div class="absolute top-[120px] w-full grid-line-h"></div>
-</div>
-<main class="relative z-10">
-<!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center px-16 pt-32 pb-16">
-<div class="max-w-[1920px] mx-auto w-full grid grid-cols-12 gap-gutter">
-<div class="col-span-12 lg:col-span-8 flex flex-col justify-center">
-<span class="font-label-caps text-label-caps text-primary-fixed mb-6 block">MOTION PRODUCTION STUDIO</span>
-<h1 class="font-h1 text-h1 text-primary uppercase mb-12 max-w-4xl">
-                        REDEFINING <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed to-primary-fixed-dim">MOTION</span>
-</h1>
-<div class="flex items-center gap-8">
-<button class="bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
-<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
-                            PLAY SHOWREEL
-                        </button>
-<div class="flex items-center gap-4 text-white/40">
-<div class="h-[1px] w-12 bg-white/20"></div>
-<span class="font-label-caps text-[10px]">SCROLL TO EXPLORE</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Cinematic Video Container -->
-<div class="mt-24 aspect-[21/9] w-full relative overflow-hidden group">
-<div class="absolute inset-0 vignette z-20"></div>
-<img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" data-alt="Cinematic wide shot of a futuristic dark cityscape at night with neon green light trails and deep moody atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
-<div class="absolute inset-0 glass-panel opacity-20 z-10 pointer-events-none"></div>
-<div class="absolute inset-0 flex items-center justify-center z-30">
-<div class="w-24 h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
-<span class="material-symbols-outlined text-primary-fixed text-4xl">play_circle</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Work (Bento Grid) -->
-<section class="py-32 px-16">
-<div class="max-w-[1920px] mx-auto">
-<div class="flex justify-between items-end mb-16">
-<div>
-<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">PORTFOLIO</span>
-<h2 class="font-h2 text-h2 text-white uppercase">FEATURED WORK</h2>
-</div>
-<a class="font-label-caps text-label-caps text-white/60 hover:text-primary-fixed transition-colors pb-2 border-b border-white/10" href="#">VIEW ALL CASES</a>
-</div>
-<div class="grid grid-cols-12 gap-8">
-<!-- Project 1 Large -->
-<div class="col-span-12 md:col-span-8 group relative aspect-[16/9] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Moody cinematic black and white close-up of a person eyes reflecting bright digital displays with motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDexyIFttKgqSjo1inZpoSylmuBh-9gfYpbtY_Rbt20M0INbQa3qnujmKZ68F4SRQkCmpvcIV2MRFw_2hb8uTinYDPll6JksMOQToO1RXfirqJFPYoi1xqPTTgvvcWgKgoiOQ5z3xU6k2fTzeKQcYcRb7nrr48wFJLrltzgGkhfmX_Nu6hspg06URZ_9d0elbbxqCNExWiE-UWyU7ZgUOwGwOo7ANuACP-tlf3aVJ9GoK3h_bgJIVYju9o90ttho2Ff2XxlkCMieY0h"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-8 left-8">
-<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">ADVERTISING / 2024</span>
-<h3 class="font-h3 text-h3 text-white uppercase">VANGUARD ORIGINS</h3>
-</div>
-</div>
-<!-- Project 2 -->
-<div class="col-span-12 md:col-span-4 group relative aspect-[4/5] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Technical close-up of a high-end cinema camera lens with green light reflections and shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1ZT-nvRo2pOyaydcAZxsGvlQp3_jET5c2ep7FFfiWb5mEvOIhvfLMA7hUoVfJ2ct7pRf-bQIklHpG5sphYZXw0OpCEFkF7WT-xcvjPBCvBEYEq6xvSLViapfDu89KG-rlzc1vee0yHGk_ZnChxSvcRrG7z8xBbDdO181elSHzm0h_c4TSw8QfzkYRIWdhBR5_VTjf7-C7hR1ZaMdVTlIu9OEZQC7qMuV4i8e8k2RMpQKPX0pklCSfO_BT2KdVleB-dUicAWEcCeY"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-8 left-8">
-<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">TECH / 4K</span>
-<h3 class="font-h3 text-h3 text-white uppercase">LENS CRAFT</h3>
-</div>
-</div>
-<!-- Project 3 -->
-<div class="col-span-12 md:col-span-4 group relative aspect-[4/5] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist architectural shot of concrete stairs with dramatic shadows and a single streak of neon green light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu6-ECKPIcjVNbwGew7sn9Lcxh_GyJn2FPGWH8dqqP8CKrm87cZKnGZDQC7UibjCllt0HvNxjWv30hjFms5yJ1TCiSGyXJH3Uawv-yFON4izGUuae-TjZ0e_PPwtv9O2YIqgUNosezrDla7xASMit_QKQnlUvk0nORhNujMoMnTBaQf70gaqV3qjWMXy_uw5T-WaWe11mzkcTi3d4r7ezw0hcFqQHM_8yIaOLk5uDqyCKENZcqiJIZcXM-JwBtGQgs9Ocvnd77Yitp"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-8 left-8">
-<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">NARRATIVE / 2.35:1</span>
-<h3 class="font-h3 text-h3 text-white uppercase">URBAN SHADOWS</h3>
-</div>
-</div>
-<!-- Project 4 Large -->
-<div class="col-span-12 md:col-span-8 group relative aspect-[16/9] overflow-hidden">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Abstract 3D motion design with fluid metallic shapes swirling in a dark space with vibrant green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcY27wFFCrR21NG6N3AwfHFOnDNM2KO5TuQqZ-qae7c-t2zA9X7yUCPONkfqQiK4Wo-L3TnQBlz3nwbuExSFuwd08Wv95t9m2mhWkp0tU0iB4S6lodR6_PS9VAy6BIMqEaErtD6FSuca88Ct32p0Zn7e000ZsfAHQLbXAd6TSOh3UqBcoPJ-8eNx9IpAGihNjUFNeMwld8KR2MR4tDkJkTn7cu1SKsicKM2zg1zKHUF5-DPGmIi4QHZSP3tz74iRxd5Y0l1XC5psdM"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
-<div class="absolute bottom-8 left-8">
-<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">CGI / MOTION</span>
-<h3 class="font-h3 text-h3 text-white uppercase">FLUIDITY CORE</h3>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Client Section -->
-<section class="py-24 px-16 border-y border-white/5 bg-surface-container-lowest">
-<div class="max-w-[1920px] mx-auto text-center">
-<span class="font-label-caps text-[10px] text-white/40 mb-12 block tracking-[0.5em]">TRUSTED BY INDUSTRY TITANS</span>
-<div class="flex flex-wrap justify-center items-center gap-16 md:gap-32 opacity-40 grayscale transition-all hover:grayscale-0">
-<span class="font-h3 text-h3 text-white tracking-widest italic opacity-50">SONY</span>
-<span class="font-h3 text-h3 text-white tracking-tighter font-black">RED</span>
-<span class="font-h3 text-h3 text-white font-serif uppercase">Vogue</span>
-<span class="font-h3 text-h3 text-white tracking-widest font-light">APPLE</span>
-<span class="font-h3 text-h3 text-white font-bold tracking-tight">TESLA</span>
-</div>
-</div>
-</section>
-<!-- Services Section (Technical Grid) -->
-<section class="py-32 px-16">
-<div class="max-w-[1920px] mx-auto grid grid-cols-12 gap-gutter">
-<div class="col-span-12 lg:col-span-4 mb-16 lg:mb-0">
-<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">EXPERTISE</span>
-<h2 class="font-h2 text-h2 text-white uppercase mb-8">CRAFTING<br/>IMPOSSIBLE<br/>SCENES</h2>
-<p class="font-body-md text-body-md text-white/60 max-w-sm mb-8">
-                        We blend high-end cinematography with bleeding-edge visual effects to deliver stories that resonate on the deepest emotional level.
-                    </p>
-<button class="border border-white/20 text-white px-8 py-4 font-label-caps text-label-caps hover:bg-white hover:text-black transition-all">
-                        OUR PROCESS
+
+<main class="relative z-10 pt-24">
+
+    <section id="home" class="active">
+        <div class="min-h-screen flex flex-col justify-center px-16 pt-12">
+            <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12">
+                <div class="col-span-12 lg:col-span-8 flex flex-col justify-center">
+                    <span class="font-label-caps text-xs text-primary-fixed mb-6 block">MOTION PRODUCTION STUDIO</span>
+                    <h1 class="font-h1 text-8xl text-white uppercase mb-12 max-w-4xl">REDEFINING <span class="text-[#CCFF00]">MOTION</span></h1>
+                    <button class="w-fit bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-caps text-xs hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
+                        <span class="material-symbols-outlined" data-weight="fill">play_arrow</span> PLAY SHOWREEL
                     </button>
-</div>
-<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
-<span class="font-h2 text-primary-fixed opacity-20 block mb-6">01</span>
-<h3 class="font-h3 text-h3 text-white uppercase mb-4">DIRECTING</h3>
-<p class="font-body-md text-body-md text-white/40">From conceptualization to the final frame, we lead with vision and technical rigor.</p>
-</div>
-<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
-<span class="font-h2 text-primary-fixed opacity-20 block mb-6">02</span>
-<h3 class="font-h3 text-h3 text-white uppercase mb-4">CINEMATOGRAPHY</h3>
-<p class="font-body-md text-body-md text-white/40">Mastery of light and lens. We shoot on high-performance cinema glass and RAW formats.</p>
-</div>
-<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
-<span class="font-h2 text-primary-fixed opacity-20 block mb-6">03</span>
-<h3 class="font-h3 text-h3 text-white uppercase mb-4">VFX &amp; POST</h3>
-<p class="font-body-md text-body-md text-white/40">Invisible integration of digital elements into live-action plates at 4K precision.</p>
-</div>
-<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
-<span class="font-h2 text-primary-fixed opacity-20 block mb-6">04</span>
-<h3 class="font-h3 text-h3 text-white uppercase mb-4">SOUND DESIGN</h3>
-<p class="font-body-md text-body-md text-white/40">Custom sonic atmospheres that ground the visual experience in absolute reality.</p>
-</div>
-</div>
-</div>
-</section>
+                </div>
+            </div>
+            <div class="mt-24 aspect-[21/9] w-full relative overflow-hidden group">
+                <div class="absolute inset-0 vignette z-20"></div>
+                <img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
+                <div class="absolute inset-0 flex items-center justify-center z-30">
+                    <div class="w-24 h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
+                        <span class="material-symbols-outlined text-primary-fixed text-4xl">play_circle</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="px-16 py-20 max-w-[1920px] mx-auto">
+            <header class="mb-16 border-l-2 border-[#CCFF00] pl-8">
+                <span class="font-label-caps text-[#CCFF00] text-xs mb-4 block">ARCHIVE_024</span>
+                <h1 class="font-h1 text-8xl text-white leading-none uppercase">WORK.</h1>
+            </header>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                <div class="md:col-span-8 group relative overflow-hidden aspect-[21/9] bg-surface-container-low">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgzHtmO3CExdNuBrnQ8bdr-FI_PaN6s-B_cw5U86iMzSgvsLli8KuPrbNmhVb-duGzzZ4HmSU2Fi9g-ASDb_cLS6Muop4LJdYqpOkHnLj4K2b1E19bt_T8NcJR5YKNYsyr-WbZtlaKLdxKltqaJ25eJ_5jPMQ77bTdFYP4EMRbOPOm1RIn8nkgyvM_-daPjBUC119nKqfZeZlXRik-InwP7kqHyf4dawFEQv2LwmJ7PEMf_qD6D2gHGQbXFSPCv4L1Xo0RVgRhTi6"/>
+                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-12">
+                        <h3 class="font-h2 text-white text-4xl uppercase">THE NEON PARADOX</h3>
+                    </div>
+                </div>
+                <div class="md:col-span-4 group relative overflow-hidden aspect-[4/5] bg-surface-container-low">
+                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj32m4DMMV1FxtoUgUFGXRj4haRbNp5B0d1qqRC0QleHDk7VYU0Oud4zWQHv-Lr-ZydREUgwMYzhgVP4bYZknXvUv14wJ9dag7KmLbih_Sb6xuqQ7KpDGX9IXnhX8XJ3ZEOAH4qonYXmAGEWsYYuxImk39BQNtx-Eh6DNO4WXxKCbhMhR8xNSHlL0ClOuR0L_kX0qFNZW9DUCl1sO_7iMob1XC-seFfS_3PaWXhmZvIMuUtIKDCZY4zwhFiKUyRl0BT8KVgZaQLGr4"/>
+                    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8">
+                        <h3 class="font-h3 text-white text-2xl uppercase uppercase">ANALOG GHOSTS</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="px-16 py-32 max-w-[1920px] mx-auto">
+            <h2 class="font-h1 text-8xl text-white mb-24">OUR EXPERTISE</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="glass-card p-12 relative overflow-hidden aspect-[16/9]">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JtUUPox8_-fz1p6RYixkqhvWYnBK22DVFXnQCv7HQ8xTmtLAzrHuJpheUGScreLMeCav9k8Paa0wzv9zkFLIB1v8TljMSDxUZ9oCSnuyZcPJZ_OuJUZAs3MC-VEWe3P8bOAY7_w_hTg8ekUGEs5w1jmphHT9z6lVJjMvMdI87rsFZAJKvcUaCJ7XzUOz0DsLuUkBxd6IuCNBwG_8Hiq8w2Jb-SX7Sa59zCYq8YpltSwp7DTN7TSUoH-FwYs-jGwxB0Sy7pJqhicA"/>
+                    <div class="relative z-10">
+                        <span class="text-[#CCFF00] text-xs tracking-widest block mb-4">01 / ANIMATION</span>
+                        <h3 class="text-white text-5xl mb-6">3D ANIMATION</h3>
+                        <p class="text-white/60 max-w-md">Hyper-realistic environments and character movements.</p>
+                    </div>
+                </div>
+                <div class="glass-card p-12 relative overflow-hidden aspect-[16/9]">
+                    <img class="absolute inset-0 w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByBg18xPbFQTyg5KGRoxM5nqyzFxr5Jo5p_uSDcpR3s7xi7F_ByyBr4_SpzZqansoGyF6hPIXbChjiYIpipV4CCWvXwSgaz8fUYZPwYttAYZjWyWD9PHbW4t0jFJ6y7wfPIwbTnu8j7JSuDRR9NsLYHyKGwLDFZS1jbc5jvJnsakALBwfTElGvfQ1gAAgVhWtcs0bCSEs9hYVp1NEIPOXn5j0vOs0g1XXhCok17tUO8reV_qPLT0N1DXkRT_vfgz_Yt8TX2RJpdCe4"/>
+                    <div class="relative z-10">
+                        <span class="text-[#CCFF00] text-xs tracking-widest block mb-4">02 / EFFECTS</span>
+                        <h3 class="text-white text-5xl mb-6">VISUAL EFFECTS</h3>
+                        <p class="text-white/60 max-w-md">Seamless integration of digital artifacts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="assets">
+        <div class="px-16 py-24 max-w-[1920px] mx-auto">
+            <h1 class="font-h1 text-8xl text-white mb-16 uppercase">Elite Assets</h1>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card flex flex-col">
+                    <img class="aspect-[16/9] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
+                    <div class="p-6">
+                        <h3 class="text-white text-2xl uppercase">Anamorphic Dust Vol. 1</h3>
+                        <span class="text-[#CCFF00] text-xl block mt-4">$79.00</span>
+                        <button class="mt-6 w-full py-3 bg-white/5 border border-white/10 text-xs font-bold hover:bg-[#CCFF00] hover:text-black">ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="px-16 py-32 technical-grid min-h-screen">
+            <h1 class="font-h1 text-9xl text-white mb-10 leading-none">THE STUDIO</h1>
+            <p class="text-2xl text-white/60 max-w-4xl mb-24">ZENVIX MOTION is a creative sanctuary where technical precision meets untethered imagination.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 border-y border-white/5 py-24">
+                <div><span class="text-8xl text-[#CCFF00]">10+</span><p class="text-white/40 mt-4">YEARS OF EXPERIENCE</p></div>
+                <div><span class="text-8xl text-[#CCFF00]">450</span><p class="text-white/40 mt-4">PROJECTS COMPLETED</p></div>
+                <div><span class="text-8xl text-[#CCFF00]">32</span><p class="text-white/40 mt-4">AWARDS WON</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hub">
+        <div class="px-16 py-24 technical-grid">
+            <h1 class="font-h1 text-8xl text-white mb-12">Project Pipeline</h1>
+            <div class="grid grid-cols-12 gap-8">
+                <div class="col-span-12 lg:col-span-8 glass-panel p-8">
+                    <div class="flex justify-between items-center mb-8">
+                        <h3 class="text-white text-3xl font-bold uppercase">Active Projects</h3>
+                    </div>
+                    <div class="aspect-video relative overflow-hidden">
+                        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5zamgshnHyX_-6ioHEe4STtZ-OxKKOVXPZffCqfdlWZCMvfc5JpjEhyJc-u_wylH4WB5-EE0-C6C5iMbihhgk9rYa4VR58Kk04g1TLi1b4PqCmpt6KUzwV8LG0mvBVBkJNmMCZMM_i4rP6o9EOUKsqS0lPMl9_TqoWPO-XdNu7evWmfyYgVVIqlj4gXRmkuyyzHFgI7OYiMDGR6FybpFggxGbD2aNV2h4rfUvUWo6yfTAAaeAowx4bFBwCpt4aAbbyAESChX1pIoL"/>
+                        <div class="absolute inset-0 bg-black/40 p-8 flex flex-col justify-end">
+                            <h3 class="text-4xl text-white font-bold">Summer Anthology Campaign</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-4 glass-panel p-8">
+                    <h3 class="text-white text-2xl font-bold mb-6 uppercase">Production Chat</h3>
+                    <div class="h-96 overflow-y-auto space-y-4 pr-2">
+                        <div class="bg-surface-container-high p-4 border border-white/5">
+                            <span class="text-[#CCFF00] text-[10px] font-bold">KAI_VFX</span>
+                            <p class="text-white/80">Latest sim is ready for review.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="px-16 py-32 technical-grid min-h-screen">
+            <h1 class="font-h1 text-8xl text-white mb-20 uppercase">Let's craft your vision.</h1>
+            <div class="grid grid-cols-12 gap-16">
+                <form class="col-span-12 lg:col-span-8 space-y-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="border-b border-white/10 p-4">
+                            <label class="text-white/40 block">FULL NAME</label>
+                            <input type="text" class="w-full bg-transparent outline-none text-white text-xl py-2" placeholder="John Wick">
+                        </div>
+                        <div class="border-b border-white/10 p-4">
+                            <label class="text-white/40 block">EMAIL ADDRESS</label>
+                            <input type="email" class="w-full bg-transparent outline-none text-white text-xl py-2" placeholder="john@continental.com">
+                        </div>
+                    </div>
+                    <button type="submit" class="bg-[#CCFF00] text-black px-12 py-5 font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(204,255,0,0.2)]">SUBMIT ENQUIRY</button>
+                </form>
+                <div class="col-span-12 lg:col-span-4 glass-panel p-10 space-y-10">
+                    <div>
+                        <span class="text-[#CCFF00] block mb-4">DIGITAL_DIRECT</span>
+                        <p class="text-2xl text-white">hello@zenvixmotion.pro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
-<!-- Footer -->
+
 <footer class="bg-[#080808] w-full py-20 px-16 border-t border-[#CCFF00]/10">
-<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
-<div class="flex flex-col items-center md:items-start">
-<div class="text-xl font-bold text-[#CCFF00] mb-4">ZENVIX MOTION</div>
-<p class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
-</div>
-<div class="flex gap-8">
-<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Vimeo</a>
-<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Instagram</a>
-<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">LinkedIn</a>
-<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Careers</a>
-<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Privacy</a>
-</div>
-</div>
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
+        <div class="text-xl font-bold text-[#CCFF00]">ZENVIX MOTION</div>
+        <div class="flex gap-8">
+            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">Vimeo</a>
+            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">Instagram</a>
+            <a class="text-xs uppercase text-white/40 hover:text-[#CCFF00]" href="#">LinkedIn</a>
+        </div>
+        <p class="text-[10px] text-white/40">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
+    </div>
 </footer>
-</body></html>
+
+<script>
+    // Navigation logic
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash || '#home';
+        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+        const activeSection = document.querySelector(hash);
+        if(activeSection) activeSection.classList.add('active');
+        window.scrollTo(0,0);
+    });
+    
+    // Trigger first load
+    if(!window.location.hash) window.location.hash = '#home';
+</script>
+
+</body>
+</html>
