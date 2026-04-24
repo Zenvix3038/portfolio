@@ -1,314 +1,289 @@
 <!DOCTYPE html>
-<html lang="ml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAISHNAV KC | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
-        
-        :root {
-            --glass: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --accent: #ff4d4d;
-        }
 
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #08080a; 
-            color: #ffffff;
-            overflow-x: hidden;
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed-variant": "#374956",
+                        "on-secondary": "#1000a9",
+                        "surface-container-highest": "#353534",
+                        "tertiary-container": "#d2e5f5",
+                        "on-tertiary-container": "#556774",
+                        "surface-dim": "#131313",
+                        "on-tertiary": "#21323e",
+                        "on-primary-container": "#556d00",
+                        "primary": "#ffffff",
+                        "primary-container": "#c3f400",
+                        "background": "#080808",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#c0c1ff",
+                        "on-tertiary-fixed": "#0b1d29",
+                        "secondary-fixed": "#e1e0ff",
+                        "on-surface-variant": "#c4c9ac",
+                        "outline-variant": "#444933",
+                        "on-primary-fixed": "#161e00",
+                        "surface-container-low": "#1c1b1b",
+                        "outline": "#8e9379",
+                        "on-error": "#690005",
+                        "surface": "#131313",
+                        "secondary-container": "#3131c0",
+                        "on-primary-fixed-variant": "#3c4d00",
+                        "error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#2f2ebe",
+                        "on-secondary-container": "#b0b2ff",
+                        "secondary": "#c0c1ff",
+                        "surface-bright": "#393939",
+                        "inverse-on-surface": "#313030",
+                        "primary-fixed-dim": "#abd600",
+                        "surface-tint": "#abd600",
+                        "tertiary-fixed-dim": "#b6c9d8",
+                        "on-surface": "#e5e2e1",
+                        "on-secondary-fixed": "#07006c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-error-container": "#ffdad6",
+                        "on-primary": "#283500",
+                        "surface-container-high": "#2a2a2a",
+                        "on-background": "#e5e2e1",
+                        "tertiary": "#ffffff",
+                        "surface-variant": "#353534",
+                        "tertiary-fixed": "#d2e5f5",
+                        "inverse-primary": "#506600",
+                        "primary-fixed": "#c3f400",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container": "#201f1f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin": "64px",
+                        "grid_opacity": "0.1",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "h2": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "h1": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0em", "fontWeight": "400"}],
+                        "h2": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h3": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                }
+            }
         }
-
-        /* Animated Background Blobs */
-        .blob {
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            background: linear-gradient(135deg, #ff4d4d22 0%, #7000ff22 100%);
-            filter: blur(80px);
-            border-radius: 50%;
-            z-index: -1;
-            animation: move 20s infinite alternate;
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-
-        @keyframes move {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(20%, 20%); }
+        .vignette {
+            background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%);
         }
-
-        .glass-card {
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 32px;
-            transition: all 0.4s ease;
+        .grid-line-v {
+            width: 1px;
+            background: #abd600;
+            opacity: 0.1;
         }
-
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-        .project-card {
-            min-width: 280px;
-            max-width: 300px;
-            flex-shrink: 0;
-        }
-
-        .video-modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0; top: 0; 
-            width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.9); 
-            backdrop-filter: blur(15px);
-            justify-content: center; 
-            align-items: center; 
-        }
-        .video-modal.open { display: flex; }
-
-        .nav-link { position: relative; transition: 0.3s; }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0%; height: 2px;
-            background: var(--accent);
-            transition: 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
-        
-        /* Profile Image Liquid Mask */
-        .liquid-mask {
-            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-            animation: morph 8s ease-in-out infinite;
-        }
-        @keyframes morph {
-            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
-            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
-        }
-
-        /* Before & After Styles */
-        #comparison-container {
-            touch-action: pan-y;
+        .grid-line-h {
+            height: 1px;
+            background: #abd600;
+            opacity: 0.1;
         }
     </style>
 </head>
-<body>
-
-    <div class="blob"></div>
-    <div class="blob" style="right: -10%; top: 40%; background: linear-gradient(135deg, #00d4ff11 0%, #002eff11 100%);"></div>
-
-    <nav class="p-6 max-w-6xl mx-auto flex justify-between items-center sticky top-0 z-50">
-        <span class="font-extrabold text-2xl tracking-tighter italic">V<span class="text-red-500">KC</span></span>
-        <div class="hidden md:flex gap-8 text-sm font-semibold uppercase tracking-widest">
-            <a href="#work" class="nav-link">Work</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <a href="https://wa.me/918089003038" class="glass-card px-5 py-2 text-green-400 flex items-center gap-2 hover:bg-green-500 hover:text-white transition-all">
-            <i class="fab fa-whatsapp"></i> <span class="text-xs font-bold uppercase">Hire Me</span>
-        </a>
-    </nav>
-
-    <header class="px-6 py-16 max-w-6xl mx-auto text-center">
-        <h1 class="text-6xl md:text-8xl font-black uppercase leading-tight mb-4 tracking-tighter">
-            VAISHNAV <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">KC</span>
-        </h1>
-        <p class="text-xl md:text-2xl font-light text-gray-400 mb-8 italic">Professional Video Editor & Motion Designer</p>
-        
-        <div class="flex justify-center gap-6 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
-            <i class="fab fa-adobe text-2xl"></i>
-            <span class="font-bold border-r border-white/20 pr-6">PR | AE | PS</span>
-            <span class="font-bold">DAVINCI RESOLVE</span>
-        </div>
-    </header>
-
-    <section class="px-6 py-12 max-w-5xl mx-auto">
-        <div class="glass-card p-8 md:p-12 flex flex-col md:flex-row items-center gap-12">
-            <div class="relative group">
-                <div class="absolute -inset-1 bg-gradient-to-r from-red-500 to-purple-600 rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
-                <div class="relative w-64 h-64 md:w-72 md:h-72 overflow-hidden liquid-mask border-2 border-white/10 shadow-2xl">
-                    <img src="https://drive.google.com/thumbnail?id=1Utl7JnFlj7wZex-sYc_Zo3CMZNKsPc3I&sz=w1000" alt="Vaishnav KC" class="w-full h-full object-cover">
-                </div>
-            </div>
-            <div class="flex-1 text-center md:text-left">
-                <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-3">About Creator</p>
-                <h2 class="text-4xl font-black uppercase mb-6 tracking-tight">Crafting Visual <span class="text-red-500">Stories</span></h2>
-                <p class="text-gray-400 leading-relaxed mb-8 text-lg">
-                    Based in Kerala, India. I specialize in turning raw footage into cinematic experiences using high-end motion graphics and professional color grading.
-                </p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4">
-                    <div class="px-4 py-2 glass-card rounded-2xl text-xs font-bold border-white/5 uppercase">Motion Design</div>
-                    <div class="px-4 py-2 glass-card rounded-2xl text-xs font-bold border-white/5 uppercase">Video Editing</div>
-                    <div class="px-4 py-2 glass-card rounded-2xl text-xs font-bold border-white/5 uppercase">UI/UX Designer</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="px-6 py-20 max-w-5xl mx-auto">
-        <div class="text-center mb-10">
-            <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-2">Process</p>
-            <h2 class="text-4xl font-black uppercase tracking-tight">The <span class="text-transparent" style="-webkit-text-stroke: 1px #fff;">Transformation</span></h2>
-        </div>
-
-        <div class="glass-card p-4 relative overflow-hidden group">
-            <div id="comparison-container" class="relative w-full aspect-video rounded-2xl overflow-hidden cursor-ew-resize select-none">
-                <div class="absolute inset-0">
-                    <img src="https://drive.google.com/thumbnail?id=1hLlLy6c_9bcdOh-pDf3IerOOvIMMDxHZ&sz=w1000" class="w-full h-full object-cover" alt="After Editing">
-                    <div class="absolute bottom-4 right-6 bg-black/50 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold uppercase border border-white/10">After</div>
-                </div>
-
-                <div id="before-layer" class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-red-500 shadow-[10px_0_20px_rgba(0,0,0,0.5)]">
-                    <img src="https://drive.google.com/thumbnail?id=1yx6rbO8LrHQ2C2cN2iGizHhT2PkBEO8e&sz=w1000" class="w-full h-full object-cover" alt="Before Editing">
-                    <div class="absolute bottom-4 left-6 bg-black/50 backdrop-blur-md px-4 py-1 rounded-full text-xs font-bold uppercase border border-white/10">Before</div>
-                </div>
-
-                <div id="slider-handle" class="absolute top-0 bottom-0 left-1/2 w-1 bg-red-500 -translate-x-1/2 pointer-events-none flex items-center justify-center">
-                    <div class="w-10 h-10 bg-red-500 rounded-full shadow-xl flex items-center justify-center text-white border-4 border-[#08080a]">
-                        <i class="fas fa-arrows-alt-h"></i>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-gray-500 text-sm mt-6 italic">Slide the handle to see the grading difference</p>
-        </div>
-    </section>
-
-    <section id="work" class="px-6 py-10 max-w-7xl mx-auto overflow-hidden">
-        <div class="flex justify-between items-end mb-10 px-4">
-            <div>
-                <p class="text-red-500 font-bold tracking-widest uppercase text-xs mb-2">Portfolio</p>
-                <h2 class="text-4xl font-black uppercase">Selected Work</h2>
-            </div>
-            <div class="hidden md:flex gap-4">
-                <button onclick="scrollSlider(-320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button onclick="scrollSlider(320)" class="glass-card w-12 h-12 flex items-center justify-center hover:bg-red-500 transition-all">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div id="video-grid" class="flex gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 px-4 scroll-smooth">
-        </div>
-    </section>
-
-    <section id="services" class="px-6 py-20 bg-white/5 backdrop-blur-md border-y border-white/5">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-black mb-12 uppercase text-center">Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-film text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Video Editing</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Commercial, social media and documentary style edits.</p>
-                </div>
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-bezier-curve text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Motion Graphics</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Dynamic animations and high-end VFX for your brand.</p>
-                </div>
-                <div class="glass-card p-8 hover:border-red-500/50">
-                    <i class="fas fa-palette text-3xl text-red-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Color Grading</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Professional cinematic grading to set the right mood.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="px-6 py-20 max-w-6xl mx-auto text-center">
-        <div class="glass-card p-12 bg-gradient-to-br from-white/5 to-red-500/5">
-            <h2 class="text-4xl md:text-5xl font-black mb-6 italic">LET'S CREATE SOMETHING EPIC</h2>
-            <a href="https://wa.me/918089003038" class="inline-block bg-white text-black font-bold px-10 py-4 rounded-full hover:bg-red-500 hover:text-white transition-all transform hover:scale-105 uppercase tracking-widest">Contact Now</a>
-        </div>
-        <p class="mt-12 text-gray-600 text-xs uppercase tracking-widest">&copy; 2026 Vaishnav KC. Kerala, India.</p>
-    </footer>
-
-    <div id="videoModal" class="video-modal" onclick="closeVideo()">
-        <div class="relative w-[95%] max-w-4xl aspect-video rounded-3xl overflow-hidden shadow-2xl border border-white/10" onclick="event.stopPropagation()">
-            <iframe id="drivePlayer" class="w-full h-full" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <script>
-        // Projects Data
-        const projects = [
-            { title: "Pongal", category: "Photoshop", year: "2026", driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" },
-            { title: "Choco Bar", category: "After Effects", year: "2024", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" },
-            { title: "Product Promo", category: "Motion Design", year: "2025", driveID: "14TBQPlIrNYn8fZbKszDTzxmp5JqrhOeD" },
-            { title: "Cinematic Reel", category: "Color Grading", year: "2024", driveID: "1assHgvNnwMiA1aL5cMolJiTZgWowIEkc" }
-        ];
-
-        // Before & After Interaction Logic
-        const container = document.getElementById('comparison-container');
-        const beforeLayer = document.getElementById('before-layer');
-        const handle = document.getElementById('slider-handle');
-
-        const moveSlider = (e) => {
-            let x = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            let rect = container.getBoundingClientRect();
-            let position = ((x - rect.left) / rect.width) * 100;
-            if (position >= 0 && position <= 100) {
-                beforeLayer.style.width = `${position}%`;
-                handle.style.left = `${position}%`;
-            }
-        };
-
-        container.addEventListener('mousemove', moveSlider);
-        container.addEventListener('touchmove', moveSlider);
-
-        function renderGrid() {
-            const grid = document.getElementById('video-grid');
-            grid.innerHTML = projects.map(p => {
-                const thumbUrl = `https://drive.google.com/thumbnail?id=${p.driveID}&sz=w1000`;
-                return `
-                    <div class="project-card glass-card p-5 snap-center group cursor-pointer" onclick="openVideo('${p.driveID}')">
-                        <div class="relative overflow-hidden rounded-[24px] aspect-[3/4] bg-black">
-                            <img src="${thumbUrl}" alt="${p.title}" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 group-hover:opacity-40 transition duration-700">
-                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                                <div class="bg-red-500 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-xl">
-                                    <i class="fas fa-play ml-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-6 px-2">
-                            <h4 class="text-xl font-bold uppercase tracking-tighter mb-1">${p.title}</h4>
-                            <div class="flex justify-between items-center">
-                                <p class="text-gray-500 text-[10px] font-bold uppercase tracking-widest">${p.category}</p>
-                                <span class="text-[10px] text-white/20 font-black">${p.year}</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        function scrollSlider(amount) {
-            document.getElementById('video-grid').scrollBy({ left: amount, behavior: 'smooth' });
-        }
-
-        function openVideo(id) {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('drivePlayer');
-            player.src = `https://drive.google.com/file/d/${id}/preview`;
-            modal.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeVideo() {
-            const modal = document.getElementById('videoModal');
-            const player = document.getElementById('drivePlayer');
-            player.src = ""; 
-            modal.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        window.onload = renderGrid;
-    </script>
-</body>
-</html>
+<body class="bg-[#080808] text-on-background selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Top Navigation Shell -->
+<header class="bg-[#080808]/80 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50 shadow-2xl shadow-black/50">
+<nav class="flex justify-between items-center px-16 py-6 w-full max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Portfolio</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Services</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">About</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all duration-500" href="#">Contact</a>
+</div>
+<button class="bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-xs tracking-widest px-8 py-3 transition-transform active:scale-95 duration-200">
+                START PROJECT
+            </button>
+</nav>
+</header>
+<!-- Technical Grid Background Layer -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute left-16 h-full grid-line-v"></div>
+<div class="absolute right-16 h-full grid-line-v"></div>
+<div class="absolute top-[120px] w-full grid-line-h"></div>
+</div>
+<main class="relative z-10">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col justify-center px-16 pt-32 pb-16">
+<div class="max-w-[1920px] mx-auto w-full grid grid-cols-12 gap-gutter">
+<div class="col-span-12 lg:col-span-8 flex flex-col justify-center">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-6 block">MOTION PRODUCTION STUDIO</span>
+<h1 class="font-h1 text-h1 text-primary uppercase mb-12 max-w-4xl">
+                        REDEFINING <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-fixed to-primary-fixed-dim">MOTION</span>
+</h1>
+<div class="flex items-center gap-8">
+<button class="bg-primary-fixed text-on-primary-fixed px-10 py-5 font-label-caps text-label-caps hover:bg-primary-fixed-dim transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined" data-weight="fill">play_arrow</span>
+                            PLAY SHOWREEL
+                        </button>
+<div class="flex items-center gap-4 text-white/40">
+<div class="h-[1px] w-12 bg-white/20"></div>
+<span class="font-label-caps text-[10px]">SCROLL TO EXPLORE</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Cinematic Video Container -->
+<div class="mt-24 aspect-[21/9] w-full relative overflow-hidden group">
+<div class="absolute inset-0 vignette z-20"></div>
+<img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" data-alt="Cinematic wide shot of a futuristic dark cityscape at night with neon green light trails and deep moody atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
+<div class="absolute inset-0 glass-panel opacity-20 z-10 pointer-events-none"></div>
+<div class="absolute inset-0 flex items-center justify-center z-30">
+<div class="w-24 h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer hover:bg-primary-fixed/20 transition-all">
+<span class="material-symbols-outlined text-primary-fixed text-4xl">play_circle</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Work (Bento Grid) -->
+<section class="py-32 px-16">
+<div class="max-w-[1920px] mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">PORTFOLIO</span>
+<h2 class="font-h2 text-h2 text-white uppercase">FEATURED WORK</h2>
+</div>
+<a class="font-label-caps text-label-caps text-white/60 hover:text-primary-fixed transition-colors pb-2 border-b border-white/10" href="#">VIEW ALL CASES</a>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Project 1 Large -->
+<div class="col-span-12 md:col-span-8 group relative aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Moody cinematic black and white close-up of a person eyes reflecting bright digital displays with motion blur" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDexyIFttKgqSjo1inZpoSylmuBh-9gfYpbtY_Rbt20M0INbQa3qnujmKZ68F4SRQkCmpvcIV2MRFw_2hb8uTinYDPll6JksMOQToO1RXfirqJFPYoi1xqPTTgvvcWgKgoiOQ5z3xU6k2fTzeKQcYcRb7nrr48wFJLrltzgGkhfmX_Nu6hspg06URZ_9d0elbbxqCNExWiE-UWyU7ZgUOwGwOo7ANuACP-tlf3aVJ9GoK3h_bgJIVYju9o90ttho2Ff2XxlkCMieY0h"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">ADVERTISING / 2024</span>
+<h3 class="font-h3 text-h3 text-white uppercase">VANGUARD ORIGINS</h3>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="col-span-12 md:col-span-4 group relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Technical close-up of a high-end cinema camera lens with green light reflections and shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1ZT-nvRo2pOyaydcAZxsGvlQp3_jET5c2ep7FFfiWb5mEvOIhvfLMA7hUoVfJ2ct7pRf-bQIklHpG5sphYZXw0OpCEFkF7WT-xcvjPBCvBEYEq6xvSLViapfDu89KG-rlzc1vee0yHGk_ZnChxSvcRrG7z8xBbDdO181elSHzm0h_c4TSw8QfzkYRIWdhBR5_VTjf7-C7hR1ZaMdVTlIu9OEZQC7qMuV4i8e8k2RMpQKPX0pklCSfO_BT2KdVleB-dUicAWEcCeY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">TECH / 4K</span>
+<h3 class="font-h3 text-h3 text-white uppercase">LENS CRAFT</h3>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="col-span-12 md:col-span-4 group relative aspect-[4/5] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist architectural shot of concrete stairs with dramatic shadows and a single streak of neon green light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu6-ECKPIcjVNbwGew7sn9Lcxh_GyJn2FPGWH8dqqP8CKrm87cZKnGZDQC7UibjCllt0HvNxjWv30hjFms5yJ1TCiSGyXJH3Uawv-yFON4izGUuae-TjZ0e_PPwtv9O2YIqgUNosezrDla7xASMit_QKQnlUvk0nORhNujMoMnTBaQf70gaqV3qjWMXy_uw5T-WaWe11mzkcTi3d4r7ezw0hcFqQHM_8yIaOLk5uDqyCKENZcqiJIZcXM-JwBtGQgs9Ocvnd77Yitp"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">NARRATIVE / 2.35:1</span>
+<h3 class="font-h3 text-h3 text-white uppercase">URBAN SHADOWS</h3>
+</div>
+</div>
+<!-- Project 4 Large -->
+<div class="col-span-12 md:col-span-8 group relative aspect-[16/9] overflow-hidden">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Abstract 3D motion design with fluid metallic shapes swirling in a dark space with vibrant green accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcY27wFFCrR21NG6N3AwfHFOnDNM2KO5TuQqZ-qae7c-t2zA9X7yUCPONkfqQiK4Wo-L3TnQBlz3nwbuExSFuwd08Wv95t9m2mhWkp0tU0iB4S6lodR6_PS9VAy6BIMqEaErtD6FSuca88Ct32p0Zn7e000ZsfAHQLbXAd6TSOh3UqBcoPJ-8eNx9IpAGihNjUFNeMwld8KR2MR4tDkJkTn7cu1SKsicKM2zg1zKHUF5-DPGmIi4QHZSP3tz74iRxd5Y0l1XC5psdM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-8 left-8">
+<span class="font-label-caps text-[10px] text-primary-fixed border border-primary-fixed/30 px-3 py-1 mb-4 inline-block">CGI / MOTION</span>
+<h3 class="font-h3 text-h3 text-white uppercase">FLUIDITY CORE</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Client Section -->
+<section class="py-24 px-16 border-y border-white/5 bg-surface-container-lowest">
+<div class="max-w-[1920px] mx-auto text-center">
+<span class="font-label-caps text-[10px] text-white/40 mb-12 block tracking-[0.5em]">TRUSTED BY INDUSTRY TITANS</span>
+<div class="flex flex-wrap justify-center items-center gap-16 md:gap-32 opacity-40 grayscale transition-all hover:grayscale-0">
+<span class="font-h3 text-h3 text-white tracking-widest italic opacity-50">SONY</span>
+<span class="font-h3 text-h3 text-white tracking-tighter font-black">RED</span>
+<span class="font-h3 text-h3 text-white font-serif uppercase">Vogue</span>
+<span class="font-h3 text-h3 text-white tracking-widest font-light">APPLE</span>
+<span class="font-h3 text-h3 text-white font-bold tracking-tight">TESLA</span>
+</div>
+</div>
+</section>
+<!-- Services Section (Technical Grid) -->
+<section class="py-32 px-16">
+<div class="max-w-[1920px] mx-auto grid grid-cols-12 gap-gutter">
+<div class="col-span-12 lg:col-span-4 mb-16 lg:mb-0">
+<span class="font-label-caps text-label-caps text-primary-fixed mb-4 block">EXPERTISE</span>
+<h2 class="font-h2 text-h2 text-white uppercase mb-8">CRAFTING<br/>IMPOSSIBLE<br/>SCENES</h2>
+<p class="font-body-md text-body-md text-white/60 max-w-sm mb-8">
+                        We blend high-end cinematography with bleeding-edge visual effects to deliver stories that resonate on the deepest emotional level.
+                    </p>
+<button class="border border-white/20 text-white px-8 py-4 font-label-caps text-label-caps hover:bg-white hover:text-black transition-all">
+                        OUR PROCESS
+                    </button>
+</div>
+<div class="col-span-12 lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
+<span class="font-h2 text-primary-fixed opacity-20 block mb-6">01</span>
+<h3 class="font-h3 text-h3 text-white uppercase mb-4">DIRECTING</h3>
+<p class="font-body-md text-body-md text-white/40">From conceptualization to the final frame, we lead with vision and technical rigor.</p>
+</div>
+<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
+<span class="font-h2 text-primary-fixed opacity-20 block mb-6">02</span>
+<h3 class="font-h3 text-h3 text-white uppercase mb-4">CINEMATOGRAPHY</h3>
+<p class="font-body-md text-body-md text-white/40">Mastery of light and lens. We shoot on high-performance cinema glass and RAW formats.</p>
+</div>
+<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
+<span class="font-h2 text-primary-fixed opacity-20 block mb-6">03</span>
+<h3 class="font-h3 text-h3 text-white uppercase mb-4">VFX &amp; POST</h3>
+<p class="font-body-md text-body-md text-white/40">Invisible integration of digital elements into live-action plates at 4K precision.</p>
+</div>
+<div class="glass-panel p-8 group hover:border-primary-fixed transition-colors">
+<span class="font-h2 text-primary-fixed opacity-20 block mb-6">04</span>
+<h3 class="font-h3 text-h3 text-white uppercase mb-4">SOUND DESIGN</h3>
+<p class="font-body-md text-body-md text-white/40">Custom sonic atmospheres that ground the visual experience in absolute reality.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#080808] w-full py-20 px-16 border-t border-[#CCFF00]/10">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
+<div class="flex flex-col items-center md:items-start">
+<div class="text-xl font-bold text-[#CCFF00] mb-4">ZENVIX MOTION</div>
+<p class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Vimeo</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Instagram</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">LinkedIn</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Careers</a>
+<a class="font-['Space_Grotesk'] tracking-widest text-[10px] uppercase text-white/40 hover:text-[#CCFF00] hover:tracking-[0.3em] transition-all duration-300" href="#">Privacy</a>
+</div>
+</div>
+</footer>
+</body></html>
