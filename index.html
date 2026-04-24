@@ -3,21 +3,30 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ZENVIX MOTION | RESPONSIVE HUB</title>
+    <title>ZENVIX MOTION | ALL-IN-ONE</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    
+
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
-                    colors: {
+                    "colors": {
                         "primary-container": "#c3f400",
                         "primary-fixed": "#c3f400",
                         "background": "#080808",
-                        "on-background": "#e5e2e1",
+                        "surface": "#131313",
+                        "on-surface": "#e5e2e1"
+                        // Other colors are inherited from your specific page configs
+                    },
+                    "fontFamily": {
+                        "h1": ["Space Grotesk"],
+                        "h2": ["Space Grotesk"],
+                        "h3": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
                     }
                 }
             }
@@ -25,172 +34,220 @@
     </script>
 
     <style>
-        .glass-panel {
+        .glass-panel, .glass-card {
             background: rgba(19, 19, 19, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .technical-grid {
-            background-image: 
-                linear-gradient(to right, rgba(204, 255, 0, 0.05) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(204, 255, 0, 0.05) 1px, transparent 1px);
-            background-size: 30px 30px;
+            background-image: linear-gradient(to right, rgba(204, 255, 0, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(204, 255, 0, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        section { display: none; }
-        section.active { display: block; }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
+        section-page { display: none; }
+        section-page.active { display: block; }
+        .vignette { background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.8) 100%); }
     </style>
 </head>
-<body class="bg-[#080808] text-on-background overflow-x-hidden selection:bg-primary-container selection:text-black">
+<body class="bg-[#080808] text-on-surface selection:bg-primary-container selection:text-black overflow-x-hidden">
 
-<header class="bg-[#080808]/90 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50">
-    <nav class="flex justify-between items-center px-6 md:px-16 py-4 md:py-6 w-full max-w-[1920px] mx-auto">
-        <div class="text-xl md:text-2xl font-black tracking-tighter text-[#CCFF00]">ZENVIX MOTION</div>
-        
-        <div class="hidden lg:flex items-center space-x-8 xl:space-x-12">
-            <a class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-white/60 hover:text-white transition-all" href="#home">Home</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-white/60 hover:text-white transition-all" href="#portfolio">Portfolio</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-white/60 hover:text-white transition-all" href="#services">Services</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-white/60 hover:text-white transition-all" href="#hub">Hub</a>
-            <a class="font-['Space_Grotesk'] uppercase tracking-widest text-[10px] text-white/60 hover:text-white transition-all" href="#contact">Contact</a>
+<header class="bg-[#080808]/80 backdrop-blur-xl border-b border-[#CCFF00]/10 fixed top-0 w-full z-50 shadow-2xl shadow-black/50">
+    <nav class="flex justify-between items-center px-16 py-6 w-full max-w-[1920px] mx-auto">
+        <div class="text-2xl font-black tracking-tighter text-[#CCFF00] cursor-pointer" onclick="showPage('home')">ZENVIX MOTION</div>
+        <div class="hidden md:flex items-center space-x-12">
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all cursor-pointer" onclick="showPage('portfolio')">Portfolio</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all cursor-pointer" onclick="showPage('services')">Services</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all cursor-pointer" onclick="showPage('assets')">Assets</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all cursor-pointer" onclick="showPage('billing')">Billing</a>
+            <a class="font-['Space_Grotesk'] uppercase tracking-[0.2em] text-xs text-white/60 hover:text-white transition-all cursor-pointer" onclick="showPage('team')">Team</a>
         </div>
-
-        <a href="#contact" class="hidden sm:block bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-[10px] tracking-widest px-6 py-3 transition-transform active:scale-95">START PROJECT</a>
-        
-        <button class="lg:hidden text-[#CCFF00] material-symbols-outlined">menu</button>
+        <button class="bg-[#CCFF00] text-black font-['Space_Grotesk'] font-bold text-xs tracking-widest px-8 py-3 active:scale-95 transition-all" onclick="showPage('contact')">
+            START PROJECT
+        </button>
     </nav>
 </header>
 
-<main class="relative z-10 pt-20 md:pt-24">
-
-    <section id="home" class="active">
-        <div class="min-h-[80vh] flex flex-col justify-center px-6 md:px-16 pt-12">
-            <div class="max-w-[1920px] mx-auto w-full">
-                <span class="text-xs text-primary-fixed mb-4 block tracking-[0.3em]">MOTION PRODUCTION STUDIO</span>
-                <h1 class="font-['Space_Grotesk'] text-5xl md:text-7xl lg:text-9xl text-white uppercase mb-8 leading-tight">
-                    REDEFINING <span class="text-[#CCFF00]">MOTION</span>
-                </h1>
-                <button class="w-full sm:w-fit bg-primary-fixed text-black px-10 py-5 font-bold text-xs tracking-widest flex items-center justify-center gap-3 active:scale-95 transition-all">
-                    <span class="material-symbols-outlined">play_arrow</span> PLAY SHOWREEL
-                </button>
-            </div>
-            
-            <div class="mt-16 md:mt-24 aspect-video lg:aspect-[21/9] w-full relative overflow-hidden glass-panel">
-                <img class="w-full h-full object-cover grayscale brightness-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="w-16 h-16 md:w-24 md:h-24 rounded-full border border-primary-fixed flex items-center justify-center cursor-pointer bg-black/20 hover:bg-primary-fixed/20 transition-all">
-                        <span class="material-symbols-outlined text-primary-fixed text-3xl md:text-4xl">play_circle</span>
-                    </div>
+<section-page id="home" class="active">
+    <main class="relative z-10 pt-32">
+        <section class="min-h-screen flex flex-col justify-center px-16">
+            <div class="max-w-[1920px] mx-auto w-full grid grid-cols-12">
+                <div class="col-span-12 lg:col-span-8">
+                    <span class="font-bold text-[#CCFF00] mb-6 block tracking-widest uppercase">MOTION PRODUCTION STUDIO</span>
+                    <h1 class="text-8xl font-black text-white uppercase mb-12 leading-tight">REDEFINING <span class="text-[#CCFF00]">MOTION</span></h1>
+                    <button class="bg-[#CCFF00] text-black px-10 py-5 font-bold uppercase tracking-widest flex items-center gap-3">
+                        <span class="material-symbols-outlined">play_arrow</span> PLAY SHOWREEL
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <div class="px-6 md:px-16 py-20 max-w-[1920px] mx-auto">
-            <header class="mb-12 border-l-2 border-[#CCFF00] pl-6">
-                <span class="text-[#CCFF00] text-xs mb-2 block tracking-widest">ARCHIVE_024</span>
-                <h2 class="font-['Space_Grotesk'] text-4xl md:text-6xl text-white uppercase">WORK.</h2>
-            </header>
-            
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
-                <div class="md:col-span-8 group relative overflow-hidden aspect-video">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgzHtmO3CExdNuBrnQ8bdr-FI_PaN6s-B_cw5U86iMzSgvsLli8KuPrbNmhVb-duGzzZ4HmSU2Fi9g-ASDb_cLS6Muop4LJdYqpOkHnLj4K2b1E19bt_T8NcJR5YKNYsyr-WbZtlaKLdxKltqaJ25eJ_5jPMQ77bTdFYP4EMRbOPOm1RIn8nkgyvM_-daPjBUC119nKqfZeZlXRik-InwP7kqHyf4dawFEQv2LwmJ7PEMf_qD6D2gHGQbXFSPCv4L1Xo0RVgRhTi6"/>
-                    <div class="absolute inset-0 bg-black/40 p-6 md:p-12 flex flex-col justify-end">
-                        <h3 class="text-2xl md:text-4xl text-white font-bold uppercase">THE NEON PARADOX</h3>
-                    </div>
-                </div>
-                <div class="md:col-span-4 group relative overflow-hidden aspect-[4/5] md:aspect-auto">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj32m4DMMV1FxtoUgUFGXRj4haRbNp5B0d1qqRC0QleHDk7VYU0Oud4zWQHv-Lr-ZydREUgwMYzhgVP4bYZknXvUv14wJ9dag7KmLbih_Sb6xuqQ7KpDGX9IXnhX8XJ3ZEOAH4qonYXmAGEWsYYuxImk39BQNtx-Eh6DNO4WXxKCbhMhR8xNSHlL0ClOuR0L_kX0qFNZW9DUCl1sO_7iMob1XC-seFfS_3PaWXhmZvIMuUtIKDCZY4zwhFiKUyRl0BT8KVgZaQLGr4"/>
-                    <div class="absolute inset-0 bg-black/40 p-6 flex flex-col justify-end">
-                        <h3 class="text-xl md:text-2xl text-white font-bold uppercase">ANALOG GHOSTS</h3>
+            <div class="mt-24 aspect-[21/9] w-full relative overflow-hidden group">
+                <div class="absolute inset-0 vignette z-20"></div>
+                <img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
+                <div class="absolute inset-0 flex items-center justify-center z-30">
+                    <div class="w-24 h-24 rounded-full border border-[#CCFF00] flex items-center justify-center cursor-pointer hover:bg-[#CCFF00]/20 transition-all">
+                        <span class="material-symbols-outlined text-[#CCFF00] text-4xl">play_circle</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
+</section-page>
 
-    <section id="hub">
-        <div class="px-6 md:px-16 py-20 technical-grid min-h-screen">
-            <h2 class="font-['Space_Grotesk'] text-4xl md:text-6xl text-white mb-12 uppercase">Project Pipeline</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                <div class="lg:col-span-8 space-y-6">
-                    <div class="glass-panel p-4 md:p-8">
-                        <div class="flex justify-between items-center mb-6">
-                            <h3 class="text-white text-lg font-bold uppercase tracking-widest">Active Assets</h3>
-                        </div>
-                        
-                        <div class="space-y-4">
-                            <div class="flex flex-col sm:flex-row items-center gap-4 bg-white/5 p-4 border border-white/10">
-                                <div class="w-full sm:w-24 h-16 bg-black rounded overflow-hidden">
-                                    <img class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQvzYDunO-Oogp54on7W-_OUF1xsgzfS94DoIr4CiHB-UHFAATXq0JNSftQEG1I2FY_LywxmHaAA2tHRQqvFrwuaNrlC1MyFpDDKN9tK5PQ2VcCens5g4PTIMDW_4xTjPZqOfLGyorO_RHuYMnsyXxk3I1h_ZgGX9gDkYIyQ2-RMPYyggOOFujodjT83g6jPuIOdCDdmCs_4OhnqE9nv1UFgmLyTGshgeqe5AWV-9Vdz7wbq9Xv5h8rGvUB_NP5SRl04XvNV1cx_yx"/>
-                                </div>
-                                <div class="flex-grow w-full">
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-[10px] text-white/60">CITY_STREET_NIGHT.R3D</span>
-                                        <span class="text-[10px] text-[#CCFF00]">64%</span>
-                                    </div>
-                                    <div class="w-full h-1 bg-white/10 rounded-full">
-                                        <div class="bg-[#CCFF00] h-full w-[64%] shadow-[0_0_10px_#CCFF00]"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<section-page id="portfolio">
+    <main class="pt-32 px-16 max-w-[1920px] mx-auto min-h-screen">
+        <header class="mb-16 border-l-2 border-[#CCFF00] pl-8">
+            <span class="text-[#CCFF00] uppercase tracking-widest block mb-4">ARCHIVE_024</span>
+            <h1 class="text-7xl font-black text-white uppercase">WORK.</h1>
+        </header>
+        <div class="grid grid-cols-12 gap-8">
+            <div class="md:col-span-8 aspect-[21/9] relative overflow-hidden glass-panel">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXgzHtmO3CExdNuBrnQ8bdr-FI_PaN6s-B_cw5U86iMzSgvsLli8KuPrbNmhVb-duGzzZ4HmSU2Fi9g-ASDb_cLS6Muop4LJdYqpOkHnLj4K2b1E19bt_T8NcJR5YKNYsyr-WbZtlaKLdxKltqaJ25eJ_5jPMQ77bTdFYP4EMRbOPOm1RIn8nkgyvM_-daPjBUC119nKqfZeZlXRik-InwP7kqHyf4dawFEQv2LwmJ7PEMf_qD6D2gHGQbXFSPCv4L1Xo0RVgRhTi6"/>
+                <div class="absolute bottom-8 left-8">
+                    <h3 class="text-4xl font-bold text-white uppercase">THE NEON PARADOX</h3>
                 </div>
+            </div>
+            <div class="md:col-span-4 aspect-[4/5] relative overflow-hidden glass-panel">
+                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj32m4DMMV1FxtoUgUFGXRj4haRbNp5B0d1qqRC0QleHDk7VYU0Oud4zWQHv-Lr-ZydREUgwMYzhgVP4bYZknXvUv14wJ9dag7KmLbih_Sb6xuqQ7KpDGX9IXnhX8XJ3ZEOAH4qonYXmAGEWsYYuxImk39BQNtx-Eh6DNO4WXxKCbhMhR8xNSHlL0ClOuR0L_kX0qFNZW9DUCl1sO_7iMob1XC-seFfS_3PaWXhmZvIMuUtIKDCZY4zwhFiKUyRl0BT8KVgZaQLGr4"/>
+                <div class="absolute bottom-8 left-8 text-white uppercase font-bold">ANALOG GHOSTS</div>
+            </div>
+        </div>
+    </main>
+</section-page>
 
-                <div class="lg:col-span-4">
-                    <div class="glass-panel h-[500px] flex flex-col">
-                        <div class="p-6 border-b border-white/10">
-                            <h3 class="text-white text-xs font-bold uppercase tracking-widest">Production Chat</h3>
-                        </div>
-                        <div class="flex-grow p-6 overflow-y-auto space-y-4">
-                            <div class="bg-white/5 p-4 text-xs text-white/80 border-l-2 border-[#CCFF00]">
-                                <span class="block text-[#CCFF00] font-bold mb-1">KAI_VFX</span>
-                                Updated the dialogue for the finale scene.
-                            </div>
-                        </div>
-                        <div class="p-4 border-t border-white/10">
-                            <input type="text" placeholder="TYPE MESSAGE..." class="w-full bg-transparent border-b border-white/20 py-2 text-xs outline-none focus:border-[#CCFF00] text-white"/>
-                        </div>
-                    </div>
+<section-page id="services">
+    <main class="pt-40 pb-32 px-16 max-w-[1920px] mx-auto min-h-screen technical-grid">
+        <h1 class="text-8xl font-black text-white mb-16">MASTERING THE <span class="text-[#CCFF00]">MOTION</span> MEDIUM</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="glass-card group relative aspect-[16/9] overflow-hidden p-12 flex flex-col justify-end">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6JtUUPox8_-fz1p6RYixkqhvWYnBK22DVFXnQCv7HQ8xTmtLAzrHuJpheUGScreLMeCav9k8Paa0wzv9zkFLIB1v8TljMSDxUZ9oCSnuyZcPJZ_OuJUZAs3MC-VEWe3P8bOAY7_w_hTg8ekUGEs5w1jmphHT9z6lVJjMvMdI87rsFZAJKvcUaCJ7XzUOz0DsLuUkBxd6IuCNBwG_8Hiq8w2Jb-SX7Sa59zCYq8YpltSwp7DTN7TSUoH-FwYs-jGwxB0Sy7pJqhicA"/>
+                <div class="relative z-10">
+                    <h3 class="text-5xl font-bold text-white mb-4 uppercase">3D ANIMATION</h3>
+                    <p class="text-white/60 max-w-md">Hyper-realistic environments and character movements.</p>
+                </div>
+            </div>
+            <div class="glass-card group relative aspect-[16/9] overflow-hidden p-12 flex flex-col justify-end">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByBg18xPbFQTyg5KGRoxM5nqyzFxr5Jo5p_uSDcpR3s7xi7F_ByyBr4_SpzZqansoGyF6hPIXbChjiYIpipV4CCWvXwSgaz8fUYZPwYttAYZjWyWD9PHbW4t0jFJ6y7wfPIwbTnu8j7JSuDRR9NsLYHyKGwLDFZS1jbc5jvJnsakALBwfTElGvfQ1gAAgVhWtcs0bCSEs9hYVp1NEIPOXn5j0vOs0g1XXhCok17tUO8reV_qPLT0N1DXkRT_vfgz_Yt8TX2RJpdCe4"/>
+                <div class="relative z-10">
+                    <h3 class="text-5xl font-bold text-white mb-4 uppercase">VISUAL EFFECTS</h3>
+                    <p class="text-white/60 max-w-md">Seamless integration of digital artifacts.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
+</section-page>
 
-</main>
-
-<footer class="bg-[#080808] w-full py-12 md:py-20 px-6 md:px-16 border-t border-[#CCFF00]/10">
-    <div class="flex flex-col lg:flex-row justify-between items-center gap-8 max-w-[1920px] mx-auto text-center lg:text-left">
-        <div class="text-xl font-black text-[#CCFF00]">ZENVIX MOTION</div>
-        
-        <div class="flex flex-wrap justify-center gap-6 md:gap-10">
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00] transition-colors" href="#">Vimeo</a>
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00] transition-colors" href="#">Instagram</a>
-            <a class="text-[10px] uppercase text-white/40 hover:text-[#CCFF00] transition-colors" href="#">LinkedIn</a>
+<section-page id="assets">
+    <main class="pt-32 px-16 max-w-[1920px] mx-auto min-h-screen">
+        <h1 class="text-7xl font-black text-white mb-16 uppercase">Elite Assets</h1>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="glass-card flex flex-col">
+                <img class="aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white uppercase">Anamorphic Dust Vol. 1</h3>
+                    <p class="text-[#CCFF00] font-bold mt-2">$79.00</p>
+                    <button class="w-full mt-6 py-3 border border-white/10 hover:bg-[#CCFF00] hover:text-black transition-all">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="glass-card flex flex-col">
+                <img class="aspect-video object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzPTj5sKyiOJZOARvVw5m3f-5IFDm6CswND8-NLvc_EHkF2QSOcBF5ATw81KwPO2oBY6w6EdINxsRDT3agXL8DjS7sPO2nNGFD3y0XZBxCGGwukieuHEAfnwoVb6U6SIObyfKzyNK0GPovFKJRJBPhUDNzEJxTbosJgPyDa12xtPG65LfILkFuARs9m9XMxZAIWLSa8Izb4qTnZGDoJPAOeHy1IyQVhzFfznJH1D-bkNSVv5YXyTk-XyPqrd2AZ5m7SNo4ei2clwfR"/>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-white uppercase">Industrial Surfaces</h3>
+                    <p class="text-[#CCFF00] font-bold mt-2">$120.00</p>
+                    <button class="w-full mt-6 py-3 border border-white/10 hover:bg-[#CCFF00] hover:text-black transition-all">ADD TO CART</button>
+                </div>
+            </div>
         </div>
-        
-        <p class="text-[10px] text-white/40 tracking-widest uppercase">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
+    </main>
+</section-page>
+
+<section-page id="billing">
+    <main class="pt-32 px-16 max-w-7xl mx-auto min-h-screen grid grid-cols-12 gap-8">
+        <div class="col-span-12 lg:col-span-7">
+            <h1 class="text-7xl font-black text-white uppercase mb-6">VFX Retainer <br><span class="text-[#CCFF00]">Phase 1</span></h1>
+            <div class="aspect-[16/7] relative rounded-lg overflow-hidden mt-12">
+                <img class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQmSFUDAY0DdWJZNfJQIonse5oEu6MLe0Ikd2OYaNbQSxYOTEXD0yup0ac0VJ9Dnh9WzZ2sS36u21G7qqrFfLxYayI5gwVauR4B0K9Ql1aun3rh6yBxXVgQHpV9bjwR-Si5g0Dtef2T8HZOw0t2Za0o8rUbgJtexnUrYlcqlCo491FeNu8HEbukyPFPaKgG01mfyp1ouGrVdkaLW-oSIOZ8AIOV0DZ9a0LjdyKdhXAPL8U9nqJxsEdE--Jh6l0k85EtCSaTizywVqY"/>
+            </div>
+        </div>
+        <div class="col-span-12 lg:col-span-5">
+            <div class="glass-panel p-10">
+                <p class="text-white/40 uppercase tracking-widest mb-4">Total Amount Due</p>
+                <div class="text-6xl font-bold text-white mb-12">$15,000<span class="text-2xl text-white/40">.00</span></div>
+                <button class="w-full bg-[#CCFF00] text-black font-bold py-6 uppercase tracking-widest hover:shadow-[0_0_20px_rgba(204,255,0,0.3)]">Complete Payment</button>
+            </div>
+        </div>
+    </main>
+</section-page>
+
+<section-page id="team">
+    <main class="pt-32 px-16 max-w-[1920px] mx-auto min-h-screen">
+        <h2 class="text-7xl font-black text-white mb-16 uppercase">Team Members</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glass-card p-6 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img class="w-16 h-16 rounded-full border border-[#00F5FF]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqcb6JUbGpjqOIWDifkCiQSqLm7XVoIERIDXfv3iAI9vKL6CTBgVlTBe_-3avW4cCujKxGUO8YukfOsbCnjJwTxP78R_63b2SHLSHV_mJx2nkzcE2iVOhjsLwjSP3N5Xn57uqZhTWruaTVhxqN1Pi5OtotXRht-8UlYeOEFjAnWYIh4Vt4TVj8xOMtrTExYJWo7nt12S2t1o1qKqCZhr2tQ9NmdjiAwAH3KZ3FqFFQPksLv8Fhn7qbL-paruevoXOPvGoLdd3QnqpT"/>
+                    <div>
+                        <h3 class="text-white font-bold">Alex Volkov</h3>
+                        <span class="text-[#00F5FF] text-xs font-bold uppercase tracking-widest">Admin</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-white/40">more_vert</span>
+            </div>
+            <div class="glass-card p-6 rounded-xl flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <img class="w-16 h-16 rounded-full border border-white/10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Md3XR2rzMC4BC7IqUxmECPutne3dXFiMQMoHjaBFjURa4tLupQBl4wDpXKj0rdM9g-7Wg3VG6Vi4bnco5exC4Sc4WNR1o5bu2OH90AARmsoa-J9X429S3e6a9ih6YR2l-SnByr9Lq8SmXxwPDBkgL7ATuacQoEkeE2RjZo2WsC9eCj_MuaXRjxaoouh2lt0EqDJ_RTi4fL_Qxj0sDLdSgQqi1B0OZYeyFUdIGaaZu3HyBqWOGuI_iuTE9h-_Ka5gZU0KnSP7pVDX"/>
+                    <div>
+                        <h3 class="text-white font-bold">Elena Rossi</h3>
+                        <span class="text-white/40 text-xs font-bold uppercase tracking-widest">Producer</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-white/40">more_vert</span>
+            </div>
+        </div>
+    </main>
+</section-page>
+
+<section-page id="contact">
+    <main class="pt-32 pb-24 px-16 max-w-[1920px] mx-auto min-h-screen technical-grid">
+        <header class="mb-20">
+            <h1 class="text-8xl font-black text-white">Let's craft your <span class="text-[#CCFF00]">vision.</span></h1>
+        </header>
+        <div class="grid grid-cols-12 gap-16">
+            <div class="col-span-12 lg:col-span-8">
+                <form class="space-y-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="group">
+                            <label class="text-white/40 text-xs font-bold tracking-widest uppercase">Full Name</label>
+                            <input class="w-full bg-transparent border-b border-white/10 focus:border-[#CCFF00] py-4 outline-none text-white" placeholder="John Wick" type="text"/>
+                        </div>
+                        <div class="group">
+                            <label class="text-white/40 text-xs font-bold tracking-widest uppercase">Email</label>
+                            <input class="w-full bg-transparent border-b border-white/10 focus:border-[#CCFF00] py-4 outline-none text-white" placeholder="john@wick.com" type="email"/>
+                        </div>
+                    </div>
+                    <button class="bg-[#CCFF00] text-black px-12 py-5 font-bold uppercase tracking-widest">SUBMIT ENQUIRY</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</section-page>
+
+<footer class="w-full py-20 px-16 border-t border-[#CCFF00]/10 bg-[#080808]">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full max-w-[1920px] mx-auto">
+        <div class="text-xl font-bold text-[#CCFF00]">ZENVIX MOTION</div>
+        <div class="text-white/40 text-[10px] uppercase tracking-widest">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</div>
     </div>
 </footer>
 
 <script>
-    // URL Hash Navigation Logic
-    function handleNav() {
-        const hash = window.location.hash || '#home';
-        document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-        const activeSection = document.querySelector(hash);
-        if(activeSection) {
-            activeSection.classList.add('active');
-        }
+    function showPage(pageId) {
+        // Hide all pages
+        document.querySelectorAll('section-page').forEach(page => {
+            page.classList.remove('active');
+        });
+        // Show selected page
+        document.getElementById(pageId).classList.add('active');
+        // Scroll to top
+        window.scrollTo(0,0);
     }
-
-    window.addEventListener('hashchange', handleNav);
-    window.addEventListener('load', handleNav);
 </script>
 
 </body>
