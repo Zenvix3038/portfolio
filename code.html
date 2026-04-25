@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CINE_MOTION Analytics Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-high": "#2a2a2b",
+                      "on-surface": "#e5e2e3",
+                      "on-primary": "#003739",
+                      "error-container": "#93000a",
+                      "surface-tint": "#00dce5",
+                      "surface-dim": "#131314",
+                      "primary": "#e9feff",
+                      "primary-container": "#00f5ff",
+                      "surface-container-low": "#1c1b1c",
+                      "outline-variant": "#3a494a",
+                      "on-secondary-fixed": "#2d004f",
+                      "on-background": "#e5e2e3",
+                      "on-secondary-fixed-variant": "#6b00b0",
+                      "inverse-primary": "#00696e",
+                      "secondary-container": "#9d05ff",
+                      "inverse-surface": "#e5e2e3",
+                      "surface-bright": "#3a393a",
+                      "tertiary-fixed": "#e2e2e4",
+                      "surface-variant": "#353436",
+                      "on-error": "#690005",
+                      "tertiary-container": "#dddddf",
+                      "on-surface-variant": "#b9caca",
+                      "error": "#ffb4ab",
+                      "on-secondary-container": "#f7e6ff",
+                      "secondary-fixed-dim": "#dfb7ff",
+                      "on-secondary": "#4b007e",
+                      "secondary": "#dfb7ff",
+                      "on-primary-fixed": "#002021",
+                      "inverse-on-surface": "#313031",
+                      "background": "#131314",
+                      "surface-container-lowest": "#0e0e0f",
+                      "surface-container-highest": "#353436",
+                      "on-tertiary": "#2f3132",
+                      "surface-container": "#201f20",
+                      "on-tertiary-fixed-variant": "#454749",
+                      "on-primary-container": "#006c71",
+                      "outline": "#849495",
+                      "surface": "#131314",
+                      "on-tertiary-fixed": "#1a1c1d",
+                      "on-primary-fixed-variant": "#004f53",
+                      "tertiary": "#fafafc",
+                      "primary-fixed-dim": "#00dce5",
+                      "secondary-fixed": "#f1daff",
+                      "on-tertiary-container": "#606163",
+                      "primary-fixed": "#63f7ff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "container-max": "1440px",
+                      "gutter": "24px",
+                      "section-gap": "120px",
+                      "margin-edge": "48px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "headline-h2": ["Space Grotesk"],
+                      "body-md": ["Manrope"],
+                      "body-lg": ["Manrope"],
+                      "headline-h1": ["Space Grotesk"],
+                      "display-hero": ["Space Grotesk"],
+                      "label-caps": ["Space Grotesk"]
+              },
+              "fontSize": {
+                      "headline-h2": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "headline-h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "display-hero": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(20, 20, 21, 0.7);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .neon-glow {
+            filter: drop-shadow(0 0 12px rgba(0, 245, 255, 0.45));
+        }
+        .scanline {
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 245, 255, 0.05) 50.5%, transparent 51%);
+            background-size: 100% 4px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .btn-premium-glow:hover {
+            box-shadow: 0 0 15px rgba(0, 245, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-10 h-20 bg-neutral-950/80 backdrop-blur-2xl border-b border-white/10 shadow-2xl">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-tighter text-cyan-400 font-headline-h2" style="text-shadow: 0 0 15px rgba(0, 245, 255, 0.6);">CINEMA_CORE</span>
+<div class="hidden md:flex gap-8">
+<a class="font-['Space_Grotesk'] tracking-wide uppercase text-xs font-bold text-neutral-500 hover:text-white transition-colors" href="#">Projects</a>
+<a class="font-['Space_Grotesk'] tracking-wide uppercase text-xs font-bold text-cyan-400 border-b-2 border-cyan-400 pb-4" href="#">Studio</a>
+<a class="font-['Space_Grotesk'] tracking-wide uppercase text-xs font-bold text-neutral-500 hover:text-white transition-colors" href="#">Library</a>
+<a class="font-['Space_Grotesk'] tracking-wide uppercase text-xs font-bold text-neutral-500 hover:text-white transition-colors" href="#">Team</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="bg-white/5 border-0 border-b border-white/20 focus:border-primary-container focus:ring-0 text-xs font-label-caps py-2 pl-2 pr-10 w-64 transition-all" placeholder="SEARCH ASSETS..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-1.5 text-neutral-500">search</span>
+</div>
+<button class="material-symbols-outlined text-neutral-400 hover:text-cyan-400 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-neutral-400 hover:text-cyan-400 transition-colors">settings</button>
+<img alt="Director Profile" class="w-10 h-10 rounded-full border border-cyan-400/30" data-alt="Professional studio director portrait with cinematic side lighting and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2IaHnwrRN7UZJSUj7bW21T5-FzLJHfef5B15HQ0sXwu6QlZ89jXW5cSRJc9bCvui_qZbv98TQ1boGFXtskVsHgN4qKb_a3-E8my03tUzeMjALbu3-sbaTQaZ8Jb2pUA6A1WjJq9-dZAS37VplFgEgNFGn5KVlBzG-nXYIwgx31AmBNNFcjtcNRsgxRyHpe0UkdU6B2SucIjX52cUQ2N9l5MEvYD_oUoz6nLsYUudPmf1BX8lV3syvXiSxFdvCq-gfXATZixkZ0rky"/>
+</div>
+</nav>
+<!-- Side Navigation -->
+<aside class="fixed left-0 top-20 h-[calc(100vh-80px)] w-64 flex flex-col pt-12 bg-neutral-950/90 backdrop-blur-3xl border-r border-white/10 z-40 hidden md:flex">
+<div class="px-8 mb-12">
+<h3 class="font-['Space_Grotesk'] tracking-widest text-[10px] font-semibold text-neutral-500">ANALYTICS</h3>
+<p class="font-headline-h2 text-lg text-primary-container">DASHBOARD</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-4 bg-cyan-400/10 text-cyan-400 border-r-2 border-cyan-400 py-4 px-6 active:translate-x-1 duration-150 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-['Space_Grotesk'] tracking-widest text-[10px] font-semibold">Revenue</span>
+</a>
+<a class="flex items-center gap-4 text-neutral-500 py-4 px-6 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="cloud_download">cloud_download</span>
+<span class="font-['Space_Grotesk'] tracking-widest text-[10px] font-semibold">Downloads</span>
+</a>
+<a class="flex items-center gap-4 text-neutral-500 py-4 px-6 hover:text-neutral-200 hover:bg-neutral-900 transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span class="font-['Space_Grotesk'] tracking-widest text-[10px] font-semibold">Engagement</span>
+</a>
+</nav>
+<div class="p-8">
+<button class="w-full py-4 border border-cyan-400/30 text-cyan-400 font-label-caps text-[10px] hover:bg-cyan-400 hover:text-black transition-all duration-300 active:scale-95 btn-premium-glow">
+                Export Report
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-64 pt-20 min-h-screen">
+<div class="max-w-container-max mx-auto px-10 py-12">
+<!-- Hero Revenue Overview -->
+<section class="mb-12">
+<div class="glass-panel p-10 rounded-lg relative overflow-hidden group">
+<div class="absolute inset-0 scanline opacity-20 pointer-events-none"></div>
+<div class="flex justify-between items-start mb-8 relative z-10">
+<div>
+<span class="font-label-caps text-primary-container mb-2 block">QUARTERLY PERFORMANCE</span>
+<h1 class="font-headline-h1 text-on-surface">Revenue Overview</h1>
+</div>
+<div class="text-right">
+<span class="text-headline-h2 text-cyan-400 neon-glow" style="color: #00F5FF;">$842,910.00</span>
+<div class="flex items-center justify-end gap-2 text-green-400 text-sm font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+                                12.4% GROWTH
+                            </div>
+</div>
+</div>
+<!-- SVG Chart Mockup -->
+<div class="h-[300px] w-full mt-10 relative z-10">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 300">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="rgba(0, 245, 255, 0.3)"></stop>
+<stop offset="100%" stop-color="rgba(0, 245, 255, 0)"></stop>
+</lineargradient>
+</defs>
+<path d="M0,250 Q100,230 200,245 T400,180 T600,190 T800,100 T1000,50 L1000,300 L0,300 Z" fill="url(#chartGradient)"></path>
+<path class="neon-glow" d="M0,250 Q100,230 200,245 T400,180 T600,190 T800,100 T1000,50" fill="none" stroke="#00f5ff" stroke-width="3"></path>
+<!-- Vertical Grid Lines -->
+<g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+<line x1="200" x2="200" y1="0" y2="300"></line>
+<line x1="400" x2="400" y1="0" y2="300"></line>
+<line x1="600" x2="600" y1="0" y2="300"></line>
+<line x1="800" x2="800" y1="0" y2="300"></line>
+</g>
+</svg>
+<div class="flex justify-between mt-4 font-label-caps text-[10px] text-neutral-500">
+<span>JAN</span><span>MAR</span><span>MAY</span><span>JUL</span><span>SEP</span><span>NOV</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Key Stats Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+<div class="glass-panel p-6 rounded-lg border-l-4 border-cyan-400">
+<span class="font-label-caps text-neutral-500 mb-4 block">TOTAL REVENUE</span>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline-h2 text-on-surface">$2.4M</span>
+<span class="material-symbols-outlined text-cyan-400/50 text-4xl">payments</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-lg border-l-4 border-purple-500">
+<span class="font-label-caps text-neutral-500 mb-4 block">MONTHLY DOWNLOADS</span>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline-h2 text-on-surface">14.2K</span>
+<span class="material-symbols-outlined text-purple-500/50 text-4xl">cloud_download</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-lg border-l-4 border-blue-500">
+<span class="font-label-caps text-neutral-500 mb-4 block">ACTIVE PROJECTS</span>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline-h2 text-on-surface">64</span>
+<span class="material-symbols-outlined text-blue-500/50 text-4xl">movie_filter</span>
+</div>
+</div>
+<div class="glass-panel p-6 rounded-lg border-l-4 border-cyan-400">
+<span class="font-label-caps text-neutral-500 mb-4 block">RETENTION RATE</span>
+<div class="flex items-end justify-between">
+<span class="text-3xl font-headline-h2 text-on-surface">92.4%</span>
+<span class="material-symbols-outlined text-cyan-400/50 text-4xl">group_work</span>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Top Performing Assets -->
+<div class="lg:col-span-2">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-h2 text-xl tracking-wider">TOP PERFORMING ASSETS</h2>
+<button class="text-xs font-label-caps text-cyan-400 hover:underline">VIEW ALL</button>
+</div>
+<div class="space-y-4">
+<!-- Asset Row 1 -->
+<div class="glass-panel p-4 rounded-lg flex items-center gap-6 group hover:bg-white/5 transition-all">
+<div class="w-32 h-20 overflow-hidden rounded relative">
+<img alt="VFX Asset Preview" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Cinematic landscape of misty mountains at dusk with cold blue tones and atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJh697zrGXU77KyOnjNruTcmDaEKlVIAvHOpFYCn0mD7WxYN2Wbd2uqHoODGGs8Wku5ueDCnn3Tm1RqwK43kaQ9UWMY1vY96HVvJJQwi0DHs-oxHchT3DqwwVFHmrZ30l_n33MkWNHEkmOfNeJmyRuffLoGi6RpxIIVDHx2zEJ1oTr8ZctuOvOlvgjbF2eiESKtvbVushXvQI1-aonOBjAkqaB5nJCHlDrbHuPHcrC_afw9o7d5E_6ug6xmDian9IuNvTBqV50Yq_a"/>
+<div class="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-h2 text-sm text-on-surface mb-1">NEON_CITY_DRIFT_04.MP4</h4>
+<div class="flex gap-3">
+<span class="text-[10px] font-label-caps bg-purple-900/40 text-purple-200 px-2 py-0.5 rounded border border-purple-500/30">4K ULTRA</span>
+<span class="text-[10px] font-label-caps bg-cyan-900/40 text-cyan-200 px-2 py-0.5 rounded border border-cyan-500/30">VFX MASTER</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-on-surface">8.4K DLs</div>
+<div class="text-xs text-cyan-400">$42,900</div>
+</div>
+</div>
+<!-- Asset Row 2 -->
+<div class="glass-panel p-4 rounded-lg flex items-center gap-6 group hover:bg-white/5 transition-all">
+<div class="w-32 h-20 overflow-hidden rounded relative">
+<img alt="VFX Asset Preview" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract colorful neon light trails in dark space representing high speed motion and energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR6HxxH0EPg3vycHDIjMV1m-URw7A2aPZYlyQ-KUEl_GE0aD8ELNio0Z91ICFchGx58-gsuXA_pOXFvKi6g3B0cRLOxlaFyvPOniS6GLLhChaA689pi1QEEtGuDOqcEUS4JyQLtx4o5SkfOG32UF2UNJPNoOwecKw6yBzw8NeIRnAkv4B9sOzBKbwYxuXQqGEDNOzyXRrBG75mzEE6AeeVzKtywftCSqo7yM1Y6-PvztDmwV5qWT05-OC3yWb672GETZ4xBi2-O1wh"/>
+<div class="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-h2 text-sm text-on-surface mb-1">ABSTRACT_PARTICLE_STORM.MOV</h4>
+<div class="flex gap-3">
+<span class="text-[10px] font-label-caps bg-blue-900/40 text-blue-200 px-2 py-0.5 rounded border border-blue-500/30">8K RAW</span>
+<span class="text-[10px] font-label-caps bg-cyan-900/40 text-cyan-200 px-2 py-0.5 rounded border border-cyan-500/30">DYNAMICS</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-on-surface">6.1K DLs</div>
+<div class="text-xs text-cyan-400">$31,200</div>
+</div>
+</div>
+<!-- Asset Row 3 -->
+<div class="glass-panel p-4 rounded-lg flex items-center gap-6 group hover:bg-white/5 transition-all">
+<div class="w-32 h-20 overflow-hidden rounded relative">
+<img alt="VFX Asset Preview" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Professional cinema camera on a gimbal stabilizer in a dimly lit studio environment with blue accent lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKyP8jeHasP12_RVsKT5Be8tRKjue8MCQBsdE13kpuH0o_Yw6rzzINZCoJeYx-qN-C_2cHCODn9NQlVsi583_lU7L0X8P6Ea3UGDw2vSFV8-ewLK3JJZBg9-uTwiNy4Tv4fj-t7OWSPVUeAP05YIDzXojitf5qwbmG6llvovFrwuTThnU3j-Yj4pyhinr0x_JwCO0db_fpxSzGvrpLIUVteWhH2SRTc33uP6sVyBoX7-knywmXfTVifOQmtM81evPAbQMMTSgsbU7Z"/>
+<div class="absolute inset-0 bg-cyan-400/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white">play_arrow</span>
+</div>
+</div>
+<div class="flex-grow">
+<h4 class="font-headline-h2 text-sm text-on-surface mb-1">STUDIO_GIMBAL_TRACKS_VOL2</h4>
+<div class="flex gap-3">
+<span class="text-[10px] font-label-caps bg-neutral-800/40 text-neutral-300 px-2 py-0.5 rounded border border-neutral-500/30">HFR</span>
+<span class="text-[10px] font-label-caps bg-cyan-900/40 text-cyan-200 px-2 py-0.5 rounded border border-cyan-500/30">COMMERCIAL</span>
+</div>
+</div>
+<div class="text-right">
+<div class="text-sm font-bold text-on-surface">5.9K DLs</div>
+<div class="text-xs text-cyan-400">$28,500</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Activity Feed -->
+<div class="lg:col-span-1">
+<h2 class="font-headline-h2 text-xl tracking-wider mb-6">RECENT ACTIVITY</h2>
+<div class="glass-panel rounded-lg overflow-hidden flex flex-col h-[400px]">
+<div class="p-6 space-y-6 overflow-y-auto">
+<!-- Activity Item 1 -->
+<div class="flex gap-4 border-l-2 border-cyan-400 pl-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-400/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400 text-sm">shopping_cart</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">New purchase</p>
+<p class="text-xs text-neutral-500">Enterprise License: Neon City Pack</p>
+<p class="text-[10px] font-label-caps text-neutral-600 mt-1">2 MINS AGO</p>
+</div>
+</div>
+<!-- Activity Item 2 -->
+<div class="flex gap-4 border-l-2 border-purple-500 pl-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-500 text-sm">update</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Asset updated</p>
+<p class="text-xs text-neutral-500">ABSTRACT_PARTICLE_STORM.MOV (v2.1)</p>
+<p class="text-[10px] font-label-caps text-neutral-600 mt-1">45 MINS AGO</p>
+</div>
+</div>
+<!-- Activity Item 3 -->
+<div class="flex gap-4 border-l-2 border-blue-500 pl-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-500/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-500 text-sm">mail</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Client message received</p>
+<p class="text-xs text-neutral-500">Inquiry from PixelPerfect Studios</p>
+<p class="text-[10px] font-label-caps text-neutral-600 mt-1">2 HOURS AGO</p>
+</div>
+</div>
+<!-- Activity Item 4 -->
+<div class="flex gap-4 border-l-2 border-cyan-400 pl-4">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-400/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-cyan-400 text-sm">person_add</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">New studio access</p>
+<p class="text-xs text-neutral-500">Invitation accepted by Marcus V.</p>
+<p class="text-[10px] font-label-caps text-neutral-600 mt-1">5 HOURS AGO</p>
+</div>
+</div>
+</div>
+<div class="mt-auto border-t border-white/5 p-4 bg-black/20">
+<button class="w-full text-center text-[10px] font-label-caps text-neutral-500 hover:text-white transition-colors">SEE FULL AUDIT LOG</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decoration -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>
