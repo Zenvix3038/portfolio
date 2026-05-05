@@ -1,210 +1,181 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>ZENVIX MOTION | ALL-IN-ONE</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary-cyan": "#00E5FF",
-                        "dark-bg": "#0B0F14",
-                        "surface-card": "#151B23",
-                        "primary-container": "#00E5FF",
-                        "on-primary-container": "#0B0F14",
-                        "background": "#0B0F14",
-                    },
-                    fontFamily: {
-                        "h1": ["Space Grotesk"],
-                        "h2": ["Space Grotesk"],
-                        "body": ["Inter"],
-                        "manrope": ["Manrope"]
-                    }
-                }
-            }
-        }
-    </script>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CINESCOPE — Movie Listings</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap">
+    
     <style>
-        body { background-color: #0B0F14; color: #e5e2e1; scroll-behavior: smooth; }
-        .neon-glow { box-shadow: 0 0 20px rgba(0, 229, 255, 0.3); }
-        .glass-panel { background: rgba(21, 27, 35, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .text-cyan { color: #00E5FF; }
-        .bg-cyan { background-color: #00E5FF; }
-        .border-cyan { border-color: #00E5FF; }
-        .technical-grid { background-image: linear-gradient(rgba(0, 229, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 229, 255, 0.05) 1px, transparent 1px); background-size: 40px 40px; }
+        /* Base Styles from Source 4 */
+        :root {
+            --spacing: .25rem;
+            --radius-lg: .5rem;
+            --radius-xl: .75rem;
+            --radius-2xl: 1rem;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            color: #f5f0ea;
+            background: #0d0d14; /* Background color from Source 2 */
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.5;
+        }
+
+        /* Header Styles */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(13, 13, 20, 0.88);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            height: 62px;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.85rem;
+            letter-spacing: 0.12em;
+            background: linear-gradient(135deg, #F5C842 30%, #E8920a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero / Featured Section */
+        .hero {
+            position: relative;
+            height: clamp(360px, 58vh, 560px);
+            margin-bottom: 2.5rem;
+            background: linear-gradient(135deg, #0f0800 0%, #3d2400 55%, #7a4800 100%); /* Dune: Part Two colors */
+            display: flex;
+            align-items: flex-end;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 560px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            margin: 0 0 0.9rem 0;
+            line-height: 0.95;
+        }
+
+        /* Movie Grid */
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.65rem;
+            padding: 0 2rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+            gap: 1.25rem;
+            padding: 0 2rem 3rem;
+        }
+
+        .movie-card {
+            background: #1a1a1a;
+            height: 260px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.28s ease;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-6px) scale(1.03);
+        }
+
+        .badge {
+            background: #E63946;
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 99px;
+            text-transform: uppercase;
+        }
+
+        /* Utilities */
+        .flex { display: flex; }
+        .items-center { align-items: center; }
+        .gap-2 { gap: 0.5rem; }
     </style>
 </head>
+<body>
 
-<body class="font-body selection:bg-primary-cyan selection:text-dark-bg">
+    <!-- Header (Source 2) -->
+    <header>
+        <div class="logo">CINESCOPE</div>
+        <nav class="flex gap-2">
+            <span style="color: #F5C842; cursor: pointer;">Movies</span>
+            <span style="color: #8b8b9e; cursor: pointer; padding: 0 10px;">Series</span>
+            <span style="color: #8b8b9e; cursor: pointer;">Trending</span>
+        </nav>
+    </header>
 
-<nav class="fixed top-0 w-full z-[100] bg-[#0B0F14]/90 backdrop-blur-xl border-b border-[#00E5FF]/20 px-6 md:px-16 py-6 flex justify-between items-center">
-    <div class="text-2xl font-black tracking-tighter text-cyan">ZENVIX MOTION</div>
-    <div class="hidden md:flex gap-10 font-h1 uppercase text-xs tracking-widest font-bold">
-        <a href="#hero" class="text-white hover:text-cyan transition-colors">Home</a>
-        <a href="#portfolio" class="text-white/60 hover:text-cyan transition-colors">Portfolio</a>
-        <a href="#marketplace" class="text-white/60 hover:text-cyan transition-colors">Marketplace</a>
-        <a href="#studio" class="text-white/60 hover:text-cyan transition-colors">Studio</a>
+    <!-- Hero Section (Source 2 - Dune: Part Two) -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="flex items-center gap-2" style="margin-bottom: 10px;">
+                <span class="badge">Featured</span>
+                <span style="color: #8b8b9e; font-size: 13px;">2024 • Sci-Fi, Adventure • 2h 46m</span>
+            </div>
+            <h1>DUNE: PART TWO</h1>
+            <p style="color: #b8b4ae; font-size: 0.875rem;">Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.</p>
+            <div class="flex gap-2">
+                <button style="background: #F5C842; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; cursor: pointer;">Watch Now</button>
+                <button style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 25px; border-radius: 8px; cursor: pointer;">+ Watchlist</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Now Playing Section -->
+    <div class="section-title">
+        <div>NOW PLAYING <span class="badge" style="vertical-align: middle; margin-left: 10px;">LIVE</span></div>
+        <button style="color: #F5C842; background: none; border: none; font-size: 0.8rem; cursor: pointer;">View All →</button>
     </div>
-    <button class="bg-cyan text-dark-bg font-h1 font-bold text-xs tracking-widest px-8 py-3 neon-glow active:scale-95 transition-all">START PROJECT</button>
-</nav>
 
-<main class="technical-grid">
-
-    <section id="hero" class="min-h-screen flex flex-col justify-center px-6 md:px-16 pt-32">
-        <span class="font-bold text-cyan tracking-[0.3em] mb-4 block text-xs">MOTION PRODUCTION STUDIO</span>
-        <h1 class="font-h1 text-5xl md:text-8xl text-white uppercase mb-12 max-w-5xl leading-none">REDEFINING <span class="text-cyan">MOTION</span></h1>
-        <div class="aspect-[21/9] w-full relative overflow-hidden group rounded-lg border border-white/10">
-            <img class="w-full h-full object-cover grayscale brightness-50 group-hover:grayscale-0 transition-all duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSzP_0u-oOIpKE1QNSLZacUnkKAHWw56lvhmVjBCDa9WKqNz0DfkA8lQvuxB8tCvZT9zah2eMAV1Spb5SBvrSJntsRmXeEYFm1sM9T5Z2KUnapkDvH-8OqjRCzrEWT7IGpKAKMYUXrz4MBpoIjpKOEQNcC-sKY3-NOwNIC8eQkNGIcNbuaERmH7VQPFx3HtY4e3cdBfNiPZmf3JzOXiFz5x_0SnNzfZS_hy5jGtPpdTyBYVTBKzezy2sCk7nAr_mU5MAyTBMaT6wyY"/>
-            <div class="absolute inset-0 flex items-center justify-center">
-                <div class="w-20 h-20 rounded-full border border-cyan flex items-center justify-center cursor-pointer hover:bg-cyan/20 transition-all">
-                    <span class="material-symbols-outlined text-cyan text-4xl">play_circle</span>
-                </div>
+    <div class="movie-grid">
+        <!-- Movie Cards -->
+        <div class="movie-card" style="background: linear-gradient(160deg, #0d0000, #2e0505, #5c0a0a);">
+            <div style="position: absolute; bottom: 10px; left: 12px;">
+                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Oppenheimer</div>
+                <div style="font-size: 10px; color: #6b6b7e;">2023 • 3h 0m</div>
             </div>
         </div>
-    </section>
-
-    <section id="portfolio" class="py-32 px-6 md:px-16">
-        <div class="flex justify-between items-end mb-16 border-l-4 border-cyan pl-6">
-            <h2 class="font-h1 text-4xl text-white uppercase">FEATURED WORK</h2>
-            <span class="text-white/40 text-xs tracking-widest">ARCHIVE_2024</span>
-        </div>
-        <div class="grid grid-cols-12 gap-8">
-            <div class="col-span-12 md:col-span-8 group relative aspect-[16/9] overflow-hidden rounded-lg">
-                <img class="w-full h-full object-cover transition-all group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDexyIFttKgqSjo1inZpoSylmuBh-9gfYpbtY_Rbt20M0INbQa3qnujmKZ68F4SRQkCmpvcIV2MRFw_2hb8uTinYDPll6JksMOQToO1RXfirqJFPYoi1xqPTTgvvcWgKgoiOQ5z3xU6k2fTzeKQcYcRb7nrr48wFJLrltzgGkhfmX_Nu6hspg06URZ_9d0elbbxqCNExWiE-UWyU7ZgUOwGwOo7ANuACP-tlf3aVJ9GoK3h_bgJIVYju9o90ttho2Ff2XxlkCMieY0h"/>
-                <div class="absolute bottom-8 left-8">
-                    <span class="text-cyan text-[10px] border border-cyan/30 px-3 py-1 mb-4 inline-block">ADVERTISING</span>
-                    <h3 class="font-h1 text-2xl text-white uppercase">VANGUARD ORIGINS</h3>
-                </div>
-            </div>
-            <div class="col-span-12 md:col-span-4 group relative aspect-[4/5] overflow-hidden rounded-lg">
-                <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk1ZT-nvRo2pOyaydcAZxsGvlQp3_jET5c2ep7FFfiWb5mEvOIhvfLMA7hUoVfJ2ct7pRf-bQIklHpG5sphYZXw0OpCEFkF7WT-xcvjPBCvBEYEq6xvSLViapfDu89KG-rlzc1vee0yHGk_ZnChxSvcRrG7z8xBbDdO181elSHzm0h_c4TSw8QfzkYRIWdhBR5_VTjf7-C7hR1ZaMdVTlIu9OEZQC7qMuV4i8e8k2RMpQKPX0pklCSfO_BT2KdVleB-dUicAWEcCeY"/>
-                <div class="absolute bottom-8 left-8"><h3 class="font-h1 text-xl text-white uppercase">LENS CRAFT</h3></div>
+        <div class="movie-card" style="background: linear-gradient(160deg, #001a1a, #004a4a, #007a6a);">
+            <div style="position: absolute; bottom: 10px; left: 12px;">
+                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Poor Things</div>
+                <div style="font-size: 10px; color: #6b6b7e;">2023 • 2h 21m</div>
             </div>
         </div>
-    </section>
-
-    <section id="marketplace" class="py-32 px-6 md:px-16 bg-surface-card/30">
-        <header class="mb-16">
-            <h2 class="font-h1 text-5xl text-white uppercase mb-4">Elite Assets</h2>
-            <p class="text-white/40 max-w-xl">High-fidelity tools for the next generation of digital creators.</p>
-        </header>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass-panel p-4 rounded-xl group">
-                <div class="aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover group-hover:scale-105 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzRMLbd49ZtiCDJkj7AGNxy_rE_yvD7BWQhH8lGSVdEETfflb_KYvrXyEeKjwJk7-hogvij5uEkFo2ZG3waj93EMFrbwJBfHIe4nutyet9BnFnFqO9FkVj5izRqgWYWc48jAhY882soS6LISg0zYKJo5nEsqXby6H74r0lMSqGuY6xksh2GwjYitGomxBqye3hyEGU3IRb2WZAuWgxKtSSv2GtWJeqBXun8ot3DlKVyV3W3ZHdpi-ANKm0hqGjdyZQQZvbonOZGrGQ"/>
-                </div>
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="font-h1 text-lg text-white uppercase">Anamorphic Dust</h3>
-                    <span class="text-cyan font-bold">$79.00</span>
-                </div>
-                <button class="w-full py-3 bg-cyan text-dark-bg font-bold text-xs rounded hover:brightness-110 transition-all">ADD TO CART</button>
-            </div>
-            <div class="glass-panel p-4 rounded-xl group">
-                <div class="aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzPTj5sKyiOJZOARvVw5m3f-5IFDm6CswND8-NLvc_EHkF2QSOcBF5ATw81KwPO2oBY6w6EdINxsRDT3agXL8DjS7sPO2nNGFD3y0XZBxCGGwukieuHEAfnwoVb6U6SIObyfKzyNK0GPovFKJRJBPhUDNzEJxTbosJgPyDa12xtPG65LfILkFuARs9m9XMxZAIWLSa8Izb4qTnZGDoJPAOeHy1IyQVhzFfznJH1D-bkNSVv5YXyTk-XyPqrd2AZ5m7SNo4ei2clwfR"/>
-                </div>
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="font-h1 text-lg text-white uppercase">Industrial Surfaces</h3>
-                    <span class="text-cyan font-bold">$120.00</span>
-                </div>
-                <button class="w-full py-3 border border-cyan text-cyan font-bold text-xs rounded hover:bg-cyan/10 transition-all">ADD TO CART</button>
-            </div>
-            <div class="glass-panel p-4 rounded-xl group">
-                <div class="aspect-video overflow-hidden rounded-lg mb-6">
-                    <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Ku04GTPGpAy3y_-wN-tN8qmXqFceglMIR54wIA9M6DuZWSI4Pxyx9wZrPPjxCWB5aI4NMuD0jZzlA1b-WN5sMGJ_ExITg2-DRi2FuW4lclKoJ3WOCS-dxFsbF826ep3zTvBZpKubNflLJG5UOH-TJiPyOlSMQN5douEWT_PTi7tqZKMPfxHUA-7PbEdAiRkqanUTE2U2E291jcZ-XbUemSl5mvGyWm5niA2vLy5lMiiGkkkP5GY5lSdEZvQVJOHcS8NrPR58fzCP"/>
-                </div>
-                <div class="flex justify-between items-center mb-4">
-                    <h3 class="font-h1 text-lg text-white uppercase">Cyber Noir LUTs</h3>
-                    <span class="text-cyan font-bold">$45.00</span>
-                </div>
-                <button class="w-full py-3 border border-cyan text-cyan font-bold text-xs rounded hover:bg-cyan/10 transition-all">ADD TO CART</button>
+        <div class="movie-card" style="background: linear-gradient(160deg, #050a1a, #0a1540, #152a7a);">
+            <div style="position: absolute; bottom: 10px; left: 12px;">
+                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Past Lives</div>
+                <div style="font-size: 10px; color: #6b6b7e;">2023 • 1h 46m</div>
             </div>
         </div>
-    </section>
-
-    <section id="studio" class="py-32 px-6 md:px-16 border-t border-white/10">
-        <div class="grid grid-cols-12 gap-12">
-            <div class="col-span-12 lg:col-span-8">
-                <h2 class="font-h1 text-4xl text-white uppercase mb-12">Project Pipeline</h2>
-                <div class="glass-panel p-8 rounded-xl mb-8">
-                    <div class="flex justify-between items-center mb-6">
-                        <span class="bg-cyan text-dark-bg px-3 py-1 text-[10px] font-bold">ACTIVE</span>
-                        <span class="text-white/40 text-[10px]">ZV-2024-X9</span>
-                    </div>
-                    <h3 class="font-h1 text-3xl text-white mb-6">NEON DYS_TOPIA</h3>
-                    <div class="w-full bg-white/10 h-1 relative">
-                        <div class="absolute top-0 left-0 bg-cyan h-full w-[65%] shadow-[0_0_10px_#00E5FF]"></div>
-                    </div>
-                    <div class="flex justify-between mt-4 text-[10px] text-white/40 uppercase tracking-widest">
-                        <span>Pre-Prod</span>
-                        <span class="text-cyan">VFX Phase</span>
-                        <span>Delivery</span>
-                    </div>
-                </div>
-            </div>
-            <aside class="col-span-12 lg:col-span-4">
-                <div class="glass-panel h-[500px] flex flex-col rounded-xl overflow-hidden">
-                    <div class="p-6 border-b border-white/10 flex justify-between items-center">
-                        <div class="flex items-center gap-3"><div class="w-2 h-2 bg-cyan rounded-full animate-pulse"></div><h3 class="text-xs font-bold text-white uppercase">Production Chat</h3></div>
-                    </div>
-                    <div class="flex-1 overflow-y-auto p-6 space-y-4">
-                        <div class="flex flex-col items-start"><span class="text-[9px] text-cyan font-bold mb-1">KAI_VFX</span><div class="bg-white/5 p-3 rounded-lg text-xs">Rain sequence fluid sim ready.</div></div>
-                        <div class="flex flex-col items-end"><span class="text-[9px] text-white/40 mb-1">YOU</span><div class="bg-cyan p-3 rounded-lg text-xs text-dark-bg font-bold">Looking great!</div></div>
-                    </div>
-                    <div class="p-4 border-t border-white/10">
-                        <input type="text" class="w-full bg-transparent border-0 border-b border-white/20 focus:border-cyan text-xs text-white p-2 outline-none" placeholder="Message team..."/>
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </section>
-
-    <section class="py-32 px-6 md:px-16 bg-surface-card/20">
-        <h2 class="font-h1 text-4xl text-white uppercase mb-12">Transaction Ledger</h2>
-        <div class="glass-panel rounded-xl overflow-hidden divide-y divide-white/5">
-            <div class="p-6 flex justify-between items-center hover:bg-white/5 transition-all">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/20">description</span>
-                    <div><p class="font-bold text-white">SEP 24, 2024</p><p class="text-[10px] text-white/40">INV-004829</p></div>
-                </div>
-                <div class="flex items-center gap-6">
-                    <span class="font-bold text-white">$499.00</span>
-                    <button class="text-cyan"><span class="material-symbols-outlined">download</span></button>
-                </div>
-            </div>
-            <div class="p-6 flex justify-between items-center hover:bg-white/5 transition-all">
-                <div class="flex items-center gap-4">
-                    <span class="material-symbols-outlined text-white/20">description</span>
-                    <div><p class="font-bold text-white">AUG 24, 2024</p><p class="text-[10px] text-white/40">INV-004512</p></div>
-                </div>
-                <div class="flex items-center gap-6">
-                    <span class="font-bold text-white">$499.00</span>
-                    <button class="text-cyan"><span class="material-symbols-outlined">download</span></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-</main>
-
-<footer class="bg-dark-bg border-t border-white/10 py-20 px-6 md:px-16 text-center">
-    <div class="text-2xl font-black text-cyan mb-8">ZENVIX MOTION</div>
-    <div class="flex justify-center gap-8 text-[10px] font-bold text-white/40 uppercase tracking-widest mb-8">
-        <a href="#" class="hover:text-cyan">Vimeo</a>
-        <a href="#" class="hover:text-cyan">Instagram</a>
-        <a href="#" class="hover:text-cyan">Terms</a>
-        <a href="#" class="hover:text-cyan">Support</a>
+        <!-- More cards can be added here -->
     </div>
-    <p class="text-[10px] text-white/20">© 2024 CINE_AXIS PRODUCTION. ALL RIGHTS RESERVED.</p>
-</footer>
 
 </body>
 </html>
