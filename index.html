@@ -1,154 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STITCH // Premium Motion Studio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Syncopate:wght@700&display=swap');
-        
-        :root {
-            --accent: #E2FF00; /* Cinematic Neon */
-            --bg-dark: #0A0A0A;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film Studio</title>
 
-        body {
-            background-color: var(--bg-dark);
-            color: white;
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-        }
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --text: #ffffff;
+      --accent: #ff3c3c;
+      --card: #15151d;
+    }
 
-        .hero-title {
-            font-family: 'Syncopate', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
+    body.light {
+      --bg: #ffffff;
+      --text: #111;
+      --card: #f2f2f2;
+    }
 
-        .glass-nav {
-            background: rgba(10, 10, 10, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
 
-        .btn-primary {
-            background-color: var(--accent);
-            color: black;
-            transition: all 0.3s ease;
-        }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
 
-        .btn-primary:hover {
-            box-shadow: 0 0 20px var(--accent);
-            transform: translateY(-2px);
-        }
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 50px;
+      position: fixed;
+      width: 100%;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(10px);
+    }
 
-        .asset-card:hover img {
-            transform: scale(1.05);
-        }
-    </style>
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66') center/cover;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+    }
+
+    .btn {
+      padding: 12px 25px;
+      background: var(--accent);
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 100px 50px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="glass-nav fixed w-full z-50 px-8 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold hero-title tracking-tighter">STITCH<span class="text-[--accent]">.</span></div>
-        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase">
-            <a href="#" class="hover:text-[--accent]">Library</a>
-            <a href="#" class="hover:text-[--accent]">Projects</a>
-            <a href="#" class="hover:text-[--accent]">Studio Log</a>
-            <a href="#" class="hover:text-[--accent]">Billing</a>
-        </div>
-        <div>
-            <button class="btn-primary px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-                Client Portal
-            </button>
-        </div>
-    </nav>
+<header>
+  <h2>FilmStudio</h2>
+  <nav>
+    <a onclick="scrollToSection('home')">Home</a>
+    <a onclick="scrollToSection('about')">About</a>
+    <a onclick="scrollToSection('projects')">Projects</a>
+    <a onclick="scrollToSection('contact')">Contact</a>
+  </nav>
+  <button onclick="toggleTheme()">🌙</button>
+</header>
 
-    <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center overflow-hidden">
-        <video autoplay muted loop class="absolute w-auto min-w-full min-h-full max-w-none opacity-40">
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-mountains-under-the-stars-41153-large.mp4" type="video/mp4">
-        </video>
-        <div class="relative z-10 text-center px-4">
-            <h1 class="hero-title text-6xl md:text-8xl mb-4 leading-tight">Motion <br/> Perfection</h1>
-            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 font-light">
-                High-end motion asset hub for professional film production.
-            </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <button class="btn-primary px-10 py-4 rounded-md text-sm font-bold uppercase">Browse Library</button>
-                <button class="border border-white/20 hover:bg-white hover:text-black px-10 py-4 rounded-md text-sm font-bold uppercase transition-all">Upload Project</button>
-            </div>
-        </div>
-    </header>
+<section class="hero" id="home">
+  <div>
+    <h1>Creative Film Production</h1>
+    <button class="btn" onclick="scrollToSection('projects')">View Work</button>
+  </div>
+</section>
 
-    <!-- Asset Library Preview -->
-    <section class="py-24 px-8 max-w-7xl mx-auto">
-        <div class="flex justify-between items-end mb-12">
-            <div>
-                <h2 class="hero-title text-3xl mb-2">Asset Library</h2>
-                <div class="h-1 w-20 bg-[--accent]"></div>
-            </div>
-            <a href="#" class="text-gray-400 hover:text-white transition-colors">View All Assets <i class="fa-solid fa-arrow-right ml-2"></i></a>
-        </div>
+<section id="about">
+  <h2>About Us</h2>
+  <p>High-end film production studio delivering cinematic excellence.</p>
+</section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Asset Card 1 -->
-            <div class="asset-card group cursor-pointer">
-                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1492691523567-307303e498c1?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
-                </div>
-                <h3 class="text-lg font-bold">Organic Light Leaks</h3>
-                <p class="text-sm text-gray-500">4K // 60FPS // ProRes</p>
-            </div>
+<section id="projects">
+  <h2>Our Projects</h2>
+  <div class="grid">
+    <div class="card">Project 1</div>
+    <div class="card">Project 2</div>
+    <div class="card">Project 3</div>
+  </div>
+</section>
 
-            <!-- Asset Card 2 -->
-            <div class="asset-card group cursor-pointer">
-                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
-                </div>
-                <h3 class="text-lg font-bold">Anamorphic Flares</h3>
-                <p class="text-sm text-gray-500">8K // RAW // 2.39:1</p>
-            </div>
+<section id="contact">
+  <h2>Contact</h2>
+  <form onsubmit="submitForm(event)">
+    <input type="text" placeholder="Name" required><br><br>
+    <input type="email" placeholder="Email" required><br><br>
+    <textarea placeholder="Message" required></textarea><br><br>
+    <button class="btn">Send</button>
+  </form>
+</section>
 
-            <!-- Asset Card 3 -->
-            <div class="asset-card group cursor-pointer">
-                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
-                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
-                </div>
-                <h3 class="text-lg font-bold">Grit & Grain Pack</h3>
-                <p class="text-sm text-gray-500">35mm Texture // 4K</p>
-            </div>
-        </div>
-    </section>
+<footer>
+  <p>© 2026 Film Studio</p>
+</footer>
 
-    <!-- Dashboard Status -->
-    <section class="bg-zinc-900/50 py-20 px-8 border-y border-white/5">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
-            <div>
-                <p class="text-[--accent] text-4xl font-bold mb-2">1.2k</p>
-                <p class="text-xs uppercase tracking-widest text-gray-400">Assets Online</p>
-            </div>
-            <div>
-                <p class="text-white text-4xl font-bold mb-2">48</p>
-                <p class="text-xs uppercase tracking-widest text-gray-400">Live Projects</p>
-            </div>
-            <div>
-                <p class="text-white text-4xl font-bold mb-2">24ms</p>
-                <p class="text-xs uppercase tracking-widest text-gray-400">Server Latency</p>
-            </div>
-            <div>
-                <p class="text-[--accent] text-4xl font-bold mb-2">99%</p>
-                <p class="text-xs uppercase tracking-widest text-gray-400">Uptime</p>
-            </div>
-        </div>
-    </section>
+<script>
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+  }
 
-    <footer class="py-12 px-8 text-center text-gray-600 text-sm tracking-widest uppercase">
-        &copy; 2026 STITCH MOTION ASSET HUB. ALL RIGHTS RESERVED.
-    </footer>
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    alert('Message Sent Successfully!');
+  }
+</script>
 
 </body>
 </html>
