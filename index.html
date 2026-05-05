@@ -3,179 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CINESCOPE — Movie Listings</title>
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap">
-    
+    <title>STITCH // Premium Motion Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Base Styles from Source 4 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Syncopate:wght@700&display=swap');
+        
         :root {
-            --spacing: .25rem;
-            --radius-lg: .5rem;
-            --radius-xl: .75rem;
-            --radius-2xl: 1rem;
+            --accent: #E2FF00; /* Cinematic Neon */
+            --bg-dark: #0A0A0A;
         }
 
         body {
-            -webkit-font-smoothing: antialiased;
-            color: #f5f0ea;
-            background: #0d0d14; /* Background color from Source 2 */
-            margin: 0;
-            font-family: 'Outfit', sans-serif;
-            line-height: 1.5;
-        }
-
-        /* Header Styles */
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(13, 13, 20, 0.88);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            height: 62px;
-            gap: 2rem;
-        }
-
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.85rem;
-            letter-spacing: 0.12em;
-            background: linear-gradient(135deg, #F5C842 30%, #E8920a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Hero / Featured Section */
-        .hero {
-            position: relative;
-            height: clamp(360px, 58vh, 560px);
-            margin-bottom: 2.5rem;
-            background: linear-gradient(135deg, #0f0800 0%, #3d2400 55%, #7a4800 100%); /* Dune: Part Two colors */
-            display: flex;
-            align-items: flex-end;
-            padding: 2rem;
-        }
-
-        .hero-content {
-            max-width: 560px;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            margin: 0 0 0.9rem 0;
-            line-height: 0.95;
-        }
-
-        /* Movie Grid */
-        .section-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 1.65rem;
-            padding: 0 2rem;
-            margin-bottom: 1.25rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .movie-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-            gap: 1.25rem;
-            padding: 0 2rem 3rem;
-        }
-
-        .movie-card {
-            background: #1a1a1a;
-            height: 260px;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            position: relative;
-            transition: transform 0.28s ease;
-            cursor: pointer;
-        }
-
-        .movie-card:hover {
-            transform: translateY(-6px) scale(1.03);
-        }
-
-        .badge {
-            background: #E63946;
+            background-color: var(--bg-dark);
             color: white;
-            font-size: 10px;
-            padding: 2px 8px;
-            border-radius: 99px;
-            text-transform: uppercase;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
         }
 
-        /* Utilities */
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .gap-2 { gap: 0.5rem; }
+        .hero-title {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: black;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 20px var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .asset-card:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header (Source 2) -->
-    <header>
-        <div class="logo">CINESCOPE</div>
-        <nav class="flex gap-2">
-            <span style="color: #F5C842; cursor: pointer;">Movies</span>
-            <span style="color: #8b8b9e; cursor: pointer; padding: 0 10px;">Series</span>
-            <span style="color: #8b8b9e; cursor: pointer;">Trending</span>
-        </nav>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 px-8 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold hero-title tracking-tighter">STITCH<span class="text-[--accent]">.</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium tracking-widest uppercase">
+            <a href="#" class="hover:text-[--accent]">Library</a>
+            <a href="#" class="hover:text-[--accent]">Projects</a>
+            <a href="#" class="hover:text-[--accent]">Studio Log</a>
+            <a href="#" class="hover:text-[--accent]">Billing</a>
+        </div>
+        <div>
+            <button class="btn-primary px-6 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+                Client Portal
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <video autoplay muted loop class="absolute w-auto min-w-full min-h-full max-w-none opacity-40">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-cinematic-view-of-mountains-under-the-stars-41153-large.mp4" type="video/mp4">
+        </video>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="hero-title text-6xl md:text-8xl mb-4 leading-tight">Motion <br/> Perfection</h1>
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 font-light">
+                High-end motion asset hub for professional film production.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <button class="btn-primary px-10 py-4 rounded-md text-sm font-bold uppercase">Browse Library</button>
+                <button class="border border-white/20 hover:bg-white hover:text-black px-10 py-4 rounded-md text-sm font-bold uppercase transition-all">Upload Project</button>
+            </div>
+        </div>
     </header>
 
-    <!-- Hero Section (Source 2 - Dune: Part Two) -->
-    <section class="hero">
-        <div class="hero-content">
-            <div class="flex items-center gap-2" style="margin-bottom: 10px;">
-                <span class="badge">Featured</span>
-                <span style="color: #8b8b9e; font-size: 13px;">2024 • Sci-Fi, Adventure • 2h 46m</span>
+    <!-- Asset Library Preview -->
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="hero-title text-3xl mb-2">Asset Library</h2>
+                <div class="h-1 w-20 bg-[--accent]"></div>
             </div>
-            <h1>DUNE: PART TWO</h1>
-            <p style="color: #b8b4ae; font-size: 0.875rem;">Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family.</p>
-            <div class="flex gap-2">
-                <button style="background: #F5C842; border: none; padding: 10px 25px; border-radius: 8px; font-weight: bold; cursor: pointer;">Watch Now</button>
-                <button style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 25px; border-radius: 8px; cursor: pointer;">+ Watchlist</button>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">View All Assets <i class="fa-solid fa-arrow-right ml-2"></i></a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Asset Card 1 -->
+            <div class="asset-card group cursor-pointer">
+                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1492691523567-307303e498c1?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
+                </div>
+                <h3 class="text-lg font-bold">Organic Light Leaks</h3>
+                <p class="text-sm text-gray-500">4K // 60FPS // ProRes</p>
+            </div>
+
+            <!-- Asset Card 2 -->
+            <div class="asset-card group cursor-pointer">
+                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
+                </div>
+                <h3 class="text-lg font-bold">Anamorphic Flares</h3>
+                <p class="text-sm text-gray-500">8K // RAW // 2.39:1</p>
+            </div>
+
+            <!-- Asset Card 3 -->
+            <div class="asset-card group cursor-pointer">
+                <div class="overflow-hidden rounded-lg bg-zinc-900 aspect-video mb-4 border border-white/10">
+                    <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover opacity-80 transition-transform duration-700">
+                </div>
+                <h3 class="text-lg font-bold">Grit & Grain Pack</h3>
+                <p class="text-sm text-gray-500">35mm Texture // 4K</p>
             </div>
         </div>
     </section>
 
-    <!-- Now Playing Section -->
-    <div class="section-title">
-        <div>NOW PLAYING <span class="badge" style="vertical-align: middle; margin-left: 10px;">LIVE</span></div>
-        <button style="color: #F5C842; background: none; border: none; font-size: 0.8rem; cursor: pointer;">View All →</button>
-    </div>
+    <!-- Dashboard Status -->
+    <section class="bg-zinc-900/50 py-20 px-8 border-y border-white/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+            <div>
+                <p class="text-[--accent] text-4xl font-bold mb-2">1.2k</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400">Assets Online</p>
+            </div>
+            <div>
+                <p class="text-white text-4xl font-bold mb-2">48</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400">Live Projects</p>
+            </div>
+            <div>
+                <p class="text-white text-4xl font-bold mb-2">24ms</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400">Server Latency</p>
+            </div>
+            <div>
+                <p class="text-[--accent] text-4xl font-bold mb-2">99%</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400">Uptime</p>
+            </div>
+        </div>
+    </section>
 
-    <div class="movie-grid">
-        <!-- Movie Cards -->
-        <div class="movie-card" style="background: linear-gradient(160deg, #0d0000, #2e0505, #5c0a0a);">
-            <div style="position: absolute; bottom: 10px; left: 12px;">
-                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Oppenheimer</div>
-                <div style="font-size: 10px; color: #6b6b7e;">2023 • 3h 0m</div>
-            </div>
-        </div>
-        <div class="movie-card" style="background: linear-gradient(160deg, #001a1a, #004a4a, #007a6a);">
-            <div style="position: absolute; bottom: 10px; left: 12px;">
-                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Poor Things</div>
-                <div style="font-size: 10px; color: #6b6b7e;">2023 • 2h 21m</div>
-            </div>
-        </div>
-        <div class="movie-card" style="background: linear-gradient(160deg, #050a1a, #0a1540, #152a7a);">
-            <div style="position: absolute; bottom: 10px; left: 12px;">
-                <div style="font-family: 'Bebas Neue'; font-size: 1.15rem;">Past Lives</div>
-                <div style="font-size: 10px; color: #6b6b7e;">2023 • 1h 46m</div>
-            </div>
-        </div>
-        <!-- More cards can be added here -->
-    </div>
+    <footer class="py-12 px-8 text-center text-gray-600 text-sm tracking-widest uppercase">
+        &copy; 2026 STITCH MOTION ASSET HUB. ALL RIGHTS RESERVED.
+    </footer>
 
 </body>
 </html>
